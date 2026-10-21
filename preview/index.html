@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>雅实 Grace Rock</title>
+<style>
+:root{
+  --paper:#f6f2ea;--paper2:#efe8dc;--ink:#1e1d1b;--ink2:#5d5850;--line:#d9cfbf;
+  --gold:#a8865a;--jade:#4f6f63;--card:#fbf9f4;
+  --c1:#19a873;--c2:#f07d1a;--c3:#6f52e8;--c4:#e8507c;--c5:#4f84b3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Songti SC","STSong","Noto Serif SC","Source Han Serif SC","SimSun",serif;-webkit-font-smoothing:antialiased}
+.sans{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{padding:34px 0 26px;text-align:center}
+.mark{width:58px;height:58px;margin:0 auto 14px;display:block}
+h1{font-size:30px;font-weight:600;letter-spacing:8px;padding-left:8px}
+.en{font-size:12px;letter-spacing:5px;color:var(--gold);margin-top:6px;text-transform:uppercase}
+.rule{width:40px;height:1px;background:var(--gold);margin:20px auto}
+.slogan{font-size:17px;letter-spacing:4px;color:var(--ink)}
+.slogan-en{font-size:12px;color:var(--ink2);margin-top:6px;letter-spacing:1px;font-style:italic}
+
+/* boards */
+.boards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tile{border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.k1{background:linear-gradient(140deg,#22bd85,var(--c1))}
+.k2{background:linear-gradient(140deg,#ff9b45,var(--c2))}
+.k3{background:linear-gradient(140deg,#8d74ff,var(--c3))}
+.k5{background:linear-gradient(140deg,#6fa1cc,var(--c5))}
+.tile{color:#fff;padding:22px 16px 18px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+.tile.r{text-align:right}
+.tile .n{font-size:12px;color:#fff;opacity:.85;letter-spacing:2px}
+.tile b{display:block;font-size:21px;font-weight:600;letter-spacing:3px}
+.tile p{font-size:12px;color:#fff;opacity:.92;margin-top:6px;line-height:1.5}
+.tile.l p{padding-right:26px}
+.tile.r p{padding-left:26px}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:var(--paper);border:2px solid var(--c4);box-shadow:0 0 0 6px var(--paper),0 6px 18px rgba(232,80,124,.25);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.center svg{width:26px;height:20px}
+.center b{font-size:16px;letter-spacing:3px;margin-top:4px;font-weight:600;color:var(--c4)}
+.center small{font-size:8px;color:var(--gold);letter-spacing:.3px;margin-top:2px}
+
+/* sections */
+section{padding-top:40px}
+.sh{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ac);padding-bottom:10px;margin-bottom:16px}
+.sh .n{font-size:13px;color:#fff;background:var(--ac);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;align-self:center}
+.sh h2{font-size:19px;font-weight:600;letter-spacing:2px}
+.sh .more{margin-left:auto;font-size:12px;color:var(--ac)}
+.quote{font-size:14px;color:var(--ink2);line-height:1.9;padding-left:14px;border-left:3px solid var(--ac);margin-bottom:18px}
+.item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.date{flex:none;width:52px;text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.date .m{font-size:11px;color:var(--ac);letter-spacing:1px}
+.date .d{font-size:24px;font-weight:600;line-height:1.2;color:var(--ac)}
+.date .y{font-size:10px;color:var(--ink2)}
+.item h3{font-size:16px;font-weight:600;letter-spacing:1px}
+.item p{font-size:12.5px;color:var(--ink2);line-height:1.7;margin-top:4px}
+.lbl{display:inline-block;font-size:10.5px;color:#fff;background:var(--ac);border:1px solid var(--ac);border-radius:3px;padding:1px 6px;margin-bottom:6px;letter-spacing:1px}
+.lbl.g{color:var(--ink2);background:transparent;border-color:var(--line)}
+.soon{font-size:13px;color:var(--ink2);line-height:1.9}
+.soon em{font-style:normal;color:var(--ac);font-weight:600}
+
+.join{display:block;text-align:center;background:var(--ink);color:#fff;border-radius:4px;padding:14px;font-size:15px;letter-spacing:4px;margin-top:44px}
+footer{text-align:center;font-size:11.5px;color:var(--ink2);padding:30px 0 36px;line-height:2;letter-spacing:1px}
+footer b{color:var(--gold);font-weight:600}
+
+.mc{background:var(--card);border-radius:6px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);margin-bottom:18px;border-top:3px solid var(--ac)}
+.mc .logo{height:30px;display:block;margin:14px 16px 0}
+.mc .ph{display:flex;gap:6px;padding:12px 16px 0}
+.mc .ph img{height:150px;object-fit:cover;border-radius:4px;flex:1;min-width:0}
+.mc .ph img:first-child{flex:1.6}
+.mc .bd{padding:12px 16px 16px}
+.mc h3{font-size:17px;font-weight:600;letter-spacing:1px;margin:4px 0 2px}
+.mc .tl{font-size:12px;color:var(--ink2)}
+.mc .hi{font-size:14px;color:var(--ac);font-weight:600;margin:10px 0 6px}
+.mc ul{list-style:none;font-size:13px;color:var(--ink2);line-height:1.8}
+.mc ul li::before{content:"· ";color:var(--ac)}
+.mc .price{margin-top:10px;font-size:13.5px;line-height:1.8}
+.mc .price b{color:var(--ac)}
+.mc .btns{display:flex;gap:8px;margin-top:12px}
+.mc .btns a{flex:1;text-align:center;font-size:13px;padding:9px 0;border-radius:4px;border:1px solid var(--ac);color:var(--ac)}
+.mc .btns a.p{background:var(--ac);color:#fff}
+.mc .addr{font-size:11.5px;color:var(--ink2);margin-top:10px;line-height:1.7}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:rgba(30,29,27,.9);color:#fff;font-size:13px;padding:9px 16px;border-radius:20px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.mc .logo.tall{height:64px;border-radius:4px}
+.mc .ph.three img{flex:1;height:120px}
+.mc .qr{display:flex;gap:12px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:12px;color:var(--ink2);line-height:1.6}
+.mc .qr img{width:76px;height:76px;flex:none}
+.mc .say{margin:10px 0 4px;padding:8px 10px;background:var(--paper2);border-radius:4px;font-size:13px;line-height:1.7}
+.mc .say b{color:var(--ac)}
+.mc .txtlogo{margin:14px 16px 0;font-family:-apple-system,Arial,sans-serif;font-size:26px;font-weight:800;color:#c8102e;letter-spacing:-.5px}
+.mc .txtlogo span{font-weight:300;color:#555}
+.mc .txtlogo small{display:block;font-size:10px;font-weight:400;color:#888;letter-spacing:.5px;margin-top:-2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <svg class="mark" viewBox="0 0 60 60" aria-hidden="true">
+    <circle cx="30" cy="30" r="28.5" fill="none" stroke="#a8865a" stroke-width="1"/>
+    <defs><linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d08a"/><stop offset=".55" stop-color="#d9a25a"/><stop offset="1" stop-color="#b9813f"/></linearGradient></defs>
+    <path d="M12 39c1-6 5-11 12-13 6-2 13-1 17 3 4 4 4 9 0 11-5 3-14 3-21 2-5-1-8-1-8-3z" fill="url(#st)"/>
+    <path d="M17 37c4-1 7-4 11-4 4 0 7 2 11 1" stroke="#a8763a" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".55"/>
+    <path d="M22 41c3 0 6-2 9-1" stroke="#a8763a" stroke-width=".7" fill="none" stroke-linecap="round" opacity=".45"/>
+    <g fill="none" stroke="#a8865a" stroke-width="1.1" stroke-linejoin="round">
+      <path d="M38 19c-2-5-7-5-6-1 1 3 4 3 6 1z"/>
+      <path d="M38 19c2-5 7-5 6-1-1 3-4 3-6 1z"/>
+      <path d="M38 19c-2 3-4 4-3 6 1 1 3-1 3-6z"/>
+      <path d="M38 19c2 3 4 4 3 6-1 1-3-1-3-6z"/>
+    </g>
+  </svg>
+  <h1>雅实</h1>
+  <div class="en sans">Grace Rock</div>
+  <div class="rule"></div>
+  <div class="slogan">携手同行　越来越好</div>
+  <div class="slogan-en sans">Together, We Grow Better</div>
+</header>
+
+<div class="boards">
+  <a class="tile l k1" href="#health">
+    <span class="n sans">壹</span>
+    <div><b>健康</b><p>健康是1<br>其余皆是0</p></div>
+  </a>
+  <a class="tile r k2" href="#explore">
+    <span class="n sans">贰</span>
+    <div><b>体验</b><p>旅行·亲子·教育<br>艺术人文</p></div>
+  </a>
+  <a class="tile l k3" href="#tech">
+    <span class="n sans">叁</span>
+    <div><b>科技</b><p>AI·宇宙·量子</p></div>
+  </a>
+  <a class="tile r k5" href="#memorial">
+    <span class="n sans">伍</span>
+    <div><b>心灵家园</b><p>给思念一个永远的家</p></div>
+  </a>
+  <a class="center" href="#connect">
+    <svg viewBox="0 0 26 20" aria-hidden="true"><g fill="none" stroke="#e8507c" stroke-width="1.3" stroke-linejoin="round"><path d="M13 9C11 2 3 1 4 6c1 4 6 5 9 3z"/><path d="M13 9c2-7 10-8 9-3-1 4-6 5-9 3z"/><path d="M13 9c-3 3-6 5-5 8 1 2 5-2 5-8z"/><path d="M13 9c3 3 6 5 5 8-1 2-5-2-5-8z"/></g></svg>
+    <b>连接</b>
+    <small class="sans">Social Butterfly</small>
+  </a>
+</div>
+
+<section id="health" style="--ac:var(--c1)">
+  <div class="sh"><span class="n sans">壹</span><h2>健康</h2><a class="more sans" href="#health">更多</a></div>
+  <div class="quote">健康是1，其余都是后面的0。<br>没有1，再多的0也只是零。</div>
+  <div class="mc">
+    <img class="logo" src="assets/sfitness-logo.jpg" alt="S Fitness">
+    <div class="ph">
+      <img src="assets/sfitness-1.jpg" alt="学员前后对比">
+      <img src="assets/sfitness-2.jpg" alt="学员训练成果">
+    </div>
+    <div class="bd">
+      <span class="lbl sans">Grace 亲测 · 中文服务</span>
+      <h3>S Fitness 悉尼</h3>
+      <div class="tl sans">运动健身 · Burwood · 教练可英文授课</div>
+      <div class="hi">Grace 亲测：2 个月减了 3 公斤，不靠饿！<br><span style="font-size:12.5px;font-weight:400;color:var(--ink2)">目标 10 公斤，还在继续，欢迎一起来练 💪</span></div>
+      <ul class="sans">
+        <li>首次全身 3D 体测，站上去转一圈，数据一目了然</li>
+        <li>教练懂营养，三餐拍照发教练，每天帮你把关饮食</li>
+        <li>上课时间多，预约很灵活</li>
+      </ul>
+      <div class="price sans">首节体验课 <b>$40</b><br>报「<b>GraceRock</b>」买课后加送 <b>1 节</b></div>
+      <div class="btns sans">
+        <a class="p" href="#" onclick="cp('sjs6477');return false">微信预约</a>
+        <a href="tel:0410837664">电话</a>
+        <a href="https://maps.google.com/?q=6+Railway+Parade,+Burwood+NSW+2134" target="_blank" rel="noopener">地址导航</a>
+      </div>
+      <div class="addr sans">6 Railway Parade, Burwood · 微信 sjs6477 · 0410 837 664</div>
+    </div>
+  </div>
+  <div class="mc">
+    <img class="logo tall" src="assets/herbmax-logo.jpg" alt="百草养生馆 Herbmax Healthcare">
+    <div class="ph three">
+      <img src="assets/herbmax-ivy.jpg" alt="刘大夫 Ivy" style="object-position:top">
+      <img src="assets/herbmax-steam.jpg" alt="中药熏蒸舱">
+      <img src="assets/herbmax-tea.jpg" alt="茶室">
+    </div>
+    <div class="bd">
+      <span class="lbl sans">Grace 亲测 · 中药熏蒸</span>
+      <h3>百草养生馆 Herbmax</h3>
+      <div class="tl sans">中医养生 · Epping</div>
+      <div class="say sans"><b>Grace 说：</b>休闲养生的好去处，约上姐妹，熏蒸完喝茶聊天，特别放松。</div>
+      <ul class="sans">
+        <li>主理人刘大夫 Ivy，资深中医，30 多年行医经验，中药熏蒸临床 20 多年</li>
+        <li>按个人体质调配熏蒸方，内调外蒸，结合营养食疗，适合亚健康调理</li>
+        <li>中药熏蒸 · 经络检测 · 血压检测 · 私人订制美肤瘦身方案</li>
+      </ul>
+      <div class="price sans">报「<b>GraceRock</b>」<b>免费</b>赠送中医检测一次</div>
+      <div class="btns sans">
+        <a class="p" href="#hm-qr">微信预约</a>
+        <a href="https://maps.google.com/?q=Epping+NSW+2121" target="_blank" rel="noopener">地址导航</a>
+      </div>
+      <div class="qr sans" id="hm-qr"><img src="assets/herbmax-qr.png" alt="微信二维码"><div>长按或扫码<br>加刘大夫微信预约<br>悉尼 Epping</div></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="date"><div class="m sans">十一月</div><div class="d">6</div><div class="y sans">起·周五</div></div>
+    <div>
+      <span class="lbl sans">免费 · 普通话</span>
+      <h3>疼痛自我管理课程</h3>
+      <p>圣乔治医院疼痛诊所主办，六周课程，帮助慢性疼痛的朋友学会自我管理。<br>上午 9:30–12:30 · St George Hospital<br>报名：陈女士 9113 1460</p>
+    </div>
+  </div>
+</section>
+
+<section id="explore" style="--ac:var(--c2)">
+  <div class="sh"><span class="n sans">贰</span><h2>体验 · Grace Events</h2><a class="more sans" href="#explore">全部</a></div>
+  <div class="quote">走出屏幕，去真实的世界里看看。<br>以旅行沉淀心灵，以艺术陶冶情操。</div>
+  <a class="item" href="../yunnan-mojiang.html">
+    <div class="date"><div class="m sans">四月</div><div class="d">春</div><div class="y sans">2027</div></div>
+    <div>
+      <span class="lbl sans">亲子 · 筹备中</span>
+      <h3>穿越北回归线 · 彩云之南</h3>
+      <p>从上海到云南的亲子探索之旅 · 学校假期</p>
+    </div>
+  </a>
+  <a class="item" href="../shuiyunjian.html">
+    <div class="date"><div class="m sans">一月</div><div class="d">12</div><div class="y sans">2027</div></div>
+    <div>
+      <span class="lbl sans">亲子 · 报名中</span>
+      <h3>水云间家庭体验之旅</h3>
+      <p>捞虾、划船、烤全羊 · 三天两晚</p>
+    </div>
+  </a>
+  <a class="item" href="../">
+    <div class="date"><div class="m sans">十月</div><div class="d">7</div><div class="y sans">2026</div></div>
+    <div>
+      <span class="lbl g sans">精彩回顾</span>
+      <h3>Paintball 彩弹对战</h3>
+      <p>Die Hard Indoor Paintball · Turrella</p>
+    </div>
+  </a>
+</section>
+
+<section id="tech" style="--ac:var(--c3)">
+  <div class="sh"><span class="n sans">叁</span><h2>科技</h2></div>
+  <p class="soon">AI、宇宙、量子空间——无限可能，激动人心。<br><em>敬请期待</em></p>
+</section>
+
+<section id="connect" style="--ac:var(--c4)">
+  <div class="sh"><span class="n sans">肆</span><h2>连接 · 生活服务</h2></div>
+  <p class="soon" style="margin-bottom:16px">人与人之间的连接，才是最珍贵的。<br>愿每个人，都是一只 Social Butterfly。</p>
+  <div class="mc">
+    <div class="txtlogo">IPS <span>Partners</span><small>Integrated Professional Advice</small></div>
+    <div class="bd">
+      <span class="lbl sans">Grace 合作 13 年 · 中文服务</span>
+      <h3>Grace Lin｜IPS Partners</h3>
+      <div class="tl sans">生活服务 · Hurstville · DipFP, Cert IV GI</div>
+      <div class="say sans"><b>Grace 说：</b>2013 年起我家的账都交给她，靠谱省心。</div>
+      <ul class="sans">
+        <li>会计 · 报税 · 公司注册</li>
+        <li>财务规划 · 保险</li>
+        <li>房地产</li>
+      </ul>
+      <div class="price sans">报「<b>GraceRock</b>」首次咨询<b>免费</b></div>
+      <div class="btns sans">
+        <a class="p" href="tel:0407818788">电话</a>
+        <a href="https://www.ipspartners.com.au" target="_blank" rel="noopener">官网</a>
+        <a href="https://maps.google.com/?q=Hurstville+NSW+2220" target="_blank" rel="noopener">地址导航</a>
+      </div>
+      <div class="addr sans">手机 0407 818 788 · 热线 1300 047 772<br>grace@ipspartners.com.au</div>
+    </div>
+  </div>
+</section>
+
+<section id="memorial" style="--ac:var(--c5)">
+  <div class="sh"><span class="n sans">伍</span><h2>心灵家园</h2></div>
+  <p class="soon">在人类实现长生不老之前，给思念一个永远的家。<br>留下故事、照片与声音，让亲友随时来看望。<br>访问需密码，或经主人同意。<br><em>即将开放 · 欢迎预约登记</em></p>
+</section>
+
+<a class="join" href="#join">成为推荐商家</a>
+
+<footer class="sans">
+  推荐码 <b>GraceRock</b>　微信 leigracezhang<br>
+  只推荐亲自体验过的好商家<br>
+  © 2026 雅实 Grace Rock
+</footer>
+
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function cp(t){var m=document.getElementById('toast');function show(x){m.textContent=x;m.classList.add('on');setTimeout(function(){m.classList.remove('on')},2200)}
+try{navigator.clipboard.writeText(t).then(function(){show('微信号 '+t+' 已复制，去微信添加')},function(){show('微信号：'+t)})}catch(e){show('微信号：'+t)}}
+</script>
+</body>
+</html>
