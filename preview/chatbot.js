@@ -19,11 +19,11 @@ const KB=[
  {k:['健身','减肥','减重','瘦','运动','教练','体测','burwood','s fitness','sfitness','gym','fitness','weight','trainer'],
   zh:'推荐 S Fitness（Burwood）。Grace 亲测 2 个月减了 3 公斤。首节体验课 $40，报暗号「GraceRock」买课后加送 1 节。微信 sjs6477，电话 0410 837 664。',
   en:'Try S Fitness in Burwood. Grace lost 3 kg in 2 months there. First trial class is $40, and mention "GraceRock" when you buy a package to get 1 extra class. WeChat sjs6477, phone 0410 837 664.',
-  a:[go('看 S Fitness','See S Fitness',{card:'S Fitness'}),M(1)]},
+  a:[go('S Fitness 详情','S Fitness details',{url:'partners/s-fitness.html'}),go('看 S Fitness 卡片','See the card',{card:'S Fitness'})]},
  {k:['养生','中医','熏蒸','百草','herbmax','刘大夫','ivy','epping','亚健康','调理','chinese medicine','wellness','herbal','steam'],
   zh:'推荐百草养生馆 Herbmax（Epping），主理人刘大夫 Ivy 有 30 多年行医经验，做中药熏蒸和经络检测。报「GraceRock」免费送一次中医检测，扫页面上的二维码加微信预约。',
   en:'Try Herbmax Healthcare in Epping. Dr Liu (Ivy) has over 30 years of practice in herbal steam therapy and health checks. Mention "GraceRock" for a free Chinese medicine health check. Scan the QR code on the page to book on WeChat.',
-  a:[go('看百草养生馆','See Herbmax',{card:'Herbmax'}),M(1)]},
+  a:[go('百草养生馆详情','Herbmax details',{url:'partners/herbmax.html'}),go('看百草养生馆卡片','See the card',{card:'Herbmax'})]},
  {k:['瑜伽','yoga','meet yoga','baulkham','拉伸'],
   zh:'推荐 Meet Yoga，Grace 老师在 Baulkham Hills 上课，周一到周六。10 节课 $300，报「GraceRock」加送 1 节。微信 MeetYoga6。',
   en:'Try Meet Yoga with teacher Grace in Baulkham Hills, Monday to Saturday. 10 classes for $300, and mention "GraceRock" to get 1 extra class. WeChat MeetYoga6.',
@@ -129,7 +129,7 @@ const fab=root.querySelector('.gb-fab'),box=root.querySelector('.gb-box'),log=ro
 function bubble(text,cls){const d=document.createElement('div');d.className='gb-m '+cls;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function acts(list){if(!list||!list.length)return;const w=document.createElement('div');w.className='gb-acts';
  list.forEach(x=>{let el;
-  if(x.href||x.url){el=document.createElement('a');el.href=x.href||BASE+x.url;if(x.href){el.target='_blank';el.rel='noopener'}}
+  if(x.href||x.url){el=document.createElement('a');el.href=x.href||BASE+(EN?x.url.replace(/\.html$/,'-en.html'):x.url);if(x.href){el.target='_blank';el.rel='noopener'}}
   else{el=document.createElement('button');el.type='button';el.onclick=()=>act(x)}
   el.textContent=x.l;w.appendChild(el)});
  log.appendChild(w);log.scrollTop=log.scrollHeight}
