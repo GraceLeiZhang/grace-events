@@ -135,7 +135,7 @@ footer b{color:var(--gold)}
 <section>
   <div class="h"><i></i><h2 class="serif">一起去</h2><small>Join</small></div>
   <div class="offer">
-    <ol><li>先在 Humanitix 免费登记（主办方要按人数订餐，一定要登记）</li><li>再加 Grace 微信，备注「亡灵节」，拉你进结伴小群</li><li>当天 12:20 在博物馆门口集合</li></ol>
+    <ol><li>先在 Humanitix 免费登记（主办方要按人数订餐，一定要登记）</li><li>再加 Grace 微信（点击下方复制微信号），备注「来自 Grace Rock 网站 · 亡灵节」，拉你进结伴小群</li><li>当天 12:20 在博物馆门口集合</li></ol>
     <div class="note">主办方：悉尼大学多元文化员工网络 Mosaic Network。能否参加以主办方为准，问题可发邮件 mosaic.network@sydney.edu.au。本活动非 Grace Rock 主办。</div>
   </div>
 </section>
@@ -144,6 +144,7 @@ footer b{color:var(--gold)}
   <div class="h"><i></i><h2 class="serif">联系</h2><small>Contact</small></div>
   <div class="contact">
     <a href="#" data-copy="leigracezhang"><svg viewBox="0 0 24 24"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><div style="padding:0">leigracezhang<small>Grace 微信 · 点击复制</small></div><span class="go">›</span></a>
+    <a href="#" data-copy="来自 Grace Rock 网站 · 亡灵节"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5"/></svg><div style="padding:0">来自 Grace Rock 网站 · 亡灵节<small>好友申请备注 · 点击复制</small></div><span class="go">›</span></a>
     <a href="https://events.humanitix.com/dia-de-muertos-mosaic-network/tickets" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M3 8h18v3a2 2 0 000 4v3H3v-3a2 2 0 000-4z"/><path d="M14 8v10"/></svg><div style="padding:0">Humanitix<small>免费登记 · Humanitix</small></div><span class="go">›</span></a>
     <a href="https://maps.google.com/?q=Chau+Chak+Wing+Museum,+University+Place,+Camperdown+NSW+2050" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div style="padding:0">Chau Chak Wing Museum<small>地图导航</small></div><span class="go">›</span></a>
   </div>
@@ -159,7 +160,7 @@ footer b{color:var(--gold)}
 
 </div>
 <script>
-const C='已复制微信号 {v}，打开微信加 Grace，备注「亡灵节」',W='微信号：{v}';
+const C='已复制「{v}」。加微信时备注：来自 Grace Rock 网站 · 亡灵节',W='请长按复制：{v}';
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy]');if(!a)return;e.preventDefault();const v=a.dataset.copy,m=document.getElementById('copied');
  const done=()=>{m.hidden=false;m.textContent=C.replace('{v}',v)};
  try{navigator.clipboard.writeText(v).then(done,()=>{m.hidden=false;m.textContent=W.replace('{v}',v)})}catch(_){m.hidden=false;m.textContent=W.replace('{v}',v)}

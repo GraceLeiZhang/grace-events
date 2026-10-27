@@ -135,7 +135,7 @@ footer b{color:var(--gold)}
 <section>
   <div class="h"><i></i><h2 class="serif">Go together</h2><small>Join</small></div>
   <div class="offer">
-    <ol><li>RSVP free on Humanitix first (needed for catering)</li><li>Add Grace on WeChat with the note “Día de Muertos” to join the group chat</li><li>Meet at the museum entrance at 12:20pm</li></ol>
+    <ol><li>RSVP free on Humanitix first (needed for catering)</li><li>Add Grace on WeChat (tap below to copy the ID) with the note “From Grace Rock website · Día de Muertos” to join the group chat</li><li>Meet at the museum entrance at 12:20pm</li></ol>
     <div class="note">Hosted by the University of Sydney’s Mosaic Network for culturally diverse staff. Eligibility is up to the organiser; questions to mosaic.network@sydney.edu.au. Not a Grace Rock event.</div>
   </div>
 </section>
@@ -144,6 +144,7 @@ footer b{color:var(--gold)}
   <div class="h"><i></i><h2 class="serif">Contact</h2><small>Contact</small></div>
   <div class="contact">
     <a href="#" data-copy="leigracezhang"><svg viewBox="0 0 24 24"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><div style="padding:0">leigracezhang<small>Grace’s WeChat · tap to copy</small></div><span class="go">›</span></a>
+    <a href="#" data-copy="From Grace Rock website · Día de Muertos"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5"/></svg><div style="padding:0">From Grace Rock website · Día de Muertos<small>Friend request note · tap to copy</small></div><span class="go">›</span></a>
     <a href="https://events.humanitix.com/dia-de-muertos-mosaic-network/tickets" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M3 8h18v3a2 2 0 000 4v3H3v-3a2 2 0 000-4z"/><path d="M14 8v10"/></svg><div style="padding:0">Humanitix<small>Free RSVP · Humanitix</small></div><span class="go">›</span></a>
     <a href="https://maps.google.com/?q=Chau+Chak+Wing+Museum,+University+Place,+Camperdown+NSW+2050" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div style="padding:0">Chau Chak Wing Museum<small>Map</small></div><span class="go">›</span></a>
   </div>
@@ -159,7 +160,7 @@ footer b{color:var(--gold)}
 
 </div>
 <script>
-const C='Copied WeChat ID {v}. Add Grace in WeChat and mention “Día de Muertos”.',W='WeChat ID: {v}';
+const C='Copied “{v}”. When adding on WeChat, note: From Grace Rock website · Día de Muertos',W='Press and hold to copy: {v}';
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy]');if(!a)return;e.preventDefault();const v=a.dataset.copy,m=document.getElementById('copied');
  const done=()=>{m.hidden=false;m.textContent=C.replace('{v}',v)};
  try{navigator.clipboard.writeText(v).then(done,()=>{m.hidden=false;m.textContent=W.replace('{v}',v)})}catch(_){m.hidden=false;m.textContent=W.replace('{v}',v)}
