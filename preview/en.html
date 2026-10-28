@@ -148,10 +148,40 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .rich .contact small{font-size:12px}
 .rich .btns a,.rich .btns button{min-height:44px}
 
+
+/* Phase 2: top nav, hero actions, events, enquiries */
+.nav{position:sticky;top:0;z-index:15;display:flex;align-items:center;gap:10px;padding:8px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .brand{font-family:var(--display);font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.06em;margin-right:auto}
+.nav .links{display:none;gap:18px}
+.nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+.nav .links a:hover{color:var(--jac-deep)}
+@media (min-width:640px){.nav .links{display:flex}}
+.nav #gr-lang{font-size:14px}.nav #gr-lang button{min-height:32px;min-width:44px;padding:0 10px}
+.pos{font-family:var(--display);font-size:18px;line-height:1.7;color:var(--ink);margin:10px 0 0}
+.founder{font-size:13px;color:var(--muted);letter-spacing:.06em;margin:0}
+.acts{display:grid;gap:10px;width:100%;max-width:420px;margin:14px auto 0}
+.acts a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1.5px solid var(--jac);color:var(--jac-deep);text-decoration:none;font-weight:500;font-size:15.5px;background:var(--surface)}
+.acts a.pri{background:var(--jac-deep);border-color:var(--jac-deep);color:#fff}
+#events,#partners,#contact{scroll-margin-top:64px}
+.tbc-toggle{appearance:none;display:block;margin:18px auto 0;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:10px 18px;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
+#groups.hide-tbc .logo.tbc{display:none}
+.soonnote{display:inline-block;margin:0 0 12px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 12px}
+.intro a{color:var(--gc,var(--jac-deep))}
+.enq{background:var(--surface);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.enq p{margin:0;color:var(--muted)}
+.enq .row{display:grid;gap:10px}
+@media (min-width:600px){.enq .row{grid-template-columns:repeat(3,1fr)}}
+.enq .row a{display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none}
+.enq .row a.wa{background:#25d366;border-color:#25d366;color:#fff}
+.enq .row a.wa small{color:rgba(255,255,255,.9)}
+.enq svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.enq b{display:block;font-size:15px}.enq small{display:block;font-size:12.5px;color:var(--muted)}
+.enq .note{font-size:12.5px}
+.enq .copied{font-size:13px}
 </style>
 
-<div class="wrap">
-  <span class="tag">Website preview · content in progress</span>
+<nav class="nav" aria-label="Main"><a class="brand" href="#top">Grace Rock</a><span class="links"><a href="#events">Events</a><a href="#partners">Partners</a><a href="#contact">Enquire</a></span><span data-lang-slot></span></nav>
+<div class="wrap" id="top">
   <header>
     <svg width="170" height="120" viewBox="0 0 170 120" aria-label="Grace Rock emblem: a stone with a butterfly resting on each side">
       <defs><linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4d9f2"/><stop offset=".5" stop-color="#a48cc8"/><stop offset="1" stop-color="#5a4282"/></linearGradient>
@@ -179,9 +209,49 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     <h1>Grace Rock<small>雅实 · GRACE ROCK GROUP</small></h1>
     <p class="slogan">Together, we grow better</p>
     <p class="motto">Every one of us, getting better.</p>
+    <p class="pos">A Sydney family community, with every experience<br>tried and led by Grace Lei Zhang</p>
+    <p class="founder">Founder: Grace Lei Zhang</p>
+    <div class="acts"><a class="pri" href="#events">Upcoming events</a><a href="#partners">Find a recommended business</a><a href="#contact">Business enquiries</a></div>
   </header>
 
-  <section class="mission">
+  <section id="events">
+    <h2>Upcoming events</h2>
+    <p class="lede">Come along with Grace: family trips, get-togethers and team days.</p>
+    <div id="ev-list"></div>
+  </section>
+
+
+  <section>
+    <h2>People at the centre</h2>
+    <p class="lede">Every recommendation is one I have experienced myself.</p>
+    <div class="tiers">
+      <a class="tier t1" href="#m1"><span class="tb">1</span><b>Health</b><em>People &amp; Body</em><span class="ts">Fitness · Wellbeing · Beauty</span><span class="go">Explore ›</span></a>
+      <a class="tier t2" href="#m2"><span class="tb">2</span><b>Nature</b><em>People &amp; Nature</em><span class="ts">Biology · Environment · Travel</span><span class="go">Explore ›</span></a>
+      <a class="tier t3" href="#m3"><span class="tb">3</span><b>Connection</b><em>People &amp; People</em><span class="ts">Speaking · Communication · Respect</span><span class="go">Explore ›</span></a>
+      <a class="tier t4" href="#m4"><span class="tb">4</span><b>AI</b><em>People &amp; AI</em><span class="ts">Physics · Computing · Engineering</span><span class="go">Explore ›</span></a>
+      <a class="tier t5" href="#m5"><span class="tb">5</span><b>Soul</b><em>People &amp; Soul</em><span class="ts">Life Stories · Arts</span><span class="go">Explore ›</span></a>
+    </div>
+    <p class="tier-hint">Swipe to browse · tap a card to jump there</p>
+  </section>
+
+  <section id="partners">
+    <h2>Recommended partners</h2>
+    <p class="lede">Tap an icon for details. Mention <b>GraceRock</b> for an exclusive offer.</p>
+
+    <div id="groups" class="hide-tbc"></div>
+    <button type="button" class="tbc-toggle" id="tbc-toggle" aria-controls="groups" aria-expanded="false"></button>
+
+    <div class="rules">
+      <p><b>Word-of-mouth ranking</b>Ranked only by verified customer ratings. Neither payment nor referral rewards can change a ranking; ratings decide who stays. Businesses that join during our start-up phase are “Founding Partners” and are listed free.</p>
+      <p><b>Paid promotion</b>Businesses can pay for a promoted spot. Promoted spots are shown separately and clearly labelled “Sponsored”, never mixed into the word-of-mouth ranking.</p>
+      <p><b>Ratings</b>Only customers who mention GraceRock and actually buy can rate. One review per person; a score shows after 5 verified reviews.</p>
+      <p><b>Community oversight</b>Below 3.5 stars shows “Needs improvement”, and payment cannot remove it. Bad reviews are never deleted; businesses can reply publicly.</p>
+      <p><b>Disclosure</b>Some partners give Grace Rock a referral reward. Every recommendation comes from Grace’s own experience, and rewards never affect ratings or the word-of-mouth ranking.</p>
+      <p><b>TBC</b>Partners marked “TBC” are still in discussion (to be confirmed).</p>
+    </div>
+  </section>
+
+    <section class="mission">
     <h2>Our mission</h2>
     <p>Everyone deserves to keep growing better.<br>
     In the rising tide of the AI age,<br>
@@ -197,36 +267,21 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     become a bright star in the night sky.</p>
   </section>
 
-  <section>
-    <h2>People at the centre</h2>
-    <p class="lede">Every recommendation is one I have experienced myself.</p>
-    <div class="tiers">
-      <a class="tier t1" href="#m1"><span class="tb">1</span><b>Health</b><em>People &amp; Body</em><span class="ts">Fitness · Wellbeing · Beauty</span><span class="go">Explore ›</span></a>
-      <a class="tier t2" href="#m2"><span class="tb">2</span><b>Nature</b><em>People &amp; Nature</em><span class="ts">Biology · Environment · Travel</span><span class="go">Explore ›</span></a>
-      <a class="tier t3" href="#m3"><span class="tb">3</span><b>Connection</b><em>People &amp; People</em><span class="ts">Speaking · Communication · Respect</span><span class="go">Explore ›</span></a>
-      <a class="tier t4" href="#m4"><span class="tb">4</span><b>AI</b><em>People &amp; AI</em><span class="ts">Physics · Computing · Engineering</span><span class="go">Explore ›</span></a>
-      <a class="tier t5" href="#m5"><span class="tb">5</span><b>Soul</b><em>People &amp; Soul</em><span class="ts">Life Stories · Arts</span><span class="go">Explore ›</span></a>
-    </div>
-    <p class="tier-hint">Swipe to browse · tap a card to jump there</p>
-  </section>
-
-  <section>
-    <h2>Recommended partners</h2>
-    <p class="lede">Tap an icon for details. Mention <b>GraceRock</b> for an exclusive offer.</p>
-
-    <div id="groups"></div>
-
-    <div class="rules">
-      <p><b>Word-of-mouth ranking</b>Ranked only by verified customer ratings. Neither payment nor referral rewards can change a ranking; ratings decide who stays. Businesses that join during our start-up phase are “Founding Partners” and are listed free.</p>
-      <p><b>Paid promotion</b>Businesses can pay for a promoted spot. Promoted spots are shown separately and clearly labelled “Sponsored”, never mixed into the word-of-mouth ranking.</p>
-      <p><b>Ratings</b>Only customers who mention GraceRock and actually buy can rate. One review per person; a score shows after 5 verified reviews.</p>
-      <p><b>Community oversight</b>Below 3.5 stars shows “Needs improvement”, and payment cannot remove it. Bad reviews are never deleted; businesses can reply publicly.</p>
-      <p><b>Disclosure</b>Some partners give Grace Rock a referral reward. Every recommendation comes from Grace’s own experience, and rewards never affect ratings or the word-of-mouth ranking.</p>
-      <p><b>TBC</b>Partners marked “TBC” are still in discussion (to be confirmed).</p>
+  <section id="contact">
+    <h2>Enquiries & partnerships</h2>
+    <div class="enq">
+      <p>Event bookings, business recommendations, partnerships and promotion, Power BI · AI reporting: contact Grace Lei Zhang directly.</p>
+      <div class="row">
+        <a class="wa" href="https://wa.me/61410931872?text=Hi%20Grace%2C%20I%20found%20you%20on%20the%20Grace%20Rock%20website%20and%20I%27d%20like%20to%20ask%20about%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg><span><b>WhatsApp</b><small>0410 931 872</small></span></a>
+        <a href="#" data-copy-grace="leigracezhang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><span><b>WeChat</b><small>leigracezhang · tap to copy</small></span></a>
+        <a href="mailto:leigrace@gmail.com?subject=Grace%20Rock%20enquiry"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><b>Email</b><small>leigrace@gmail.com</small></span></a>
+      </div>
+      <span class="copied" id="enq-copied" hidden></span>
+      <p class="note">If WhatsApp will not open inside WeChat, add Grace on WeChat instead.</p>
     </div>
   </section>
 
-  <footer>Grace Rock Group Pty Ltd · Sydney<br>Come and experience it with Grace</footer>
+  <footer>Grace Rock Group Pty Ltd · Sydney<br>Founder: Grace Lei Zhang · Come and experience it with Grace</footer>
 </div>
 
 <div class="veil" id="veil" hidden>
@@ -323,12 +378,12 @@ const RICH={
    offer:"Mention <b>GraceRock</b> for a <b>free</b> Chinese medicine health check",
    btns:[["qr","Book on WeChat",""],["map","Directions","Epping NSW 2121"]],
    qr:"assets/herbmax-qr2.jpg",qrt:"Scan or long-press<br>to add on WeChat<br>Epping, Sydney"},
-  {logo:"assets/meetyoga-logo.jpg",tag:"Tried by Grace · Yoga",n:"Meet Yoga",sub:"Teacher Grace HE · Baulkham Hills",
-   say:"I did a yoga class with teacher Grace HE today and loved it! I’m signing up for her classes myself.",
+  {logo:"assets/meetyoga-logo.jpg",tag:"Tried by Grace · Yoga",n:"Meet Yoga",sub:"Teacher He (何老师) · Small groups · Baulkham Hills",
+   say:"Small classes: Teacher He checks each person’s poses and corrects them one by one. In my first class she noticed how stiff my neck and shoulders were. I came away more confident about keeping up yoga. — Grace Lei Zhang",
    offer:"Mention <b>GraceRock</b> when you sign up and get <b>1 extra class</b>",
    btns:[["qr","Book on WeChat",""],["copy","Copy WeChat ID","MeetYoga6"],["map","Directions","Baulkham Hills NSW 2153"]],
-   qr:"assets/meetyoga-qr.jpg",qrt:"Scan or long-press<br>to add Grace HE on WeChat<br>Ask about class times",
-   contact:"WeChat MeetYoga6 · <a href=\"partners/meet-yoga-en.html\" style=\"color:inherit;text-decoration:underline\">Details ›</a><br><small>Disclosure: Grace also receives a free class for each friend who signs up</small>"}
+   qr:"assets/meetyoga-qr.jpg",qrt:"Scan or long-press<br>to add Teacher He on WeChat<br>Ask about class times",
+   contact:"WeChat MeetYoga6 · <a href=\"partners/meet-yoga-en.html\" style=\"color:inherit;text-decoration:underline\">Details ›</a><br><small>Disclosure: Grace Lei Zhang also receives a free class for each friend who signs up. Grace can bring up to two friends to a free trial each time</small>"}
  ]},
  "People & People · Connection":{intro:"The connections between people are the most precious thing.<br>May everyone be a social butterfly.",cards:[
   {logo:"assets/ips-logo.png",tag:"13 years with Grace · Mandarin service",n:"IPS Partners",sub:"Accounting · Company registration · Hurstville · DipFP, Cert IV GI",
@@ -339,8 +394,8 @@ const RICH={
    contact:"Mobile 0407 818 788 · Hotline 1300 047 772 · grace@ipspartners.com.au"}
  ]},
  "People & Nature":{intro:"Step away from the screen and see the real world.<br>Let travel settle the mind and nature open the heart.",events:[
-  {m:"Apr",d:"",y:"2027",chip:"Family · In planning",t:"Across the Tropic of Cancer · Yunnan",s:"A family adventure from Shanghai to Yunnan · School holidays",u:"https://graceleizhang.github.io/grace-events/yunnan-april-en.html"},
   {m:"Jan",d:"12",y:"2027",chip:"Family · Registration open",t:"Shui Yun Jian family getaway",s:"Prawning, boating, whole roast lamb · 3 days, 2 nights",u:"https://graceleizhang.github.io/grace-events/shuiyunjian-en.html"},
+  {m:"Apr",d:"",y:"2027",chip:"Family · In planning",t:"Across the Tropic of Cancer · Yunnan",s:"A family adventure from Shanghai to Yunnan · School holidays",u:"https://graceleizhang.github.io/grace-events/yunnan-april-en.html"},
   {m:"Oct",d:"7",y:"2026",chip:"Highlights",t:"Paintball battle",s:"Die Hard Indoor Paintball · Turrella",u:"https://graceleizhang.github.io/grace-events/paintball-en.html"}]},
  "People & AI":{intro:"AI, the universe, quantum space: endless, exciting possibilities."},
  "People & Soul · Life Stories":{intro:"Art to nourish the spirit; words to keep the stories."}
@@ -376,7 +431,8 @@ function grid(items){const g=document.createElement('div');g.className='logos';
 G.forEach(sec=>{const wrap=document.createElement('div');wrap.id='m'+sec.no;wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
  if(R.intro){const q=document.createElement('p');q.className='intro';q.innerHTML=R.intro;wrap.appendChild(q)}
  (R.cards||[]).forEach(c=>wrap.appendChild(richCard(c,sec)));
- if(R.events)wrap.appendChild(events(R.events));
+ if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">Events for this module are under “Upcoming events” ›</a>';wrap.appendChild(q)}
+ if(sec.no==='4'||sec.no==='5'){const q=document.createElement('p');q.className='soonnote';q.textContent='In preparation · opening soon';wrap.insertBefore(q,h.nextSibling)}
  const host2=wrap;
  if(sec.sub_t){const p=document.createElement('p');p.className='subtitle';p.textContent=sec.sub_t;host2.appendChild(p)}
  host2.appendChild(grid(sec.items.concat(sec.sub?[]:[J(sec.t)])));
@@ -395,6 +451,14 @@ document.getElementById('c-close').onclick=shut;
 veil.addEventListener('click',e=>{if(e.target===veil)shut()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()});
 
+
+document.getElementById('ev-list').appendChild(events(Object.values(RICH).flatMap(r=>r.events||[])));
+(function(){const g=document.getElementById('groups'),b=document.getElementById('tbc-toggle'),n=g.querySelectorAll('.logo.tbc').length;
+ const set=open=>{g.classList.toggle('hide-tbc',!open);b.setAttribute('aria-expanded',open);b.textContent=open?'Hide partners in discussion':'Show partners in discussion ({n})'.replace('{n}',n)};
+ set(false);b.addEventListener('click',()=>set(g.classList.contains('hide-tbc')))})();
+document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
+ const done=()=>{m.hidden=false;m.textContent='Copied WeChat ID leigracezhang. Add Grace on WeChat.'},fb=()=>{m.hidden=false;m.textContent='WeChat ID: leigracezhang'};
+ try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
 </script>
 
 </body></html>

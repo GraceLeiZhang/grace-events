@@ -3,6 +3,7 @@
    with the link on its own line so WhatsApp and WeChat keep it tappable. */
 (function () {
   var en = /^en/i.test(document.documentElement.lang);
+  var wechat = /MicroMessenger/i.test(navigator.userAgent);
   function meta(p) { var m = document.querySelector('meta[property="' + p + '"]'); return m ? m.content : ''; }
   var url = meta('og:url') || location.href.split('#')[0];
   var title = meta('og:title') || document.title;
@@ -10,8 +11,8 @@
   var text = '*' + title + '*\n\n' + (desc ? desc + '\n\n' : '') + '👉 ' + url + '\n';
 
   var T = en
-    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy message', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.' }
-    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制分享文字', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp' };
+    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy message', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.', wx: 'In WeChat, tap ··· at the top right to share this page.' }
+    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制分享文字', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp', wx: '在微信里，点右上角 ··· 就能分享给朋友。' };
 
   function copy(done) {
     function legacy() {
@@ -52,7 +53,8 @@
     wa.className = 'wa'; wa.target = '_blank'; wa.rel = 'noopener';
     wa.href = 'https://wa.me/?text=' + encodeURIComponent(text);
     wa.textContent = T.wa;
-    row.appendChild(wa);
+    // WeChat blocks wa.me links, so offer copy plus its own share menu instead
+    if (!wechat) row.appendChild(wa);
 
     var cp = document.createElement('button');
     cp.type = 'button'; cp.textContent = T.copy;
@@ -65,6 +67,8 @@
       more.addEventListener('click', function () { navigator.share({ title: title, text: (desc ? desc + '\n\n' : ''), url: url }).catch(function () {}); });
       row.appendChild(more);
     }
+
+    if (wechat) { msg.hidden = false; msg.textContent = T.wx; }
 
     var foot = document.querySelector('footer');
     if (foot && foot.parentNode) foot.parentNode.insertBefore(box, foot); else document.body.appendChild(box);
