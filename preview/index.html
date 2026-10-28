@@ -148,10 +148,40 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .rich .contact small{font-size:12px}
 .rich .btns a,.rich .btns button{min-height:44px}
 
+
+/* Phase 2: top nav, hero actions, events, enquiries */
+.nav{position:sticky;top:0;z-index:15;display:flex;align-items:center;gap:10px;padding:8px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .brand{font-family:var(--display);font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:.06em;margin-right:auto}
+.nav .links{display:none;gap:18px}
+.nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+.nav .links a:hover{color:var(--jac-deep)}
+@media (min-width:640px){.nav .links{display:flex}}
+.nav #gr-lang{font-size:14px}.nav #gr-lang button{min-height:32px;min-width:44px;padding:0 10px}
+.pos{font-family:var(--display);font-size:18px;line-height:1.7;color:var(--ink);margin:10px 0 0}
+.founder{font-size:13px;color:var(--muted);letter-spacing:.06em;margin:0}
+.acts{display:grid;gap:10px;width:100%;max-width:420px;margin:14px auto 0}
+.acts a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1.5px solid var(--jac);color:var(--jac-deep);text-decoration:none;font-weight:500;font-size:15.5px;background:var(--surface)}
+.acts a.pri{background:var(--jac-deep);border-color:var(--jac-deep);color:#fff}
+#events,#partners,#contact{scroll-margin-top:64px}
+.tbc-toggle{appearance:none;display:block;margin:18px auto 0;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:10px 18px;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
+#groups.hide-tbc .logo.tbc{display:none}
+.soonnote{display:inline-block;margin:0 0 12px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 12px}
+.intro a{color:var(--gc,var(--jac-deep))}
+.enq{background:var(--surface);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.enq p{margin:0;color:var(--muted)}
+.enq .row{display:grid;gap:10px}
+@media (min-width:600px){.enq .row{grid-template-columns:repeat(3,1fr)}}
+.enq .row a{display:flex;align-items:center;gap:12px;min-height:56px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-decoration:none}
+.enq .row a.wa{background:#25d366;border-color:#25d366;color:#fff}
+.enq .row a.wa small{color:rgba(255,255,255,.9)}
+.enq svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.enq b{display:block;font-size:15px}.enq small{display:block;font-size:12.5px;color:var(--muted)}
+.enq .note{font-size:12.5px}
+.enq .copied{font-size:13px}
 </style>
 
-<div class="wrap">
-  <span class="tag">网站预览 · 内容待定</span>
+<nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">近期活动</a><a href="#partners">推荐商家</a><a href="#contact">咨询合作</a></span><span data-lang-slot></span></nav>
+<div class="wrap" id="top">
   <header>
     <svg width="170" height="120" viewBox="0 0 170 120" aria-label="雅实标志：石头两侧各停着一只蝴蝶">
       <defs><linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4d9f2"/><stop offset=".5" stop-color="#a48cc8"/><stop offset="1" stop-color="#5a4282"/></linearGradient>
@@ -179,9 +209,49 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     <h1>雅实<small>GRACE ROCK GROUP</small></h1>
     <p class="slogan">携手同行，越来越好</p>
     <p class="motto">Every one of us, getting better.</p>
+    <p class="pos">Grace Lei Zhang 亲自体验、亲自带队的<br>悉尼华人家庭生活圈</p>
+    <p class="founder">创始人 Grace Lei Zhang</p>
+    <div class="acts"><a class="pri" href="#events">看近期活动</a><a href="#partners">找推荐商家</a><a href="#contact">商务咨询 · 合作</a></div>
   </header>
 
-  <section class="mission">
+  <section id="events">
+    <h2>近期活动</h2>
+    <p class="lede">和 Grace 一起去：亲子旅行、家庭聚会、团队活动。</p>
+    <div id="ev-list"></div>
+  </section>
+
+
+  <section>
+    <h2>以人为中心</h2>
+    <p class="lede">每一家推荐，都是我亲身体验过的。</p>
+    <div class="tiers">
+      <a class="tier t1" href="#m1"><span class="tb">1</span><b>健康</b><em>人与身体</em><span class="ts">运动 · 养生 · 美容</span><span class="go">查看 ›</span></a>
+      <a class="tier t2" href="#m2"><span class="tb">2</span><b>人与自然</b><em>Nature</em><span class="ts">生物 · 生态环境 · 旅行</span><span class="go">查看 ›</span></a>
+      <a class="tier t3" href="#m3"><span class="tb">3</span><b>人与人</b><em>Connection</em><span class="ts">演讲 · 沟通 · 理解 · 尊重</span><span class="go">查看 ›</span></a>
+      <a class="tier t4" href="#m4"><span class="tb">4</span><b>人与 AI</b><em>Tech</em><span class="ts">物理 · 计算机 · 工程</span><span class="go">查看 ›</span></a>
+      <a class="tier t5" href="#m5"><span class="tb">5</span><b>人与灵魂</b><em>人物志</em><span class="ts">人物志 · 艺术人文</span><span class="go">查看 ›</span></a>
+    </div>
+    <p class="tier-hint">左右滑动，点卡片直达板块</p>
+  </section>
+
+  <section id="partners">
+    <h2>推荐伙伴</h2>
+    <p class="lede">点击图标查看详情。报暗号 <b>GraceRock</b> 享专属优惠。</p>
+
+    <div id="groups" class="hide-tbc"></div>
+    <button type="button" class="tbc-toggle" id="tbc-toggle" aria-controls="groups" aria-expanded="false"></button>
+
+    <div class="rules">
+      <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。创业期加入的商家为“创始伙伴”，免费展示。</p>
+      <p><b>付费推广</b>商家可以付费购买推广位。推广位单独放置，并清楚标明“推广”，不会混进口碑排名。</p>
+      <p><b>口碑评分</b>只有报 GraceRock 并实际消费的客户才能评分，一人一评，满 5 条验证评价才显示分数。</p>
+      <p><b>群众监督</b>低于 3.5 星显示“待改进”，付费也不能去掉。差评不删，商家可以公开回复。</p>
+      <p><b>利益公开</b>部分推荐伙伴会给雅实推荐回报。所有推荐均来自 Grace 的亲身体验，回报不影响评分和口碑排名。</p>
+      <p><b>待确认 TBC</b>标有“TBC”的伙伴仍在洽谈中，To be confirmed。</p>
+    </div>
+  </section>
+
+    <section class="mission">
     <h2>我们的宗旨</h2>
     <p>每一个人，都值得越来越好。<br>
     在 AI 时代的浪潮里，<br>
@@ -197,36 +267,21 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     都成为夜空中那颗闪亮的星。</p>
   </section>
 
-  <section>
-    <h2>以人为中心</h2>
-    <p class="lede">每一家推荐，都是我亲身体验过的。</p>
-    <div class="tiers">
-      <a class="tier t1" href="#m1"><span class="tb">1</span><b>健康</b><em>人与身体</em><span class="ts">运动 · 养生 · 美容</span><span class="go">查看 ›</span></a>
-      <a class="tier t2" href="#m2"><span class="tb">2</span><b>人与自然</b><em>Nature</em><span class="ts">生物 · 生态环境 · 旅行</span><span class="go">查看 ›</span></a>
-      <a class="tier t3" href="#m3"><span class="tb">3</span><b>人与人</b><em>Connection</em><span class="ts">演讲 · 沟通 · 理解 · 尊重</span><span class="go">查看 ›</span></a>
-      <a class="tier t4" href="#m4"><span class="tb">4</span><b>人与 AI</b><em>Tech</em><span class="ts">物理 · 计算机 · 工程</span><span class="go">查看 ›</span></a>
-      <a class="tier t5" href="#m5"><span class="tb">5</span><b>人与灵魂</b><em>人物志</em><span class="ts">人物志 · 艺术人文</span><span class="go">查看 ›</span></a>
-    </div>
-    <p class="tier-hint">左右滑动，点卡片直达板块</p>
-  </section>
-
-  <section>
-    <h2>推荐伙伴</h2>
-    <p class="lede">点击图标查看详情。报暗号 <b>GraceRock</b> 享专属优惠。</p>
-
-    <div id="groups"></div>
-
-    <div class="rules">
-      <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。创业期加入的商家为“创始伙伴”，免费展示。</p>
-      <p><b>付费推广</b>商家可以付费购买推广位。推广位单独放置，并清楚标明“推广”，不会混进口碑排名。</p>
-      <p><b>口碑评分</b>只有报 GraceRock 并实际消费的客户才能评分，一人一评，满 5 条验证评价才显示分数。</p>
-      <p><b>群众监督</b>低于 3.5 星显示“待改进”，付费也不能去掉。差评不删，商家可以公开回复。</p>
-      <p><b>利益公开</b>部分推荐伙伴会给雅实推荐回报。所有推荐均来自 Grace 的亲身体验，回报不影响评分和口碑排名。</p>
-      <p><b>待确认 TBC</b>标有“TBC”的伙伴仍在洽谈中，To be confirmed。</p>
+  <section id="contact">
+    <h2>咨询与合作</h2>
+    <div class="enq">
+      <p>活动报名、商家推荐、商家合作与推广、Power BI · AI 报告咨询，都可以直接联系 Grace Lei Zhang。</p>
+      <div class="row">
+        <a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg><span><b>WhatsApp</b><small>0410 931 872</small></span></a>
+        <a href="#" data-copy-grace="leigracezhang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><span><b>微信</b><small>leigracezhang · 点击复制</small></span></a>
+        <a href="mailto:leigrace@gmail.com?subject=%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E5%92%A8%E8%AF%A2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><b>邮件</b><small>leigrace@gmail.com</small></span></a>
+      </div>
+      <span class="copied" id="enq-copied" hidden></span>
+      <p class="note">在微信里打不开 WhatsApp 时，请加微信。</p>
     </div>
   </section>
 
-  <footer>雅实 Grace Rock Group Pty Ltd · Sydney<br>和 Grace 一起去体验</footer>
+  <footer>雅实 Grace Rock Group Pty Ltd · Sydney<br>创始人 Grace Lei Zhang · 和 Grace 一起去体验</footer>
 </div>
 
 <div class="veil" id="veil" hidden>
@@ -339,8 +394,8 @@ const RICH={
    contact:"手机 0407 818 788 · 热线 1300 047 772 · grace@ipspartners.com.au"}
  ]},
  "人与自然":{intro:"走出屏幕，去真实的世界里看看。<br>以旅行沉淀心灵，以自然开阔胸怀。",events:[
-  {m:"四月",d:"春",y:"2027",chip:"亲子 · 筹备中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://graceleizhang.github.io/grace-events/yunnan-april.html"},
   {m:"一月",d:"12",y:"2027",chip:"亲子 · 报名中",t:"水云间家庭体验之旅",s:"捞虾、划船、烤全羊 · 三天两晚",u:"https://graceleizhang.github.io/grace-events/shuiyunjian.html"},
+  {m:"四月",d:"春",y:"2027",chip:"亲子 · 筹备中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://graceleizhang.github.io/grace-events/yunnan-april.html"},
   {m:"十月",d:"7",y:"2026",chip:"精彩回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://graceleizhang.github.io/grace-events/"}]},
  "人与 AI":{intro:"AI、宇宙、量子空间：无限可能，激动人心。"},
  "人与灵魂 · 人物志":{intro:"以艺术陶冶情操，以文字留住故事。"}
@@ -376,7 +431,8 @@ function grid(items){const g=document.createElement('div');g.className='logos';
 G.forEach(sec=>{const wrap=document.createElement('div');wrap.id='m'+sec.no;wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
  if(R.intro){const q=document.createElement('p');q.className='intro';q.innerHTML=R.intro;wrap.appendChild(q)}
  (R.cards||[]).forEach(c=>wrap.appendChild(richCard(c,sec)));
- if(R.events)wrap.appendChild(events(R.events));
+ if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">本板块的活动见「近期活动」›</a>';wrap.appendChild(q)}
+ if(sec.no==='4'||sec.no==='5'){const q=document.createElement('p');q.className='soonnote';q.textContent='筹备中 · 即将开放';wrap.insertBefore(q,h.nextSibling)}
  const host2=wrap;
  if(sec.sub_t){const p=document.createElement('p');p.className='subtitle';p.textContent=sec.sub_t;host2.appendChild(p)}
  host2.appendChild(grid(sec.items.concat(sec.sub?[]:[J(sec.t)])));
@@ -395,6 +451,14 @@ document.getElementById('c-close').onclick=shut;
 veil.addEventListener('click',e=>{if(e.target===veil)shut()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()});
 
+
+document.getElementById('ev-list').appendChild(events(Object.values(RICH).flatMap(r=>r.events||[])));
+(function(){const g=document.getElementById('groups'),b=document.getElementById('tbc-toggle'),n=g.querySelectorAll('.logo.tbc').length;
+ const set=open=>{g.classList.toggle('hide-tbc',!open);b.setAttribute('aria-expanded',open);b.textContent=open?'收起洽谈中的伙伴':'显示洽谈中的伙伴（{n}）'.replace('{n}',n)};
+ set(false);b.addEventListener('click',()=>set(g.classList.contains('hide-tbc')))})();
+document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
+ const done=()=>{m.hidden=false;m.textContent='已复制微信号 leigracezhang，打开微信添加好友即可'},fb=()=>{m.hidden=false;m.textContent='微信号：leigracezhang'};
+ try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
 </script>
 
 </body></html>
