@@ -180,11 +180,21 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .enq b{display:block;font-size:15px}.enq small{display:block;font-size:12.5px;color:var(--muted)}
 .enq .note{font-size:12.5px}
 .enq .copied{font-size:13px}
+/* Modules laid out 2 / 1 / 2, as in Grace's sketch */
+.tiers{grid-auto-flow:row;grid-template-columns:1fr 1fr;grid-auto-columns:auto;overflow:visible;margin:0 auto;padding:6px 0 10px;max-width:640px}
+.tiers .t3{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.tier{min-height:150px;padding:14px}.tier b{font-size:20px}
+@media (min-width:700px){.tiers{grid-template-columns:1fr 1fr}}
+.emb{display:flex;align-items:center;justify-content:center;gap:10px}
+.emb span{flex:1;max-width:110px;font-family:var(--display);font-size:15px;line-height:1.4;color:var(--jac-deep)}
+.emb span:first-child{text-align:right}.emb span:last-child{text-align:left}
+.emb svg{flex:none;max-width:46vw;height:auto}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">GRACE ROCK GROUP</a><span class="links"><a href="#events">Events</a><a href="#partners">Partners</a><a href="#contact">Enquire</a></span><span data-lang-slot></span></nav>
 <div class="wrap" id="top">
   <header>
+    <div class="emb"><span>Tried first-hand</span>
     <svg width="170" height="120" viewBox="0 0 170 120" aria-label="Grace Rock emblem: a stone with a butterfly resting on each side">
       <defs><linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4d9f2"/><stop offset=".5" stop-color="#a48cc8"/><stop offset="1" stop-color="#5a4282"/></linearGradient>
       <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9bec6"/><stop offset="1" stop-color="#7d838c"/></linearGradient></defs>
@@ -208,6 +218,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
         <path d="M0-11C-2-16-4-18-6-19M0-11C2-16 4-18 6-19" stroke="#5f656e" stroke-width="1" fill="none" stroke-linecap="round"/>
       </g></g>
     </svg>
+    <span>Led in person</span></div>
     <h1 class="en-brand">GRACE ROCK GROUP<small>雅实</small></h1>
     <p class="slogan">Together, We Flourish.</p>
     <p class="motto">携手同行，共见美好</p>
@@ -218,7 +229,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 
   <section id="events">
     <h2>Upcoming events</h2>
-    <p class="lede">Come along with Grace: family trips, get-togethers and team days.</p>
+    <p class="lede">Come along with Grace: family trips, get-togethers and team days. Message Grace and she will take you along.</p>
     <div id="ev-list"></div>
   </section>
 
@@ -228,20 +239,18 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     <p class="lede">Every recommendation is one I have experienced myself.</p>
     <div class="tiers">
       <a class="tier t1" href="#m1"><span class="tb">1</span><b>Health</b><em>People &amp; Body</em><span class="ts">Fitness · Wellbeing · Beauty</span><span class="go">Explore ›</span></a>
-      <a class="tier t2" href="#m2"><span class="tb">2</span><b>Nature</b><em>People &amp; Nature</em><span class="ts">Biology · Environment · Travel</span><span class="go">Explore ›</span></a>
-      <a class="tier t3" href="#m3"><span class="tb">3</span><b>Connection</b><em>People &amp; People</em><span class="ts">Speaking · Communication · Respect</span><span class="go">Explore ›</span></a>
-      <a class="tier t4" href="#m4"><span class="tb">4</span><b>AI</b><em>People &amp; AI</em><span class="ts">Physics · Computing · Engineering</span><span class="go">Explore ›</span></a>
-      <a class="tier t5" href="#m5"><span class="tb">5</span><b>Soul</b><em>People &amp; Soul</em><span class="ts">Life Stories · Arts</span><span class="go">Explore ›</span></a>
+      <a class="tier t2" href="#m2"><span class="tb">2</span><b>Nature</b><em>Community</em><span class="ts">Into nature · Journeys · Adventure</span><span class="go">Explore ›</span></a>
+      <a class="tier t3" href="#m3"><span class="tb">3</span><b>Connection</b><em>People &amp; People</em><span class="ts">Finance · Property · Groups · Fun · Food</span><span class="go">Explore ›</span></a>
+      <a class="tier t4" href="#m4"><span class="tb">4</span><b>Tech</b><em>AI</em><span class="ts">AI · Science · Education</span><span class="go">Explore ›</span></a>
+      <a class="tier t5" href="#m5"><span class="tb">5</span><b>Soul</b><em>Art</em><span class="ts">Art · Life stories · Memory</span><span class="go">Explore ›</span></a>
     </div>
-    <p class="tier-hint">Swipe to browse · tap a card to jump there</p>
   </section>
 
   <section id="partners">
     <h2>Recommended partners</h2>
     <p class="lede">Tap an icon for details. Mention <b>GraceRock</b> for an exclusive offer.</p>
 
-    <div id="groups" class="hide-tbc"></div>
-    <button type="button" class="tbc-toggle" id="tbc-toggle" aria-controls="groups" aria-expanded="false"></button>
+    <div id="groups"></div>
 
     <div class="rules">
       <p><b>Word-of-mouth ranking</b>Ranked only by verified customer ratings. Neither payment nor referral rewards can change a ranking; ratings decide who stays. Businesses that join during our start-up phase are “Founding Partners” and are listed free.</p>
@@ -266,13 +275,13 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     In the end, each of us walks our own path;<br>
     we simply want to walk alongside.<br>
     May every ordinary person<br>
-    become a bright star in the night sky.</p>
+    become a bright star in the sky.</p>
   </section>
 
   <section id="contact">
     <h2>Enquiries & partnerships</h2>
     <div class="enq">
-      <p>Event bookings, business recommendations, partnerships and promotion, Power BI · AI reporting: contact Grace Lei Zhang directly.</p>
+      <p>Event bookings, business recommendations, partnerships and promotion: contact Grace Lei Zhang directly.</p>
       <div class="row">
         <a class="wa" href="https://wa.me/61410931872?text=Hi%20Grace%2C%20I%20found%20you%20on%20the%20Grace%20Rock%20website%20and%20I%27d%20like%20to%20ask%20about%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg><span><b>WhatsApp</b><small>0410 931 872</small></span></a>
         <a href="#" data-copy-grace="leigracezhang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><span><b>WeChat</b><small>leigracezhang · tap to copy</small></span></a>
@@ -298,71 +307,14 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 </div>
 
 <script>
-const TBC="To be confirmed · in discussion";
+const TBC="In progress · coming soon";
 const T=(k,n,s,m,bg,d)=>({k,n,s,c:s,m,bg,d,tbc:1});
 const G=[
- {t:"Health · People & Body",gc:"var(--c-health)",no:"1",gt:"var(--t-health)",items:[
-  T("bone","Bone-setting · Acupuncture","Therapy","Bone","#8a6a3c","The bone-setter and acupuncturist I visit regularly. Excellent technique."),
-  T("physio","Physio","Rehabilitation","Physio","#3a8a7a","Professional physiotherapy to bring the body back into balance."),
-  T("run","Running","Running group","Run","#4f9a4a","Let’s run together and get healthier with every run."),
-  T("bush","Bushwalking","Hiking group","Hike","#4a6b47","Head into the hills together and make new friends."),
-  T("wushu","Martial arts","Strength & fitness","Wushu","#9b3b2b","Traditional martial arts for a strong body and a steady mind."),
-  T("pp","Table tennis champion","Table tennis coaching","TT","#c0392b","A champion-level table tennis coach."),
-  T("dive","Diving runner-up","Diving coaching","Dive","#2e86ab","A runner-up-level diving coach."),
-  T("hair","Hair","Styling","Hair","#b0577a","A skilled hairdresser who makes everyone look their best.")
- ]},
- {t:"People & Nature",gc:"var(--c-nature)",no:"2",gt:"var(--t-nature)",items:[
-  T("chl","University of Sydney scientist","Discovered chlorophyll f","Leaf","#3f8a3a","Discovered chlorophyll f, the first new type of chlorophyll found in over sixty years."),
-  T("bio","Biology · Environment","Biology","Eco","#2f8a6a","Get to know the living world around us and learn to live with nature."),
-  T("shuiyun","Shui Yun Jian","Sussex Inlet getaway","SYJ","#2f78c4","Mr Fu’s riverside retreat: prawning, boating and a whole roast lamb. Mr Fu is an entrepreneur who has appeared on CCTV’s Spring Festival Gala."),
-  T("bn","Xishuangbanna travel agency","Yunnan family trips","XSBN","#3f7a52","Run by my old classmate in Xishuangbanna: the Water-Splashing Festival and the rainforest."),
-  T("mojiang","Mojiang Culture & Tourism","Mojiang, Yunnan","MJ","#6a5a3a","Mojiang, on the Tropic of Cancer: a base for cultural exchange."),
-  T("scuba","Scuba diving","Underwater","Scuba","#1f7f8f","Explore the underwater world of the Great Barrier Reef."),
-  T("sky","Skydiving","Sky-high thrills","Sky","#4a8ac4","A once-in-a-lifetime free fall."),
-  T("heli","Helicopter","Scenic flights","Heli","#3a6fa0","See the coastline from a helicopter."),
-  T("fly","Flying school","Bankstown","Fly","#1f5f9a","Learn to fly at Bankstown Airport and see Sydney from the air."),
-  T("winery","Cairns hilltop winery","Winery visit","Wine","#7a3b5a","A hilltop winery near Cairns: wine tasting with a view."),
-  T("trip","Trip.com","Flights · Hotels","Trip","#2b5fb3","Book flights and hotels for your travels."),
-  T("tourism","Tourism Australia","Travel in Australia","AU","#b0752f","Discover Australia’s nature and culture.")
- ]},
- {t:"People & People · Connection",gc:"var(--jac-deep)",no:"3",gt:"var(--mist)",items:[
-  T("speech","Public speaking","Expression · Communication","Talk","#6a3d8a","Learn to speak and to listen, so communication brings understanding and respect."),
-  T("lawyer","Lawyer","Legal services","Law","#3b4a6b","A professional, reliable Chinese-speaking lawyer."),
-  T("conv","Conveyancer","Conveyancing","Conv","#5a6b4a","Leave the paperwork of buying and selling property to someone who knows it well."),
-  T("agent","Real estate agent","Buying & selling","Home","#7a5a3a","An agent who knows the Sydney market."),
-  T("stock","Share investing","Investing","Stock","#3a6a6a","An experienced investor sharing insights."),
-  T("cruise","Private cruise","Parties · Team events","Cruise","#2c6f8f","Birthday parties, get-togethers and team events, bringing people together on Sydney Harbour."),
-  T("hrfws","Chinese community services","Community services","Comm","#9a4a4a","Serving Sydney’s Chinese community, connecting people with resources."),
-  T("mensa","Mensa NSW / China","High-IQ society","M","#3d5a80","Family gatherings and activities of the high-IQ society."),
-  T("school","School P&C","SBHS · ISHS P&C","P&C","#556b2f","Sharing and working together through school parent associations.")
- ],sub:{t:"Education",items:[
-  T("zhong","Ms Zhong, educator","Education","Zh","#6a4a8a","An educator with many years of experience."),
-  T("jiuzhang","Jiuzhang Maths","Maths","JZ","#2f4d8a","Building mathematical thinking."),
-  T("luke","Mr Luke","Tutoring","L","#3a6f8a","Tutoring."),
-  T("ting","Ting","Tutoring","T","#7a5a8a","Tutoring."),
-  T("steven","Steven","Popular online teacher","S","#c0583a","A popular online teacher."),
-  T("zebra","Zebra Learning","Tutoring","Z","#333d4a","Tutoring."),
-  T("dragon","Smart Dragon","Tutoring","SD","#a33a2e","Tutoring my own child has attended.")
- ]}},
- {t:"People & AI",gc:"var(--c-ai)",no:"4",gt:"var(--t-ai)",items:[
-  {k:"claude",n:"Claude",s:"AI assistant",c:"AI assistant · Anthropic",m:"AI",bg:"#b8643f",d:"The AI assistant I use every day for writing, building web pages, organising information and planning my schedule. It turns one person into a team.",o:"Referral link coming soon",i:[["Website","claude.ai"]],nr:1},
-  {k:"gai",n:"Power BI · AI reporting",s:"Consulting with Grace",c:"Power BI · AI reporting · Sydney",m:"BI",bg:"#7a5ba8",d:"Helping small businesses use Power BI and AI to generate reports automatically, turning accounts into clear charts and saving hours of repetitive work.",o:"Consulting details to be confirmed",i:[["Contact","Grace (private consulting)"]],nr:1},
-  T("claudia","Power BI · AI reporting","Claudia","C","#5a6fb0","Power BI and AI reporting consulting."),
-  T("xhs","Power BI · AI reporting","Xiaohongshu creator","XHS","#d6334b","A Xiaohongshu (RedNote) creator sharing Power BI and AI reporting tips."),
-  T("uts","UTS research","Prof Qiu","UTS","#1f3b57","Visits and exchanges on cutting-edge research such as real-time translation and directional sound."),
-  T("huawei","Huawei","Technology","HW","#c7000b","Communications and smart technology."),
-  T("iflytek","iFlytek","Speech AI","iFly","#1f63c6","Speech AI and real-time translation technology."),
-  T("quantum","Quantum · Black holes","Physics","QM","#2a2f5a","Quantum entanglement and black holes: exploring the deepest mysteries of the universe."),
-  T("ufo","UFO exploration","Space","UFO","#4a4f6a","Look up at the stars and explore the universe’s unsolved mysteries."),
-  T("tesla","Tesla","Smart mobility","T","#3a3a3a","Smart electric cars and the future of travel."),
-  T("byd","BYD","Electric cars","BYD","#2f6f6a","The BYD I drive myself: quiet and hassle-free.")
- ]},
- {t:"People & Soul · Life Stories",gc:"var(--c-soul)",no:"5",gt:"var(--t-soul)",sub_t:"One person, one story. The living and those who have passed are remembered here.",items:[
-  {k:"words",n:"Writings by Yuanyao",s:"Fiction · Tributes",c:"Fiction · Tributes · Life stories",m:"Write",bg:"#4f3478",d:"Where I write fiction, record people’s stories, and write tributes to dear friends who have passed.",o:"Opening for reading soon",nr:1},
-  T("artist","An artist couple","Ms Xiong · in memory of her husband","Art","#8a5a9a","The artist Ms Xiong and her late husband: two artistic lives and a story of devotion."),
-  T("tcm","A Chinese medicine professor and his wife","Prof Lin Memorial Fund · Ms Li","TCM","#5b7a3c","The late Professor Lin of Chinese medicine and his memorial fund; his wife Ms Li worked in water conservancy, including the South–North Water Transfer Project."),
-  T("will","Online wills","Make a will","Will","#5d6b7a","A simple, affordable online will service to plan ahead for your family.")
- ]}
+ {"t": "Health · People & Body", "gc": "var(--c-health)", "no": "1", "gt": "var(--t-health)", "subs": [{"t": "A. Fitness & Sport", "items": [{"k": "ballet", "n": "Ballet", "s": "Taught by an Oriental Song and Dance Ensemble teacher", "m": "芭", "bg": "#b0577a", "d": "Ballet with a teacher from the Oriental Song and Dance Ensemble; strong students may get a chance at the Spring Festival Gala stage.", "c": "Taught by an Oriental Song and Dance Ensemble teacher", "tbc": 1}, {"k": "adapt", "n": "Adapt a Sport", "s": "Sino-Australian Martial Arts Assoc. · 21 days each October", "m": "技", "bg": "#9b3b2b", "d": "Try a new sport for 21 days every October with the Sino-Australian Martial Arts Association.", "c": "Sino-Australian Martial Arts Assoc. · 21 days each October", "tbc": 1}, {"k": "wushu", "n": "Wushu", "s": "Chinese martial arts", "m": "武", "bg": "#9b3b2b", "d": "Chinese martial arts", "c": "Chinese martial arts", "tbc": 1}, {"k": "tkd", "n": "Taekwondo", "s": "Kids and adults", "m": "跆", "bg": "#2f5f9a", "d": "Kids and adults", "c": "Kids and adults", "tbc": 1}, {"k": "zumba", "n": "Zumba", "s": "Dance fitness", "m": "Z", "bg": "#c0583a", "d": "Dance fitness", "c": "Dance fitness", "tbc": 1}, {"k": "shoot", "n": "Shooting", "s": "Target shooting", "m": "射", "bg": "#4a5a3a", "d": "Target shooting", "c": "Target shooting", "tbc": 1}, {"k": "rugby", "n": "Rugby", "s": "Club rugby", "m": "橄", "bg": "#6a4a2a", "d": "Club rugby", "c": "Club rugby", "tbc": 1}, {"k": "soccer", "n": "Soccer", "s": "Club football", "m": "足", "bg": "#2f8a4a", "d": "Club football", "c": "Club football", "tbc": 1}, {"k": "cricket", "n": "Cricket", "s": "Club cricket", "m": "板", "bg": "#3a7a5a", "d": "Club cricket", "c": "Club cricket", "tbc": 1}, {"k": "run", "n": "Running", "s": "Running group", "m": "跑", "bg": "#4f9a4a", "d": "Running group", "c": "Running group", "tbc": 1}, {"k": "decath", "n": "Decathlon", "s": "Sports gear", "m": "D", "bg": "#2b5fb3", "d": "Sports gear", "c": "Sports gear", "tbc": 1}]}, {"t": "B. Wellbeing", "items": [{"k": "bone", "n": "Bone setting", "s": "Cabramatta", "m": "正骨", "bg": "#8a6a3c", "d": "Cabramatta", "c": "Cabramatta", "tbc": 1}, {"k": "thai", "n": "Thai massage", "s": "Relax and unwind", "m": "泰", "bg": "#a8854a", "d": "Relax and unwind", "c": "Relax and unwind", "tbc": 1}]}, {"t": "C. Beauty & Hair", "items": [{"k": "hair", "n": "Hair salon · Ms Dong", "s": "Hair", "m": "发", "bg": "#b0577a", "d": "Hair", "c": "Hair", "tbc": 1}, {"k": "makeup", "n": "Personal make-up", "s": "Chinese and Western make-up artists", "m": "妆", "bg": "#c0587a", "d": "Chinese and Western make-up artists", "c": "Chinese and Western make-up artists", "tbc": 1}]}]},
+ {"t": "People & Nature · Community", "gc": "var(--c-nature)", "no": "2", "gt": "var(--t-nature)", "subs": [{"t": "A. Into Nature", "items": [{"k": "bush", "n": "Bushwalking", "s": "Group walks led by Lao Cai", "m": "徒步", "bg": "#4a6b47", "d": "Group walks led by Lao Cai", "c": "Group walks led by Lao Cai", "tbc": 1}, {"k": "bushcare", "n": "Bush care", "s": "Learn local plants together", "m": "植", "bg": "#3f8a3a", "d": "Learn local plants together", "c": "Learn local plants together", "tbc": 1}]}, {"t": "B. Journeys · run by Grace", "items": [{"k": "shuiyun", "n": "Shui Yun Jian", "s": "Sussex Inlet · host Lao Fu", "m": "水云", "bg": "#2f78c4", "d": "Lao Fu’s Shui Yun Jian: prawning, boating and whole roast lamb.", "c": "Sussex Inlet · host Lao Fu", "self": 1, "nr": 1, "o": "<a href=\"../shuiyunjian-en.html\" style=\"color:inherit;text-decoration:underline\">Details ›</a>"}, {"k": "yunnan", "n": "Yunnan in April", "s": "From Shanghai · April 2027", "m": "云南", "bg": "#3f7a52", "d": "A family adventure from Shanghai to Yunnan.", "c": "From Shanghai · April 2027", "self": 1, "nr": 1, "o": "<a href=\"../yunnan-april-en.html\" style=\"color:inherit;text-decoration:underline\">Details ›</a>"}, {"k": "uluru", "n": "Uluru", "s": "July 2027", "m": "U", "bg": "#b0602f", "d": "July 2027, to Australia’s Red Centre.", "c": "July 2027", "tbc": 1, "self": 1, "nr": 1}, {"k": "usa", "n": "US tech tour", "s": "Late Sept to early Oct 2027", "m": "US", "bg": "#2b4f8a", "d": "Tesla, Google, MIT and Apple.", "c": "Late Sept to early Oct 2027", "tbc": 1, "self": 1, "nr": 1}, {"k": "snow", "n": "Winter in China", "s": "Mid Dec 2027 to Jan 2028", "m": "雪", "bg": "#5a7fb0", "d": "Harbin’s ice city and snow village, Beijing and Tianjin, then the Yuanmou earth forest near Kunming.", "c": "Mid Dec 2027 to Jan 2028", "tbc": 1, "self": 1, "nr": 1}]}, {"t": "C. Adventure", "items": [{"k": "fly", "n": "Fly a light plane", "s": "Grace has done it", "m": "飞", "bg": "#1f5f9a", "d": "Grace has done it", "c": "Grace has done it", "nr": 1}, {"k": "dive", "n": "Scuba diving", "s": "Cairns · Grace has done it", "m": "潜", "bg": "#1f7f8f", "d": "Cairns · Grace has done it", "c": "Cairns · Grace has done it", "nr": 1}, {"k": "snorkel", "n": "Snorkelling", "s": "Underwater", "m": "浮潜", "bg": "#2e86ab", "d": "Underwater", "c": "Underwater", "tbc": 1}, {"k": "balloon", "n": "Hot-air balloon", "s": "Sunrise from the sky", "m": "球", "bg": "#c0792f", "d": "Sunrise from the sky", "c": "Sunrise from the sky", "tbc": 1}, {"k": "para", "n": "Paragliding", "s": "Fly the coast", "m": "伞", "bg": "#4a8ac4", "d": "Fly the coast", "c": "Fly the coast", "tbc": 1}, {"k": "boat", "n": "Boating", "s": "Learn to skipper a boat", "m": "船", "bg": "#2c6f8f", "d": "Learn to skipper a boat", "c": "Learn to skipper a boat", "tbc": 1}, {"k": "tourism", "n": "Tourism Australia", "s": "Travel in Australia", "m": "AU", "bg": "#b0752f", "d": "Travel in Australia", "c": "Travel in Australia", "tbc": 1}, {"k": "mojiang", "n": "Mojiang Culture & Tourism", "s": "Mojiang, Yunnan", "m": "墨江", "bg": "#6a5a3a", "d": "Mojiang, Yunnan", "c": "Mojiang, Yunnan", "tbc": 1}, {"k": "zhangling", "n": "Zhang Ling Travel", "s": "Travel agency", "m": "旅", "bg": "#3f7a52", "d": "Travel agency", "c": "Travel agency", "tbc": 1}, {"k": "kmcharity", "n": "Kunming community group", "s": "Volunteer travel", "m": "昆", "bg": "#4a7a5a", "d": "Volunteer travel", "c": "Volunteer travel", "tbc": 1}, {"k": "tianjin", "n": "Tianjin ground tours", "s": "Local hosts", "m": "津", "bg": "#5a6a8a", "d": "Local hosts", "c": "Local hosts", "tbc": 1}, {"k": "linda", "n": "Linda", "s": "Travel", "m": "L", "bg": "#6a4a8a", "d": "Travel", "c": "Travel", "tbc": 1}]}]},
+ {"t": "People & People · Connection", "gc": "var(--jac-deep)", "no": "3", "gt": "var(--mist)", "subs": [{"t": "A. Finance", "items": [{"k": "ipa", "n": "IPA", "s": "Institute of Public Accountants", "m": "IPA", "bg": "#3b4a6b", "d": "Institute of Public Accountants", "c": "Institute of Public Accountants", "tbc": 1}, {"k": "cba", "n": "Home loans · CBA", "s": "Lending", "m": "CBA", "bg": "#c9962b", "d": "Lending", "c": "Lending", "tbc": 1}, {"k": "stg", "n": "Home loans · St George", "s": "Lending", "m": "SG", "bg": "#c0392b", "d": "Lending", "c": "Lending", "tbc": 1}, {"k": "jlin", "n": "Accountant · Jason Lin", "s": "Accounting", "m": "会", "bg": "#3a6a6a", "d": "Accounting", "c": "Accounting", "tbc": 1}]}, {"t": "B. Property & Home", "items": [{"k": "nell", "n": "Nell", "s": "N W Real Estate", "m": "N", "bg": "#7a5a3a", "d": "Real estate agent.", "c": "N W Real Estate", "o": "<a href=\"partners/nell-en.html\" style=\"color:inherit;text-decoration:underline\">Details ›</a>"}, {"k": "amanda", "n": "Amanda", "s": "Property", "m": "A", "bg": "#8a6a4a", "d": "Property services.", "c": "Property"}, {"k": "conv", "n": "Conveyancer", "s": "Alice Yang · Auburn", "m": "过户", "bg": "#5a6b4a", "d": "Alice Yang · Auburn", "c": "Alice Yang · Auburn", "tbc": 1}, {"k": "styling", "n": "Home styling", "s": "Styling before sale", "m": "布", "bg": "#8a5a7a", "d": "Styling before sale", "c": "Styling before sale", "tbc": 1}, {"k": "tailor", "n": "Tailor", "s": "Hurstville · City", "m": "裁", "bg": "#5a4a6a", "d": "Hurstville · City", "c": "Hurstville · City", "tbc": 1}, {"k": "handy", "n": "Handyman", "s": "Home repairs", "m": "修", "bg": "#6a5a3a", "d": "Home repairs", "c": "Home repairs", "tbc": 1}, {"k": "organise", "n": "Home organiser", "s": "Declutter and organise", "m": "纳", "bg": "#7a6a8a", "d": "Declutter and organise", "c": "Declutter and organise", "tbc": 1}, {"k": "move", "n": "Removalists", "s": "Moving house", "m": "搬", "bg": "#4a5a7a", "d": "Moving house", "c": "Moving house", "tbc": 1}, {"k": "pet", "n": "Pet groomer", "s": "Grooming", "m": "宠", "bg": "#b0752f", "d": "Grooming", "c": "Grooming", "tbc": 1}, {"k": "daigou", "n": "Personal shopper", "s": "Zhou Jiahua", "m": "购", "bg": "#a33a2e", "d": "Zhou Jiahua", "c": "Zhou Jiahua", "tbc": 1}]}, {"t": "C. Associations", "items": [{"k": "mensa", "n": "Mensa", "s": "High-IQ society", "m": "M", "bg": "#3d5a80", "d": "High-IQ society", "c": "High-IQ society", "tbc": 1}, {"k": "women", "n": "Women’s association", "s": "Community association", "m": "妇", "bg": "#9a4a6a", "d": "Community association", "c": "Community association", "tbc": 1}, {"k": "twins", "n": "Mojiang Twins Association", "s": "Mojiang culture and tourism", "m": "双", "bg": "#6a5a3a", "d": "Mojiang culture and tourism", "c": "Mojiang culture and tourism", "tbc": 1}, {"k": "lfusyd", "n": "Leading Finance · USYD", "s": "University of Sydney", "m": "LF", "bg": "#b0602f", "d": "University of Sydney", "c": "University of Sydney", "tbc": 1}, {"k": "hrfws", "n": "Chinese Australian Services Society", "s": "Community services", "m": "华人", "bg": "#9a4a4a", "d": "Community services", "c": "Community services", "tbc": 1}, {"k": "nankai", "n": "Nankai Alumni", "s": "Alumni association", "m": "南开", "bg": "#6a3d8a", "d": "Alumni association", "c": "Alumni association", "tbc": 1}, {"k": "yunnanhx", "n": "Yunnan Association", "s": "Hometown association", "m": "滇", "bg": "#3f7a52", "d": "Hometown association", "c": "Hometown association", "tbc": 1}, {"k": "martial", "n": "Sino-Australian Martial Arts Assoc.", "s": "Martial arts", "m": "技", "bg": "#9b3b2b", "d": "Martial arts", "c": "Martial arts", "tbc": 1}]}, {"t": "D. Community notices", "items": [{"k": "jobs", "n": "Jobs", "s": "Job seekers and openings", "m": "工", "bg": "#4f3478", "d": "Job seekers and openings", "c": "Job seekers and openings", "tbc": 1}, {"k": "rent", "n": "Housing", "s": "Rooms wanted and to let", "m": "租", "bg": "#7a5ba8", "d": "Rooms wanted and to let", "c": "Rooms wanted and to let", "tbc": 1}]}, {"t": "E. Entertainment", "items": [{"k": "ksong", "n": "Karaoke", "s": "Quanmin K Ge · Zhan Fang", "m": "K", "bg": "#c0392b", "d": "Quanmin K Ge · Zhan Fang", "c": "Quanmin K Ge · Zhan Fang", "tbc": 1}, {"k": "photo", "n": "Photography", "s": "Portraits and events", "m": "摄", "bg": "#3a3a3a", "d": "Portraits and events", "c": "Portraits and events", "tbc": 1}, {"k": "star", "n": "The Star", "s": "Entertainment", "m": "★", "bg": "#2a2f5a", "d": "Entertainment", "c": "Entertainment", "tbc": 1}, {"k": "crystal", "n": "Crystals · Crystal", "s": "Crystal jewellery", "m": "晶", "bg": "#7a5ba8", "d": "Crystal jewellery", "c": "Crystal jewellery", "tbc": 1}]}, {"t": "F. Everyday", "items": [{"k": "ikea", "n": "IKEA", "s": "Home", "m": "I", "bg": "#2b5fb3", "d": "Home", "c": "Home", "tbc": 1}, {"k": "outlet", "n": "Discount warehouses", "s": "Bargain shopping", "m": "折", "bg": "#a8854a", "d": "Bargain shopping", "c": "Bargain shopping", "tbc": 1}, {"k": "anita", "n": "Anita", "s": "Everyday services", "m": "A", "bg": "#8a5a9a", "d": "Everyday services", "c": "Everyday services", "tbc": 1}]}, {"t": "G. Restaurants", "items": [{"k": "kbutcher", "n": "Korea Butcher’s", "s": "Korean buffet", "m": "韩", "bg": "#9b3b2b", "d": "Korean buffet", "c": "Korean buffet", "tbc": 1}, {"k": "jpbuffet", "n": "Japanese buffet", "s": "Buffet", "m": "日", "bg": "#c0392b", "d": "Buffet", "c": "Buffet", "tbc": 1}, {"k": "haidilao", "n": "Haidilao", "s": "Hot pot", "m": "海", "bg": "#b8643f", "d": "Hot pot", "c": "Hot pot", "tbc": 1}]}]},
+ {"t": "People & Tech · AI", "gc": "var(--c-ai)", "no": "4", "gt": "var(--t-ai)", "subs": [{"t": "A. AI", "items": [{"k": "claude", "n": "Claude", "s": "AI assistant", "m": "AI", "bg": "#b8643f", "d": "The AI assistant I use every day for writing, web pages, research and planning.", "c": "AI assistant", "nr": 1}, {"k": "chatgpt", "n": "ChatGPT", "s": "AI assistant", "m": "GPT", "bg": "#3a7a6a", "d": "AI assistant", "c": "AI assistant", "tbc": 1}, {"k": "gemini", "n": "Gemini", "s": "AI assistant", "m": "G", "bg": "#2b5fb3", "d": "AI assistant", "c": "AI assistant", "tbc": 1}, {"k": "doubao", "n": "Doubao", "s": "AI assistant", "m": "豆", "bg": "#2f63c6", "d": "AI assistant", "c": "AI assistant", "tbc": 1}, {"k": "deepseek", "n": "DeepSeek", "s": "AI assistant", "m": "DS", "bg": "#2a4f9a", "d": "AI assistant", "c": "AI assistant", "tbc": 1}, {"k": "aiapp", "n": "AI in practice", "s": "Grace and friends", "m": "用", "bg": "#7a5ba8", "d": "Automated reports (Claudia, Sophia), Power BI dashboards, and building a one-person company with AI.", "c": "Grace and friends", "tbc": 1}, {"k": "byd", "n": "BYD", "s": "Electric cars", "m": "BYD", "bg": "#2f6f6a", "d": "The BYD I drive myself: quiet and easy.", "c": "Electric cars", "tbc": 1}, {"k": "meta", "n": "Meta smart glasses", "s": "Wearables", "m": "M", "bg": "#2b5fb3", "d": "Wearables", "c": "Wearables", "tbc": 1}, {"k": "samsung", "n": "Samsung phones", "s": "Phones", "m": "S", "bg": "#1f3b8a", "d": "Phones", "c": "Phones", "tbc": 1}, {"k": "huawei", "n": "Huawei", "s": "Telecoms and smart tech", "m": "华为", "bg": "#c7000b", "d": "Telecoms and smart tech", "c": "Telecoms and smart tech", "tbc": 1}, {"k": "apple", "n": "Apple", "s": "Tech", "m": "A", "bg": "#3a3a3a", "d": "Tech", "c": "Tech", "tbc": 1}]}, {"t": "B. Science", "items": [{"k": "usydfest", "n": "USYD Community Festival", "s": "University of Sydney", "m": "USYD", "bg": "#b0602f", "d": "University of Sydney", "c": "University of Sydney", "tbc": 1}, {"k": "karl", "n": "Dr Karl", "s": "Science communicator", "m": "K", "bg": "#2a5a8a", "d": "Science communicator", "c": "Science communicator", "tbc": 1}, {"k": "ufo", "n": "UFO exploration", "s": "Space mysteries", "m": "UFO", "bg": "#4a4f6a", "d": "Space mysteries", "c": "Space mysteries", "tbc": 1}, {"k": "translate", "n": "No more talking past each other", "s": "Real-time translation, together", "m": "译", "bg": "#1f63c6", "d": "Let’s work together on real-time translation: muting the original voice and hearing only the translation.", "c": "Real-time translation, together", "tbc": 1}]}, {"t": "C. Education", "items": [{"k": "hu", "n": "One-on-one tutor · Mr Hu", "s": "Tutoring", "m": "胡", "bg": "#6a4a8a", "d": "Tutoring", "c": "Tutoring"}, {"k": "sbhs", "n": "SBHS P&C", "s": "School P&C", "m": "P&C", "bg": "#556b2f", "d": "School P&C", "c": "School P&C", "tbc": 1}, {"k": "ishs", "n": "ISHS P&C", "s": "School P&C", "m": "P&C", "bg": "#2f6b55", "d": "School P&C", "c": "School P&C", "tbc": 1}, {"k": "cos", "n": "City of Sydney", "s": "Community programs", "m": "CoS", "bg": "#3a6f8a", "d": "Community programs", "c": "Community programs", "tbc": 1}, {"k": "usstudy", "n": "US study · one-on-one", "s": "Study planning", "m": "留", "bg": "#2b4f8a", "d": "Study planning", "c": "Study planning", "tbc": 1}, {"k": "usprof", "n": "US professors", "s": "Academic exchange", "m": "教", "bg": "#3d5a80", "d": "Academic exchange", "c": "Academic exchange", "tbc": 1}, {"k": "dragon", "n": "Smart Dragon", "s": "Tutoring", "m": "龙", "bg": "#a33a2e", "d": "Tutoring", "c": "Tutoring", "tbc": 1}, {"k": "supermind", "n": "Supermind", "s": "Tutoring", "m": "S", "bg": "#5a3a8a", "d": "Tutoring", "c": "Tutoring", "tbc": 1}, {"k": "steven", "n": "Steven", "s": "Teacher on Xiaohongshu", "m": "S", "bg": "#c0583a", "d": "Teacher on Xiaohongshu", "c": "Teacher on Xiaohongshu", "tbc": 1}, {"k": "helen", "n": "Helen", "s": "Tutoring", "m": "H", "bg": "#7a5a8a", "d": "Tutoring", "c": "Tutoring", "tbc": 1}]}]},
+ {"t": "People & Soul · Art", "gc": "var(--c-soul)", "no": "5", "gt": "var(--t-soul)", "subs": [{"t": "A. Art", "items": [{"k": "erica", "n": "Erica", "s": "Painting", "m": "画", "bg": "#8a5a9a", "d": "Painting", "c": "Painting", "tbc": 1}, {"k": "xiong", "n": "Ms Xiong", "s": "Artist", "m": "熊", "bg": "#7a4a8a", "d": "Artist", "c": "Artist", "tbc": 1}, {"k": "huangyu", "n": "Huang Yu", "s": "Art", "m": "黄", "bg": "#9a6a3a", "d": "Art", "c": "Art", "tbc": 1}, {"k": "yvonne", "n": "Broadcasting · Yvonne", "s": "Presenting", "m": "播", "bg": "#3a6a8a", "d": "Presenting", "c": "Presenting", "tbc": 1}, {"k": "michelle", "n": "Michelle", "s": "Art", "m": "M", "bg": "#8a4a6a", "d": "Art", "c": "Art", "tbc": 1}, {"k": "standup", "n": "Stand-up comedy", "s": "Comedy", "m": "笑", "bg": "#c0792f", "d": "Comedy", "c": "Comedy", "tbc": 1}, {"k": "liyi", "n": "Li Yi", "s": "Adventure", "m": "李", "bg": "#4a6b47", "d": "Adventure", "c": "Adventure", "tbc": 1}, {"k": "piano", "n": "Piano teacher · Uncle", "s": "Piano", "m": "琴", "bg": "#2a2f5a", "d": "Piano", "c": "Piano", "tbc": 1}]}, {"t": "B. Life stories", "items": [{"k": "chl", "n": "Chlorophyll f scientist", "s": "University of Sydney", "m": "叶", "bg": "#3f8a3a", "d": "Discovered chlorophyll f, the first new chlorophyll in over sixty years.", "c": "University of Sydney", "tbc": 1}, {"k": "qiu", "n": "Prof Qiu", "s": "Research", "m": "邱", "bg": "#1f3b57", "d": "Research", "c": "Research", "tbc": 1}, {"k": "diver", "n": "Diving runner-up", "s": "Diving", "m": "跳水", "bg": "#2e86ab", "d": "Diving", "c": "Diving", "tbc": 1}, {"k": "swim", "n": "Swimming champion", "s": "Swimming", "m": "泳", "bg": "#1f7f8f", "d": "Swimming", "c": "Swimming", "tbc": 1}]}, {"t": "C. In memory", "items": [{"k": "memorial", "n": "In memory", "s": "One person, one story", "m": "念", "bg": "#5d6b7a", "d": "Here the living and those who have passed are remembered. Names will appear once each family has agreed.", "c": "One person, one story", "tbc": 1}]}, {"t": "D. Everyone writes", "items": [{"k": "words", "n": "Yuanyao’s writing", "s": "Fiction and tributes", "m": "文", "bg": "#4f3478", "d": "Where I write fiction and the stories of people I know, and tributes to friends who have passed.", "c": "Fiction and tributes", "self": 1, "nr": 1}]}]}
 ];
 const P={};const host=document.getElementById('groups');
 
@@ -395,12 +347,14 @@ const RICH={
    btns:[["tel","Call","0407818788"],["map","Directions","Hurstville NSW 2220"]],
    contact:"Mobile 0407 818 788 · Hotline 1300 047 772 · grace@ipspartners.com.au"}
  ]},
- "People & Nature":{intro:"Step away from the screen and see the real world.<br>Let travel settle the mind and nature open the heart.",events:[
+ "People & Nature · Community":{intro:"Step away from the screen and see the real world.<br>Let travel settle the mind and nature open the heart.",events:[
+  {"m": "Oct", "d": "31", "y": "Sat", "chip": "Pilot · message Grace to join", "t": "USYD Community Festival + small-group yoga", "s": "10:00 USYD Community Festival · 1:30 Meet Yoga", "u": "https://wa.me/61410931872?text=Hi%20Grace%2C%20I%E2%80%99d%20like%20to%20join%20you%20on%20Saturday%2031%20October%20for%3A%20"},
+  {"m": "Nov", "d": "1", "y": "Sun", "chip": "Pilot · message Grace to join", "t": "Gym · ballet · herbal steam · fortune telling", "s": "7:00 Burwood gym (fascia release) · 1:00 Ballet · 2:30 Herbal steam · 3:30 Fortune Teller Jade", "u": "https://wa.me/61410931872?text=Hi%20Grace%2C%20I%E2%80%99d%20like%20to%20join%20you%20on%20Sunday%201%20November%20for%3A%20"},
   {m:"Jan",d:"12",y:"2027",chip:"Family · Registration open",t:"Shui Yun Jian family getaway",s:"Prawning, boating, whole roast lamb · 3 days, 2 nights",u:"https://graceleizhang.github.io/grace-events/shuiyunjian-en.html"},
   {m:"Apr",d:"",y:"2027",chip:"Family · In planning",t:"Across the Tropic of Cancer · Yunnan",s:"A family adventure from Shanghai to Yunnan · School holidays",u:"https://graceleizhang.github.io/grace-events/yunnan-april-en.html"},
   {m:"Oct",d:"7",y:"2026",chip:"Highlights",t:"Paintball battle",s:"Die Hard Indoor Paintball · Turrella",u:"https://graceleizhang.github.io/grace-events/paintball-en.html"}]},
- "People & AI":{intro:"AI, the universe, quantum space: endless, exciting possibilities."},
- "People & Soul · Life Stories":{intro:"Art to nourish the spirit; words to keep the stories."}
+ "People & Tech · AI":{intro:"AI, science and education: learning and using them together."},
+ "People & Soul · Art":{intro:"Art to nourish the spirit; words to keep the stories."}
 };
 function richCard(c,sec){const el=document.createElement('article');el.className='rich';
  let h='';
@@ -427,18 +381,16 @@ const J=t=>({k:'join-'+t,n:'Join us',s:'Become a partner',c:t+' · Businesses ·
 function grid(items){const g=document.createElement('div');g.className='logos';
  items.forEach(x=>{P[x.k]=x;const b=document.createElement('button');
   b.className='logo'+(x.tbc?' tbc':'')+(x.ghost?' ghost':'');b.id='p-'+x.k;b.dataset.k=x.k;
-  const badge=x.ghost?'':x.tbc?'<span class="badge soon">TBC</span>':(x.k==='claude'?'<span class="badge">Grace’s pick</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">Our own</span>':'<span class="badge">Founding partner</span>');
+  const badge=x.ghost?'':x.tbc?'<span class="badge soon">In progress</span>':x.self?'<span class="badge">Run by Grace</span>':(x.k==='claude'?'<span class="badge">Grace’s pick</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">Our own</span>':'<span class="badge">Founding partner</span>');
   b.innerHTML=`<span class="mark" style="${x.ghost?'':'background:'+x.bg}">${x.m}</span>${x.n}<small>${x.s}</small>${badge}`;
   g.appendChild(b)});return g}
 G.forEach(sec=>{const wrap=document.createElement('div');wrap.id='m'+sec.no;wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
  if(R.intro){const q=document.createElement('p');q.className='intro';q.innerHTML=R.intro;wrap.appendChild(q)}
  (R.cards||[]).forEach(c=>wrap.appendChild(richCard(c,sec)));
  if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">Events for this module are under “Upcoming events” ›</a>';wrap.appendChild(q)}
- if(sec.no==='4'||sec.no==='5'){const q=document.createElement('p');q.className='soonnote';q.textContent='In preparation · opening soon';wrap.insertBefore(q,h.nextSibling)}
- const host2=wrap;
- if(sec.sub_t){const p=document.createElement('p');p.className='subtitle';p.textContent=sec.sub_t;host2.appendChild(p)}
- host2.appendChild(grid(sec.items.concat(sec.sub?[]:[J(sec.t)])));
- if(sec.sub){const h4=document.createElement('h4');h4.className='sub';h4.textContent=sec.sub.t;host2.appendChild(h4);host2.appendChild(grid(sec.sub.items.concat([J(sec.t)])))}});
+ 
+ sec.subs.forEach((sb,i)=>{const h4=document.createElement('h4');h4.className='sub';h4.textContent=sb.t;wrap.appendChild(h4);wrap.appendChild(grid(sb.items.concat(i===sec.subs.length-1?[J(sec.t)]:[])))});
+});
 const veil=document.getElementById('veil');let last=null;
 host.addEventListener('click',e=>{const b=e.target.closest('.logo');if(!b)return;const p=P[b.dataset.k];last=b;
  const mk=document.getElementById('c-mark');mk.textContent=p.m;mk.style.background=p.ghost?'#7a5ba8':p.bg;
@@ -455,9 +407,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()
 
 
 document.getElementById('ev-list').appendChild(events(Object.values(RICH).flatMap(r=>r.events||[])));
-(function(){const g=document.getElementById('groups'),b=document.getElementById('tbc-toggle'),n=g.querySelectorAll('.logo.tbc').length;
- const set=open=>{g.classList.toggle('hide-tbc',!open);b.setAttribute('aria-expanded',open);b.textContent=open?'Hide partners in discussion':'Show partners in discussion ({n})'.replace('{n}',n)};
- set(false);b.addEventListener('click',()=>set(g.classList.contains('hide-tbc')))})();
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
  const done=()=>{m.hidden=false;m.textContent='Copied WeChat ID leigracezhang. Add Grace on WeChat.'},fb=()=>{m.hidden=false;m.textContent='WeChat ID: leigracezhang'};
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
