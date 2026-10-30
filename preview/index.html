@@ -163,6 +163,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .acts a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1.5px solid var(--jac);color:var(--jac-deep);text-decoration:none;font-weight:500;font-size:15.5px;background:var(--surface)}
 .acts a.pri{background:var(--jac-deep);border-color:var(--jac-deep);color:#fff}
 #events,#partners,#contact{scroll-margin-top:64px}
+.ev-past{font-size:12.5px;color:var(--muted,#888);letter-spacing:.1em;margin:14px 2px 6px}
 .tbc-toggle{appearance:none;display:block;margin:18px auto 0;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:10px 18px;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
 #groups.hide-tbc .logo.tbc{display:none}
 .soonnote{display:inline-block;margin:0 0 12px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:2px 12px}
@@ -178,11 +179,21 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .enq b{display:block;font-size:15px}.enq small{display:block;font-size:12.5px;color:var(--muted)}
 .enq .note{font-size:12.5px}
 .enq .copied{font-size:13px}
+/* Modules laid out 2 / 1 / 2, as in Grace's sketch */
+.tiers{grid-auto-flow:row;grid-template-columns:1fr 1fr;grid-auto-columns:auto;overflow:visible;margin:0 auto;padding:6px 0 10px;max-width:640px}
+.tiers .t3{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.tier{min-height:150px;padding:14px}.tier b{font-size:20px}
+@media (min-width:700px){.tiers{grid-template-columns:1fr 1fr}}
+.emb{display:flex;align-items:center;justify-content:center;gap:10px}
+.emb span{flex:1;max-width:110px;font-family:var(--display);font-size:15px;line-height:1.4;color:var(--jac-deep)}
+.emb span:first-child{text-align:right}.emb span:last-child{text-align:left}
+.emb svg{flex:none;max-width:46vw;height:auto}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">近期活动</a><a href="#partners">推荐商家</a><a href="#contact">咨询合作</a></span><span data-lang-slot></span></nav>
 <div class="wrap" id="top">
   <header>
+    <div class="emb"><span>亲自体验</span>
     <svg width="170" height="120" viewBox="0 0 170 120" aria-label="雅实标志：石头两侧各停着一只蝴蝶">
       <defs><linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4d9f2"/><stop offset=".5" stop-color="#a48cc8"/><stop offset="1" stop-color="#5a4282"/></linearGradient>
       <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9bec6"/><stop offset="1" stop-color="#7d838c"/></linearGradient></defs>
@@ -206,6 +217,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
         <path d="M0-11C-2-16-4-18-6-19M0-11C2-16 4-18 6-19" stroke="#5f656e" stroke-width="1" fill="none" stroke-linecap="round"/>
       </g></g>
     </svg>
+    <span>亲自带队</span></div>
     <h1>雅实<small>GRACE ROCK GROUP</small></h1>
     <p class="slogan">携手同行，共见美好</p>
     <p class="motto">Together, We Flourish.</p>
@@ -216,7 +228,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 
   <section id="events">
     <h2>近期活动</h2>
-    <p class="lede">和 Grace 一起去：亲子旅行、家庭聚会、团队活动。</p>
+    <p class="lede">和 Grace 一起去：亲子旅行、家庭聚会、团队活动。想一起去就私信 Grace，我带你去体验。</p>
     <div id="ev-list"></div>
   </section>
 
@@ -225,21 +237,19 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     <h2>以人为中心</h2>
     <p class="lede">每一家推荐，都是我亲身体验过的。</p>
     <div class="tiers">
-      <a class="tier t1" href="#m1"><span class="tb">1</span><b>健康</b><em>人与身体</em><span class="ts">运动 · 养生 · 美容</span><span class="go">查看 ›</span></a>
-      <a class="tier t2" href="#m2"><span class="tb">2</span><b>人与自然</b><em>Nature</em><span class="ts">生物 · 生态环境 · 旅行</span><span class="go">查看 ›</span></a>
-      <a class="tier t3" href="#m3"><span class="tb">3</span><b>人与人</b><em>Connection</em><span class="ts">演讲 · 沟通 · 理解 · 尊重</span><span class="go">查看 ›</span></a>
-      <a class="tier t4" href="#m4"><span class="tb">4</span><b>人与 AI</b><em>Tech</em><span class="ts">物理 · 计算机 · 工程</span><span class="go">查看 ›</span></a>
-      <a class="tier t5" href="#m5"><span class="tb">5</span><b>人与灵魂</b><em>人物志</em><span class="ts">人物志 · 艺术人文</span><span class="go">查看 ›</span></a>
+      <a class="tier t1" href="#m1"><span class="tb">1</span><b>健康</b><em>人与身体</em><span class="ts">健身 · 养生 · 美容</span><span class="go">查看 ›</span></a>
+      <a class="tier t2" href="#m2"><span class="tb">2</span><b>人与自然</b><em>公益</em><span class="ts">走进自然 · 行万里路 · 探险</span><span class="go">查看 ›</span></a>
+      <a class="tier t3" href="#m3"><span class="tb">3</span><b>人与人</b><em>Connection</em><span class="ts">财务 · 房产 · 社团 · 娱乐 · 饭店</span><span class="go">查看 ›</span></a>
+      <a class="tier t4" href="#m4"><span class="tb">4</span><b>人与科技</b><em>AI</em><span class="ts">AI · 科学 · 教育</span><span class="go">查看 ›</span></a>
+      <a class="tier t5" href="#m5"><span class="tb">5</span><b>人与 Soul</b><em>Art</em><span class="ts">艺术 · 人物志 · 纪念</span><span class="go">查看 ›</span></a>
     </div>
-    <p class="tier-hint">左右滑动，点卡片直达板块</p>
   </section>
 
   <section id="partners">
     <h2>推荐伙伴</h2>
     <p class="lede">点击图标查看详情。报暗号 <b>GraceRock</b> 享专属优惠。</p>
 
-    <div id="groups" class="hide-tbc"></div>
-    <button type="button" class="tbc-toggle" id="tbc-toggle" aria-controls="groups" aria-expanded="false"></button>
+    <div id="groups"></div>
 
     <div class="rules">
       <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。创业期加入的商家为“创始伙伴”，免费展示。</p>
@@ -258,19 +268,19 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
     我们愿做一棵摇动另一棵树的树，<br>
     一朵推动另一朵云的云：<br>
     倾听每个人的难处，<br>
-    尽我们所能，陪伴他寻找方向；<br>
+    尽我们所能，陪伴他/她寻找方向；<br>
     点亮心底真正的热爱，<br>
     让所长得以施展，让力量自由绽放。<br>
     路，终究由每个人自己走出来；<br>
     而我们，愿做同行的人。<br>
     愿每一个平凡的人，<br>
-    都成为夜空中那颗闪亮的星。</p>
+    都成为天空中那颗闪亮的星。</p>
   </section>
 
   <section id="contact">
     <h2>咨询与合作</h2>
     <div class="enq">
-      <p>活动报名、商家推荐、商家合作与推广、Power BI · AI 报告咨询，都可以直接联系 Grace Lei Zhang。</p>
+      <p>活动报名、商家推荐、商家合作与推广，都可以直接联系 Grace Lei Zhang。</p>
       <div class="row">
         <a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg><span><b>WhatsApp</b><small>0410 931 872</small></span></a>
         <a href="#" data-copy-grace="leigracezhang"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14c-3 0-5-2-5-4.5S5.2 5 8.5 5 14 7 14 9.5 11.8 14 8.5 14L6 15.5z"/><path d="M14.5 10c3 0 6.5 1.8 6.5 4.5 0 1.4-.8 2.5-2 3.2l.5 2.3-2.5-1.3c-.8.2-1.6.3-2.5.3-3 0-5-1.8-5-4"/></svg><span><b>微信</b><small>leigracezhang · 点击复制</small></span></a>
@@ -296,71 +306,14 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 </div>
 
 <script>
-const TBC="To be confirmed · 洽谈中";
+const TBC="正在进行中 · 即将上线";
 const T=(k,n,s,m,bg,d)=>({k,n,s,c:s,m,bg,d,tbc:1});
 const G=[
- {t:"健康 · 人与身体",gc:"var(--c-health)",no:"1",gt:"var(--t-health)",items:[
-  T("bone","正骨 · 针灸","理疗调理","正骨","#8a6a3c","我常去的正骨和针灸师傅，手法好。"),
-  T("physio","Physio 理疗","康复理疗","理疗","#3a8a7a","专业理疗，帮身体恢复平衡。"),
-  T("run","跑步","跑步社群","跑","#4f9a4a","一起跑起来，越跑越健康。"),
-  T("bush","Bushwalking","徒步社群","徒步","#4a6b47","一起走进山野，认识新朋友。"),
-  T("wushu","武术","强身健体","武","#9b3b2b","传统武术，强身健体，也磨炼心性。"),
-  T("pp","乒乓球冠军","乒乓球教学","乒","#c0392b","冠军级的乒乓球教练。"),
-  T("dive","跳水亚军","跳水教学","跳水","#2e86ab","亚军级的跳水教练。"),
-  T("hair","美发","形象设计","发","#b0577a","手艺好的发型师，让每个人更有精神。")
- ]},
- {t:"人与自然",gc:"var(--c-nature)",no:"2",gt:"var(--t-nature)",items:[
-  T("chl","悉尼大学科学家","发现叶绿素 f","叶","#3f8a3a","发现叶绿素 f，六十多年来首个新型叶绿素。"),
-  T("bio","生物 · 生态环境","Biology","生态","#2f8a6a","认识身边的生物和生态环境，学会与自然相处。"),
-  T("shuiyun","水云间","Sussex Inlet 度假","水云","#2f78c4","老傅的水云间，捞虾、划船、烤全羊。老傅也是登上央视春晚的民间企业家。"),
-  T("bn","西双版纳旅行社","云南亲子游","版纳","#3f7a52","我的老同学在西双版纳开的旅行社，带我们体验泼水节和雨林。"),
-  T("mojiang","墨江文旅","云南墨江","墨江","#6a5a3a","北回归线上的墨江，文化交流基地。"),
-  T("scuba","潜水","水下探索","潜","#1f7f8f","走进大堡礁的水下世界。"),
-  T("sky","跳伞","高空体验","伞","#4a8ac4","一生一次的高空自由落体。"),
-  T("heli","直升机","空中观光","直升","#3a6fa0","乘直升机俯瞰海岸线。"),
-  T("fly","飞行学校","Bankstown","飞","#1f5f9a","在 Bankstown 机场学开飞机，从空中看悉尼。"),
-  T("winery","凯恩斯山顶酒庄","酒庄体验","酒","#7a3b5a","凯恩斯山顶的酒庄，品酒看风景。"),
-  T("trip","携程 Trip.com","机票 · 酒店","Trip","#2b5fb3","出行订票订酒店。"),
-  T("tourism","澳洲旅游局","澳洲旅行","AU","#b0752f","探索澳洲的自然与人文。")
- ]},
- {t:"人与人 · Connection",gc:"var(--jac-deep)",no:"3",gt:"var(--mist)",items:[
-  T("speech","演讲与口才","表达 · 沟通","讲","#6a3d8a","学会表达，学会倾听，让沟通带来理解与尊重。"),
-  T("lawyer","律师","法律服务","律","#3b4a6b","专业可靠的华人律师。"),
-  T("conv","房产过户师","Conveyancing","过户","#5a6b4a","买房卖房的过户手续，交给懂行的人。"),
-  T("agent","房产中介","买房卖房","房","#7a5a3a","熟悉悉尼市场的房产中介。"),
-  T("stock","股票投资","投资理财","股","#3a6a6a","有经验的投资人，分享投资心得。"),
-  T("cruise","游艇包船 Cruise","聚会 · 团建","游艇","#2c6f8f","生日派对、朋友聚会、公司团建，在悉尼港上把人聚在一起。"),
-  T("hrfws","华人服务社","社区服务","华人","#9a4a4a","服务悉尼华人社区，连接资源与人。"),
-  T("mensa","Mensa NSW / China","高智商社群","M","#3d5a80","高智商社群的家庭交流与活动。"),
-  T("school","学校家委会","SBHS · ISHS P&C","P&C","#556b2f","学校家长会的交流与合作。")
- ],sub:{t:"教育",items:[
-  T("zhong","教育家钟女士","教育","钟","#6a4a8a","深耕教育多年的教育家。"),
-  T("jiuzhang","九章数学","数学","九章","#2f4d8a","数学思维培养。"),
-  T("luke","Luke 老师","课程辅导","L","#3a6f8a","课程辅导。"),
-  T("ting","Ting","课程辅导","T","#7a5a8a","课程辅导。"),
-  T("steven","Steven","网红老师","S","#c0583a","人气网红老师。"),
-  T("zebra","Zebra Learning","课程辅导","Z","#333d4a","课程辅导。"),
-  T("dragon","Smart Dragon","课程辅导","龙","#a33a2e","我家孩子上过的辅导课程。")
- ]}},
- {t:"人与 AI",gc:"var(--c-ai)",no:"4",gt:"var(--t-ai)",items:[
-  {k:"claude",n:"Claude",s:"AI 助手",c:"AI 助手 · Anthropic",m:"AI",bg:"#b8643f",d:"我每天在用的 AI 助手：写文案、做网页、整理资料、排日程，帮我把一个人当成一个团队用。",o:"推荐链接待更新",i:[["网址","claude.ai"]],nr:1},
-  {k:"gai",n:"Power BI · AI 报告咨询",s:"Grace 私人咨询",c:"Power BI · AI 报告 · Sydney",m:"BI",bg:"#7a5ba8",d:"帮小企业用 Power BI 和 AI 自动生成报告，把账目数据变成一目了然的图表，省下重复劳动的时间。",o:"咨询详情待定",i:[["联系人","Grace（私人咨询）"]],nr:1},
-  T("claudia","Power BI · AI 报告","Claudia","C","#5a6fb0","Power BI 与 AI 报告咨询。"),
-  T("xhs","Power BI · AI 报告","小红书博主","红","#d6334b","小红书上分享 Power BI 与 AI 报告技巧的博主。"),
-  T("uts","UTS 科技研究","Prof Qiu","UTS","#1f3b57","实时翻译、定向声音等前沿研究的参观与交流。"),
-  T("huawei","Huawei 华为","科技","华为","#c7000b","通信与智能科技。"),
-  T("iflytek","讯飞科技","智能语音","讯飞","#1f63c6","智能语音与实时翻译技术。"),
-  T("quantum","量子 · 黑洞","物理探索","量子","#2a2f5a","量子纠缠、黑洞，探索宇宙最深的奥秘。"),
-  T("ufo","飞碟探索","宇宙探索","UFO","#4a4f6a","仰望星空，探索宇宙的未解之谜。"),
-  T("tesla","Tesla","智能出行","T","#3a3a3a","智能电动车与未来出行。"),
-  T("byd","BYD 比亚迪","电动车","BYD","#2f6f6a","我自己开的比亚迪，安静省心。")
- ]},
- {t:"人与灵魂 · 人物志",gc:"var(--c-soul)",no:"5",gt:"var(--t-soul)",sub_t:"一个人，一个故事。生者与逝者，都在这里被记住。",items:[
-  {k:"words",n:"渊瑶的文字",s:"小说 · 悼念",c:"小说 · 悼念 · 人物志",m:"文",bg:"#4f3478",d:"我在这里写小说，记录一个个人物的故事，也写给离开的好朋友的悼念文章。",o:"即将开放阅读",nr:1},
-  T("artist","艺术家夫妇","熊老师 · 纪念先生","艺","#8a5a9a","健在的艺术家熊老师，和她已故的先生。两代艺术人生，一段相守的故事。"),
-  T("tcm","中医教授夫妇","林教授纪念基金 · 李老师","医","#5b7a3c","已故的中医林教授和他的纪念基金；夫人李老师曾参与水利工作和南水北调工程。"),
-  T("will","在线遗嘱服务","立遗嘱","遗嘱","#5d6b7a","简单、实惠的线上立遗嘱服务，为家人安排好未来。")
- ]}
+ {"t": "健康 · 人与身体", "gc": "var(--c-health)", "no": "1", "gt": "var(--t-health)", "subs": [{"t": "A. 健身 · 锻炼", "items": [{"k": "ballet", "n": "芭蕾舞", "s": "东方歌舞团老师", "m": "芭", "bg": "#b0577a", "d": "东方歌舞团的老师教芭蕾，学得好有机会上春晚舞台。", "c": "东方歌舞团老师", "tbc": 1}, {"k": "adapt", "n": "Adapt a Sport", "s": "中澳技击协会 · 每年十月 21 天", "m": "技", "bg": "#9b3b2b", "d": "每年十月 21 天，跟中澳技击协会尝试一项新运动。", "c": "中澳技击协会 · 每年十月 21 天", "tbc": 1}, {"k": "wushu", "n": "武术", "s": "强身健体", "m": "武", "bg": "#9b3b2b", "d": "强身健体", "c": "强身健体", "tbc": 1}, {"k": "tkd", "n": "跆拳道", "s": "少儿 · 成人", "m": "跆", "bg": "#2f5f9a", "d": "少儿 · 成人", "c": "少儿 · 成人", "tbc": 1}, {"k": "zumba", "n": "Zumba", "s": "舞蹈健身", "m": "Z", "bg": "#c0583a", "d": "舞蹈健身", "c": "舞蹈健身", "tbc": 1}, {"k": "shoot", "n": "射击", "s": "Shooting", "m": "射", "bg": "#4a5a3a", "d": "Shooting", "c": "Shooting", "tbc": 1}, {"k": "rugby", "n": "橄榄球", "s": "Rugby", "m": "橄", "bg": "#6a4a2a", "d": "Rugby", "c": "Rugby", "tbc": 1}, {"k": "soccer", "n": "足球", "s": "Soccer", "m": "足", "bg": "#2f8a4a", "d": "Soccer", "c": "Soccer", "tbc": 1}, {"k": "cricket", "n": "板球", "s": "Cricket", "m": "板", "bg": "#3a7a5a", "d": "Cricket", "c": "Cricket", "tbc": 1}, {"k": "run", "n": "跑步", "s": "跑步社群", "m": "跑", "bg": "#4f9a4a", "d": "跑步社群", "c": "跑步社群", "tbc": 1}, {"k": "decath", "n": "Decathlon 迪卡侬", "s": "运动用品", "m": "D", "bg": "#2b5fb3", "d": "运动用品", "c": "运动用品", "tbc": 1}]}, {"t": "B. 养生", "items": [{"k": "bone", "n": "正骨", "s": "Cabramatta", "m": "正骨", "bg": "#8a6a3c", "d": "Cabramatta", "c": "Cabramatta", "tbc": 1}, {"k": "thai", "n": "泰式按摩", "s": "放松调理", "m": "泰", "bg": "#a8854a", "d": "放松调理", "c": "放松调理", "tbc": 1}]}, {"t": "C. 美容 · 美发", "items": [{"k": "hair", "n": "发店 · 董姐", "s": "美发", "m": "发", "bg": "#b0577a", "d": "美发", "c": "美发", "tbc": 1}, {"k": "makeup", "n": "个人化妆", "s": "华人 · 西人化妆师", "m": "妆", "bg": "#c0587a", "d": "华人 · 西人化妆师", "c": "华人 · 西人化妆师", "tbc": 1}]}]},
+ {"t": "人与自然 · 公益", "gc": "var(--c-nature)", "no": "2", "gt": "var(--t-nature)", "subs": [{"t": "A. 走进自然", "items": [{"k": "bush", "n": "Bushwalking", "s": "老蔡带队徒步", "m": "徒步", "bg": "#4a6b47", "d": "老蔡带队徒步", "c": "老蔡带队徒步", "tbc": 1}, {"k": "bushcare", "n": "Bush care", "s": "一起学认植物", "m": "植", "bg": "#3f8a3a", "d": "一起学认植物", "c": "一起学认植物", "tbc": 1}]}, {"t": "B. 行万里路 · 自营", "items": [{"k": "shuiyun", "n": "水云间", "s": "Sussex Inlet · 老付", "m": "水云", "bg": "#2f78c4", "d": "老傅的水云间，捞虾、划船、烤全羊。", "c": "Sussex Inlet · 老付", "self": 1, "nr": 1, "o": "<a href=\"../shuiyunjian.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "yunnan", "n": "云南四月", "s": "上海出发 · 2027 年 4 月", "m": "云南", "bg": "#3f7a52", "d": "从上海到云南的亲子探索之旅。", "c": "上海出发 · 2027 年 4 月", "self": 1, "nr": 1, "o": "<a href=\"../yunnan-april.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "uluru", "n": "Uluru 乌鲁鲁", "s": "2027 年 7 月", "m": "U", "bg": "#b0602f", "d": "2027 年 7 月，去澳洲红色中心。", "c": "2027 年 7 月", "tbc": 1, "self": 1, "nr": 1}, {"k": "usa", "n": "美国科技之旅", "s": "2027 年 9 月底至 10 月初", "m": "US", "bg": "#2b4f8a", "d": "Tesla、Google、MIT、Apple。", "c": "2027 年 9 月底至 10 月初", "tbc": 1, "self": 1, "nr": 1}, {"k": "snow", "n": "冰雪中国", "s": "2027 年 12 月中至 2028 年 1 月", "m": "雪", "bg": "#5a7fb0", "d": "哈尔滨冰城雪乡，北京、天津，再到昆明元谋土林。", "c": "2027 年 12 月中至 2028 年 1 月", "tbc": 1, "self": 1, "nr": 1}]}, {"t": "C. 探险", "items": [{"k": "fly", "n": "开小飞机", "s": "Grace 亲身体验过", "m": "飞", "bg": "#1f5f9a", "d": "Grace 亲身体验过", "c": "Grace 亲身体验过", "nr": 1}, {"k": "dive", "n": "深潜", "s": "Cairns · Grace 亲身体验过", "m": "潜", "bg": "#1f7f8f", "d": "Cairns · Grace 亲身体验过", "c": "Cairns · Grace 亲身体验过", "nr": 1}, {"k": "snorkel", "n": "浮潜", "s": "水下探索", "m": "浮潜", "bg": "#2e86ab", "d": "水下探索", "c": "水下探索", "tbc": 1}, {"k": "balloon", "n": "热气球", "s": "空中看日出", "m": "球", "bg": "#c0792f", "d": "空中看日出", "c": "空中看日出", "tbc": 1}, {"k": "para", "n": "滑翔伞", "s": "高空飞翔", "m": "伞", "bg": "#4a8ac4", "d": "高空飞翔", "c": "高空飞翔", "tbc": 1}, {"k": "boat", "n": "开船", "s": "学驾船出海", "m": "船", "bg": "#2c6f8f", "d": "学驾船出海", "c": "学驾船出海", "tbc": 1}, {"k": "tourism", "n": "澳洲旅游局", "s": "澳洲旅行", "m": "AU", "bg": "#b0752f", "d": "澳洲旅行", "c": "澳洲旅行", "tbc": 1}, {"k": "mojiang", "n": "墨江文旅", "s": "云南墨江", "m": "墨江", "bg": "#6a5a3a", "d": "云南墨江", "c": "云南墨江", "tbc": 1}, {"k": "zhangling", "n": "张玲旅行社", "s": "旅行社", "m": "旅", "bg": "#3f7a52", "d": "旅行社", "c": "旅行社", "tbc": 1}, {"k": "kmcharity", "n": "昆明公益团", "s": "公益旅行", "m": "昆", "bg": "#4a7a5a", "d": "公益旅行", "c": "公益旅行", "tbc": 1}, {"k": "tianjin", "n": "天津地接", "s": "当地接待", "m": "津", "bg": "#5a6a8a", "d": "当地接待", "c": "当地接待", "tbc": 1}, {"k": "linda", "n": "Linda", "s": "旅行", "m": "L", "bg": "#6a4a8a", "d": "旅行", "c": "旅行", "tbc": 1}]}]},
+ {"t": "人与人 · Connection", "gc": "var(--jac-deep)", "no": "3", "gt": "var(--mist)", "subs": [{"t": "A. 财务", "items": [{"k": "ipa", "n": "IPA 协会", "s": "会计师协会", "m": "IPA", "bg": "#3b4a6b", "d": "会计师协会", "c": "会计师协会", "tbc": 1}, {"k": "cba", "n": "银行贷款 · CBA", "s": "贷款咨询", "m": "CBA", "bg": "#c9962b", "d": "贷款咨询", "c": "贷款咨询", "tbc": 1}, {"k": "stg", "n": "银行贷款 · St George", "s": "贷款咨询", "m": "SG", "bg": "#c0392b", "d": "贷款咨询", "c": "贷款咨询", "tbc": 1}, {"k": "jlin", "n": "会计 · Jason Lin", "s": "会计服务", "m": "会", "bg": "#3a6a6a", "d": "会计服务", "c": "会计服务", "tbc": 1}]}, {"t": "B. 房产 · 家居服务", "items": [{"k": "nell", "n": "Nell", "s": "N W Real Estate", "m": "N", "bg": "#7a5a3a", "d": "房产中介。", "c": "N W Real Estate", "o": "<a href=\"partners/nell.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "amanda", "n": "Amanda", "s": "房产", "m": "A", "bg": "#8a6a4a", "d": "房产服务。", "c": "房产"}, {"k": "conv", "n": "过户师", "s": "Alice Yang · Auburn", "m": "过户", "bg": "#5a6b4a", "d": "Alice Yang · Auburn", "c": "Alice Yang · Auburn", "tbc": 1}, {"k": "styling", "n": "房屋 Styling", "s": "卖房前布置", "m": "布", "bg": "#8a5a7a", "d": "卖房前布置", "c": "卖房前布置", "tbc": 1}, {"k": "tailor", "n": "裁缝 Tailor", "s": "Hurstville · City", "m": "裁", "bg": "#5a4a6a", "d": "Hurstville · City", "c": "Hurstville · City", "tbc": 1}, {"k": "handy", "n": "Handyman", "s": "家居维修", "m": "修", "bg": "#6a5a3a", "d": "家居维修", "c": "家居维修", "tbc": 1}, {"k": "organise", "n": "收纳师", "s": "整理收纳", "m": "纳", "bg": "#7a6a8a", "d": "整理收纳", "c": "整理收纳", "tbc": 1}, {"k": "move", "n": "搬家公司", "s": "搬家", "m": "搬", "bg": "#4a5a7a", "d": "搬家", "c": "搬家", "tbc": 1}, {"k": "pet", "n": "宠物美容", "s": "Pet groomer", "m": "宠", "bg": "#b0752f", "d": "Pet groomer", "c": "Pet groomer", "tbc": 1}, {"k": "daigou", "n": "代购", "s": "周家华", "m": "购", "bg": "#a33a2e", "d": "周家华", "c": "周家华", "tbc": 1}]}, {"t": "C. 社会组织 · 社团", "items": [{"k": "mensa", "n": "Mensa", "s": "高智商社群", "m": "M", "bg": "#3d5a80", "d": "高智商社群", "c": "高智商社群", "tbc": 1}, {"k": "women", "n": "中小妇女协会", "s": "妇女协会", "m": "妇", "bg": "#9a4a6a", "d": "妇女协会", "c": "妇女协会", "tbc": 1}, {"k": "twins", "n": "墨江双胞胎协会", "s": "墨江文旅", "m": "双", "bg": "#6a5a3a", "d": "墨江文旅", "c": "墨江文旅", "tbc": 1}, {"k": "lfusyd", "n": "Leading Finance · USYD", "s": "悉尼大学", "m": "LF", "bg": "#b0602f", "d": "悉尼大学", "c": "悉尼大学", "tbc": 1}, {"k": "hrfws", "n": "华人服务社", "s": "社区服务", "m": "华人", "bg": "#9a4a4a", "d": "社区服务", "c": "社区服务", "tbc": 1}, {"k": "nankai", "n": "南开校友会", "s": "校友会", "m": "南开", "bg": "#6a3d8a", "d": "校友会", "c": "校友会", "tbc": 1}, {"k": "yunnanhx", "n": "云南同乡会", "s": "同乡会", "m": "滇", "bg": "#3f7a52", "d": "同乡会", "c": "同乡会", "tbc": 1}, {"k": "martial", "n": "中澳技击协会", "s": "武术协会", "m": "技", "bg": "#9b3b2b", "d": "武术协会", "c": "武术协会", "tbc": 1}]}, {"t": "D. 社区信息", "items": [{"k": "jobs", "n": "找工作", "s": "求职 · 招聘信息", "m": "工", "bg": "#4f3478", "d": "求职 · 招聘信息", "c": "求职 · 招聘信息", "tbc": 1}, {"k": "rent", "n": "找房子", "s": "求租 · 出租", "m": "租", "bg": "#7a5ba8", "d": "求租 · 出租", "c": "求租 · 出租", "tbc": 1}]}, {"t": "E. 娱乐", "items": [{"k": "ksong", "n": "全民 K 歌", "s": "绽放", "m": "K", "bg": "#c0392b", "d": "绽放", "c": "绽放", "tbc": 1}, {"k": "photo", "n": "摄影", "s": "人像 · 活动", "m": "摄", "bg": "#3a3a3a", "d": "人像 · 活动", "c": "人像 · 活动", "tbc": 1}, {"k": "star", "n": "The Star", "s": "娱乐", "m": "★", "bg": "#2a2f5a", "d": "娱乐", "c": "娱乐", "tbc": 1}, {"k": "crystal", "n": "水晶 · Crystal", "s": "水晶饰品", "m": "晶", "bg": "#7a5ba8", "d": "水晶饰品", "c": "水晶饰品", "tbc": 1}]}, {"t": "F. 生活", "items": [{"k": "ikea", "n": "IKEA", "s": "家居", "m": "I", "bg": "#2b5fb3", "d": "家居", "c": "家居", "tbc": 1}, {"k": "outlet", "n": "折扣仓库店", "s": "折扣购物", "m": "折", "bg": "#a8854a", "d": "折扣购物", "c": "折扣购物", "tbc": 1}, {"k": "anita", "n": "Anita", "s": "生活服务", "m": "A", "bg": "#8a5a9a", "d": "生活服务", "c": "生活服务", "tbc": 1}]}, {"t": "G. 饭店", "items": [{"k": "kbutcher", "n": "Korea Butcher’s", "s": "韩式自助", "m": "韩", "bg": "#9b3b2b", "d": "韩式自助", "c": "韩式自助", "tbc": 1}, {"k": "jpbuffet", "n": "日式自助", "s": "Japanese buffet", "m": "日", "bg": "#c0392b", "d": "Japanese buffet", "c": "Japanese buffet", "tbc": 1}, {"k": "haidilao", "n": "海底捞", "s": "火锅", "m": "海", "bg": "#b8643f", "d": "火锅", "c": "火锅", "tbc": 1}]}]},
+ {"t": "人与科技 · AI", "gc": "var(--c-ai)", "no": "4", "gt": "var(--t-ai)", "subs": [{"t": "A. AI", "items": [{"k": "claude", "n": "Claude", "s": "AI 助手", "m": "AI", "bg": "#b8643f", "d": "我每天在用的 AI 助手：写文案、做网页、整理资料、排日程。", "c": "AI 助手", "nr": 1}, {"k": "chatgpt", "n": "ChatGPT", "s": "AI 助手", "m": "GPT", "bg": "#3a7a6a", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "gemini", "n": "Gemini", "s": "AI 助手", "m": "G", "bg": "#2b5fb3", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "doubao", "n": "豆包", "s": "AI 助手", "m": "豆", "bg": "#2f63c6", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "deepseek", "n": "DeepSeek", "s": "AI 助手", "m": "DS", "bg": "#2a4f9a", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "aiapp", "n": "AI 与应用", "s": "Grace 与朋友", "m": "用", "bg": "#7a5ba8", "d": "自动报告（Claudia、Sophia）、Power BI Dashboard、用 AI 创一人公司。", "c": "Grace 与朋友", "tbc": 1}, {"k": "byd", "n": "BYD 比亚迪", "s": "电动车", "m": "BYD", "bg": "#2f6f6a", "d": "我自己开的比亚迪，安静省心。", "c": "电动车", "tbc": 1}, {"k": "meta", "n": "Meta 智能眼镜", "s": "智能穿戴", "m": "M", "bg": "#2b5fb3", "d": "智能穿戴", "c": "智能穿戴", "tbc": 1}, {"k": "samsung", "n": "三星手机", "s": "手机", "m": "S", "bg": "#1f3b8a", "d": "手机", "c": "手机", "tbc": 1}, {"k": "huawei", "n": "华为", "s": "通信与智能科技", "m": "华为", "bg": "#c7000b", "d": "通信与智能科技", "c": "通信与智能科技", "tbc": 1}, {"k": "apple", "n": "Apple", "s": "科技", "m": "A", "bg": "#3a3a3a", "d": "科技", "c": "科技", "tbc": 1}]}, {"t": "B. 科学", "items": [{"k": "usydfest", "n": "USYD Community Festival", "s": "悉尼大学社区节", "m": "USYD", "bg": "#b0602f", "d": "悉尼大学社区节", "c": "悉尼大学社区节", "tbc": 1}, {"k": "karl", "n": "Dr Karl", "s": "科普", "m": "K", "bg": "#2a5a8a", "d": "科普", "c": "科普", "tbc": 1}, {"k": "ufo", "n": "UFO 飞碟探索", "s": "宇宙探索", "m": "UFO", "bg": "#4a4f6a", "d": "宇宙探索", "c": "宇宙探索", "tbc": 1}, {"k": "translate", "n": "攻克“鸡同鸭讲”", "s": "一起讨论实时翻译技术", "m": "译", "bg": "#1f63c6", "d": "号召大家群策群力，讨论实时翻译：屏蔽原声、“传音入密”。", "c": "一起讨论实时翻译技术", "tbc": 1}]}, {"t": "C. 教育", "items": [{"k": "hu", "n": "TJ Academy · 胡老师", "s": "写作 · OC · 精英中学", "m": "TJ", "bg": "#1f3b6e", "d": "2014 年成立，专注个性化辅导：写作、OC 和精英中学考试备考。一对一和小组课，线上线下结合，Chatswood。", "c": "教育辅导 · Chatswood", "o": "微信 TJAcademy · <a href=\"partners/tj-academy.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>", "nr": 1}, {"k": "sbhs", "n": "SBHS P&C", "s": "学校家委会", "m": "P&C", "bg": "#556b2f", "d": "学校家委会", "c": "学校家委会", "tbc": 1}, {"k": "ishs", "n": "ISHS P&C", "s": "学校家委会", "m": "P&C", "bg": "#2f6b55", "d": "学校家委会", "c": "学校家委会", "tbc": 1}, {"k": "cos", "n": "City of Sydney", "s": "社区活动", "m": "CoS", "bg": "#3a6f8a", "d": "社区活动", "c": "社区活动", "tbc": 1}, {"k": "usstudy", "n": "美国留学 · 一对一", "s": "留学规划", "m": "留", "bg": "#2b4f8a", "d": "留学规划", "c": "留学规划", "tbc": 1}, {"k": "usprof", "n": "美国教授", "s": "学术交流", "m": "教", "bg": "#3d5a80", "d": "学术交流", "c": "学术交流", "tbc": 1}, {"k": "dragon", "n": "Smart Dragon", "s": "课程辅导", "m": "龙", "bg": "#a33a2e", "d": "课程辅导", "c": "课程辅导", "tbc": 1}, {"k": "supermind", "n": "Supermind", "s": "课程辅导", "m": "S", "bg": "#5a3a8a", "d": "课程辅导", "c": "课程辅导", "tbc": 1}, {"k": "steven", "n": "Steven", "s": "小红书老师", "m": "S", "bg": "#c0583a", "d": "小红书老师", "c": "小红书老师", "tbc": 1}, {"k": "helen", "n": "Helen", "s": "课程辅导", "m": "H", "bg": "#7a5a8a", "d": "课程辅导", "c": "课程辅导", "tbc": 1}]}]},
+ {"t": "人与 Soul · Art", "gc": "var(--c-soul)", "no": "5", "gt": "var(--t-soul)", "subs": [{"t": "A. 艺术", "items": [{"k": "erica", "n": "Erica", "s": "绘画", "m": "画", "bg": "#8a5a9a", "d": "绘画", "c": "绘画", "tbc": 1}, {"k": "xiong", "n": "熊老师", "s": "艺术家", "m": "熊", "bg": "#7a4a8a", "d": "艺术家", "c": "艺术家", "tbc": 1}, {"k": "huangyu", "n": "黄瑜", "s": "艺术", "m": "黄", "bg": "#9a6a3a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "yvonne", "n": "播音 · Yvonne", "s": "播音主持", "m": "播", "bg": "#3a6a8a", "d": "播音主持", "c": "播音主持", "tbc": 1}, {"k": "michelle", "n": "Michelle", "s": "艺术", "m": "M", "bg": "#8a4a6a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "standup", "n": "脱口秀", "s": "喜剧", "m": "笑", "bg": "#c0792f", "d": "喜剧", "c": "喜剧", "tbc": 1}, {"k": "liyi", "n": "李忆", "s": "探险", "m": "李", "bg": "#4a6b47", "d": "探险", "c": "探险", "tbc": 1}, {"k": "piano", "n": "钢琴老师 · Uncle", "s": "钢琴", "m": "琴", "bg": "#2a2f5a", "d": "钢琴", "c": "钢琴", "tbc": 1}]}, {"t": "B. 人物志", "items": [{"k": "chl", "n": "叶绿素 f 科学家", "s": "悉尼大学", "m": "叶", "bg": "#3f8a3a", "d": "发现叶绿素 f，六十多年来首个新型叶绿素。", "c": "悉尼大学", "tbc": 1}, {"k": "qiu", "n": "邱教授", "s": "科技研究", "m": "邱", "bg": "#1f3b57", "d": "科技研究", "c": "科技研究", "tbc": 1}, {"k": "diver", "n": "跳水亚军", "s": "跳水", "m": "跳水", "bg": "#2e86ab", "d": "跳水", "c": "跳水", "tbc": 1}, {"k": "swim", "n": "游泳冠军", "s": "游泳", "m": "泳", "bg": "#1f7f8f", "d": "游泳", "c": "游泳", "tbc": 1}]}, {"t": "C. 纪念", "items": [{"k": "memorial", "n": "纪念", "s": "一个人，一个故事", "m": "念", "bg": "#5d6b7a", "d": "生者与逝者，都在这里被记住。名单正在逐家确认，确认后再公布。", "c": "一个人，一个故事", "tbc": 1}]}, {"t": "D. 全民写小说", "items": [{"k": "words", "n": "渊瑶的文字", "s": "小说 · 悼念", "m": "文", "bg": "#4f3478", "d": "我在这里写小说，记录一个个人物的故事，也写给离开的好朋友的悼念文章。", "c": "小说 · 悼念", "self": 1, "nr": 1}]}]}
 ];
 const P={};const host=document.getElementById('groups');
 
@@ -393,12 +346,20 @@ const RICH={
    btns:[["tel","电话","0407818788"],["map","地址导航","Hurstville NSW 2220"]],
    contact:"手机 0407 818 788 · 热线 1300 047 772 · grace@ipspartners.com.au"}
  ]},
- "人与自然":{intro:"走出屏幕，去真实的世界里看看。<br>以旅行沉淀心灵，以自然开阔胸怀。",events:[
-  {m:"一月",d:"12",y:"2027",chip:"亲子 · 报名中",t:"水云间家庭体验之旅",s:"捞虾、划船、烤全羊 · 三天两晚",u:"https://graceleizhang.github.io/grace-events/shuiyunjian.html"},
-  {m:"四月",d:"春",y:"2027",chip:"亲子 · 筹备中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://graceleizhang.github.io/grace-events/yunnan-april.html"},
-  {m:"十月",d:"7",y:"2026",chip:"精彩回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://graceleizhang.github.io/grace-events/"}]},
- "人与 AI":{intro:"AI、宇宙、量子空间：无限可能，激动人心。"},
- "人与灵魂 · 人物志":{intro:"以艺术陶冶情操，以文字留住故事。"}
+ "人与自然 · 公益":{intro:"走出屏幕，去真实的世界里看看。<br>以旅行沉淀心灵，以自然开阔胸怀。",events:[
+  {"m": "十月", "d": "31", "y": "周六", "chip": "试点 · 私信 Grace 一起去", "t": "USYD 社区节 + 小班瑜伽", "s": "10:00 USYD Community Festival · 1:30 Meet Yoga 小班瑜伽", "u": "https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E6%83%B3%2010%20%E6%9C%88%2031%20%E6%97%A5%EF%BC%88%E5%91%A8%E5%85%AD%EF%BC%89%E8%B7%9F%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%8E%BB%EF%BC%9A", "ts": "2026-10-31"},
+  {"m": "十一月", "d": "1", "y": "周日", "chip": "试点 · 私信 Grace 一起去", "t": "健身 · 芭蕾 · 熏蒸 · 占卜", "s": "7:00 Burwood 健身（筋膜刀）· 1:00 芭蕾舞 · 2:30 熏蒸 · 3:30 Fortune Teller Jade", "u": "https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E6%83%B3%2011%20%E6%9C%88%201%20%E6%97%A5%EF%BC%88%E5%91%A8%E6%97%A5%EF%BC%89%E8%B7%9F%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%8E%BB%EF%BC%9A", "ts": "2026-11-01"},
+  {m:"一月",d:"12",y:"2027",chip:"亲子 · 报名中",t:"水云间家庭体验之旅",s:"捞虾、划船、烤全羊 · 三天两晚",u:"https://graceleizhang.github.io/grace-events/shuiyunjian.html",ts:"2027-01-12"},
+  {m:"四月",d:"春",y:"2027",chip:"亲子 · 筹备中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://graceleizhang.github.io/grace-events/yunnan-april.html",ts:"2027-04-01"},
+  {m:"十月",d:"7",y:"2026",chip:"精彩回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://graceleizhang.github.io/grace-events/",ts:"2026-10-07"}]},
+ "人与科技 · AI":{intro:"AI、科学和教育：一起学，一起用，激动人心。",cards:[
+  {logo:"assets/tj-academy-logo.png",tag:"Grace 孩子的私教老师 · 教育",n:"TJ Academy",sub:"胡老师 · 写作 · OC · 精英中学 · Chatswood",
+   say:"孩子大约 2020 年开始跟胡老师学。上课很灵活，60 分钟对孩子太长，就改成 45 分钟，收费也相应降低。",
+   li:["2014 年成立，专注个性化教育辅导","一对一辅导 + 小组课，线上线下结合","按学生的需求、优势和需要提升的地方定制方案","课时灵活：按孩子特点调整，比如 60 分钟改 45 分钟，收费相应调整"],
+   btns:[["copy","复制微信号咨询","TJAcademy"],["map","地址导航","Chatswood NSW 2067"]],
+   contact:"微信 TJAcademy · <a href=\"partners/tj-academy.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}
+ ]},
+ "人与 Soul · Art":{intro:"以艺术陶冶情操，以文字留住故事。"}
 };
 function richCard(c,sec){const el=document.createElement('article');el.className='rich';
  let h='';
@@ -425,18 +386,16 @@ const J=t=>({k:'join-'+t,n:'我要加入',s:'成为推荐伙伴',c:t+' · 商家
 function grid(items){const g=document.createElement('div');g.className='logos';
  items.forEach(x=>{P[x.k]=x;const b=document.createElement('button');
   b.className='logo'+(x.tbc?' tbc':'')+(x.ghost?' ghost':'');b.id='p-'+x.k;b.dataset.k=x.k;
-  const badge=x.ghost?'':x.tbc?'<span class="badge soon">TBC</span>':(x.k==='claude'?'<span class="badge">Grace 推荐</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">自营</span>':'<span class="badge">创始伙伴</span>');
+  const badge=x.ghost?'':x.tbc?'<span class="badge soon">进行中</span>':x.self?'<span class="badge">自营</span>':(x.k==='claude'?'<span class="badge">Grace 推荐</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">自营</span>':'<span class="badge">创始伙伴</span>');
   b.innerHTML=`<span class="mark" style="${x.ghost?'':'background:'+x.bg}">${x.m}</span>${x.n}<small>${x.s}</small>${badge}`;
   g.appendChild(b)});return g}
 G.forEach(sec=>{const wrap=document.createElement('div');wrap.id='m'+sec.no;wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
  if(R.intro){const q=document.createElement('p');q.className='intro';q.innerHTML=R.intro;wrap.appendChild(q)}
  (R.cards||[]).forEach(c=>wrap.appendChild(richCard(c,sec)));
  if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">本板块的活动见「近期活动」›</a>';wrap.appendChild(q)}
- if(sec.no==='4'||sec.no==='5'){const q=document.createElement('p');q.className='soonnote';q.textContent='筹备中 · 即将开放';wrap.insertBefore(q,h.nextSibling)}
- const host2=wrap;
- if(sec.sub_t){const p=document.createElement('p');p.className='subtitle';p.textContent=sec.sub_t;host2.appendChild(p)}
- host2.appendChild(grid(sec.items.concat(sec.sub?[]:[J(sec.t)])));
- if(sec.sub){const h4=document.createElement('h4');h4.className='sub';h4.textContent=sec.sub.t;host2.appendChild(h4);host2.appendChild(grid(sec.sub.items.concat([J(sec.t)])))}});
+ 
+ sec.subs.forEach((sb,i)=>{const h4=document.createElement('h4');h4.className='sub';h4.textContent=sb.t;wrap.appendChild(h4);wrap.appendChild(grid(sb.items.concat(i===sec.subs.length-1?[J(sec.t)]:[])))});
+});
 const veil=document.getElementById('veil');let last=null;
 host.addEventListener('click',e=>{const b=e.target.closest('.logo');if(!b)return;const p=P[b.dataset.k];last=b;
  const mk=document.getElementById('c-mark');mk.textContent=p.m;mk.style.background=p.ghost?'#7a5ba8':p.bg;
@@ -452,10 +411,10 @@ veil.addEventListener('click',e=>{if(e.target===veil)shut()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()});
 
 
-document.getElementById('ev-list').appendChild(events(Object.values(RICH).flatMap(r=>r.events||[])));
-(function(){const g=document.getElementById('groups'),b=document.getElementById('tbc-toggle'),n=g.querySelectorAll('.logo.tbc').length;
- const set=open=>{g.classList.toggle('hide-tbc',!open);b.setAttribute('aria-expanded',open);b.textContent=open?'收起洽谈中的伙伴':'显示洽谈中的伙伴（{n}）'.replace('{n}',n)};
- set(false);b.addEventListener('click',()=>set(g.classList.contains('hide-tbc')))})();
+{const all=Object.values(RICH).flatMap(r=>r.events||[]),now=new Date(Date.now()+11*36e5).toISOString().slice(0,10),
+ up=all.filter(e=>!e.ts||e.ts>=now).sort((a,b)=>(a.ts||'9').localeCompare(b.ts||'9')),done=all.filter(e=>e.ts&&e.ts<now).sort((a,b)=>b.ts.localeCompare(a.ts));
+ const L=document.getElementById('ev-list');L.appendChild(events(up));
+ if(done.length){const h=document.createElement('p');h.className='ev-past';h.textContent='精彩回顾';L.appendChild(h);L.appendChild(events(done))}}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
  const done=()=>{m.hidden=false;m.textContent='已复制微信号 leigracezhang，打开微信添加好友即可'},fb=()=>{m.hidden=false;m.textContent='微信号：leigracezhang'};
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
