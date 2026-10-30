@@ -81,6 +81,7 @@ section{padding:30px 20px 0}
 .offer{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;border-radius:8px;padding:20px 18px;position:relative;overflow:hidden}
 .offer:after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.08)}
 .offer .k{font-size:12.5px;letter-spacing:2px;opacity:.85}
+.offer .k{font-size:14.5px;letter-spacing:.5px;opacity:.95;line-height:1.6}
 .offer .code{font-size:26px;font-weight:700;letter-spacing:2px;margin:4px 0 10px;font-family:Georgia,"Songti SC",serif}
 .offer ul{list-style:none;font-size:14px;line-height:1.9}
 .offer ul li::before{content:"✓ ";opacity:.9}
@@ -127,7 +128,7 @@ footer b{color:var(--gold)}
   <div class="stats">
     <div><b style="font-size:15px;line-height:2">Baulkham Hills</b><span>上课区域</span></div>
     <div><b>小班</b><span>逐一指导</span></div>
-    <div><b>+1 节</b><span>报 GraceRock</span></div>
+    <div><b>+1 节</b><span>提及 Grace Rock</span></div>
   </div>
 </div>
 
@@ -153,10 +154,9 @@ footer b{color:var(--gold)}
 </section>
 
 <section>
-  <div class="h"><i></i><h2 class="serif">专属优惠</h2><small>Grace Rock Offer</small></div>
+  <div class="h"><i></i><h2 class="serif">Grace Rock 专属礼遇</h2></div>
   <div class="offer">
-    <div class="k">预约时报推荐码</div>
-    <div class="code">GraceRock</div>
+    <div class="k">到店提及 Grace Rock，即享专属优惠</div>
     <ul>
       <li>买课加送 1 节</li>
       <li>想先试试？Grace Lei Zhang 每次可以带最多两位朋友免费试课</li>
@@ -190,7 +190,7 @@ footer b{color:var(--gold)}
 </div>
 <script>
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy]');if(!a)return;e.preventDefault();const v=a.dataset.copy,m=document.getElementById('copied');
- const done=()=>{m.hidden=false;m.textContent='已复制微信号 '+v+'，打开微信添加好友，报「GraceRock」即可'};
+ const done=()=>{m.hidden=false;m.textContent='已复制微信号 '+v+'，打开微信添加好友，到店提及 Grace Rock 即享专属优惠'};
  try{navigator.clipboard.writeText(v).then(done,()=>{m.hidden=false;m.textContent='微信号：'+v})}catch(_){m.hidden=false;m.textContent='微信号：'+v}
  m.scrollIntoView({block:'center',behavior:'smooth'})});
 </script>
