@@ -2,7 +2,7 @@
    所有文字都用 textContent 写入，链接只接受 https 或站内页面。 */
 (()=>{
 const EN=(document.documentElement.lang||'').toLowerCase().startsWith('en');
-const SITE='https://graceleizhang.github.io/grace-events/';
+const SITE=new URL('../../',document.currentScript.src).href; // 网站根目录，github.io 和 gracerock.com.au 都适用
 const L=EN?{h1:'Daily Read',days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
  health:'🌿 Health tip',out:'📍 Out and about in Sydney',gr:'💜 Grace Rock news',ai:'🤖 AI tip',src:'Source',more:'Find out more ›',
  empty:'Today\'s read is not ready yet. Please check back later.',note:'Written each morning with AI web search. Check event details on the official page before you go.'}
