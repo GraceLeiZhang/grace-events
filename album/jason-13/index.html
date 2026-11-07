@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jason's 13th Birthday Cruise 🎂🚤">
+<meta property="og:description" content="Rose Bay · 7 Nov 2026 · private album for our families">
+<meta property="og:image" content="https://gracerock.com.au/album/jason-13/og.jpg">
+<meta property="og:url" content="https://gracerock.com.au/album/jason-13/">
+<title>Jason's 13th Birthday Cruise</title>
+<style>
+:root{--bg:#faf8fc;--ink:#2d2440;--muted:#6f6585;--accent:#6b4fa0;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.55}
+header{text-align:center;padding:40px 16px 18px;background:linear-gradient(180deg,#ece4f7,var(--bg))}
+h1{margin:0 0 6px;font-size:clamp(26px,6vw,40px)}
+.sub{color:var(--muted);margin:0}
+.note{max-width:720px;margin:16px auto 0;padding:12px 16px;background:var(--card);border-radius:12px;font-size:15px;color:var(--muted);box-shadow:0 1px 3px #0001}
+.grid{max-width:1100px;margin:24px auto;padding:0 16px;columns:3 260px;column-gap:12px}
+.grid a{display:block;margin:0 0 12px;break-inside:avoid;position:relative;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px #0002}
+.grid img{width:100%;display:block}
+.n{position:absolute;left:8px;top:8px;background:#000a;color:#fff;font-weight:700;font-size:14px;padding:2px 9px;border-radius:999px}
+#lb{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:9}
+#lb.on{display:flex}#lb img{max-width:96vw;max-height:92vh;border-radius:8px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:16px 16px 40px}
+</style>
+</head>
+<body>
+<header>
+<h1>Jason's 13th Birthday Cruise 🎂🚤</h1>
+<p class="sub">Rose Bay · Saturday 7 November 2026</p>
+<p class="sub">Jason 13 岁生日游船派对</p>
+<div class="note">Thank you to every family who came, helped and shared photos! To protect everyone's privacy, all people in these photos are blurred.<br>感谢每一家的参与和分享！为保护隐私，照片中的人物都已模糊处理。</div>
+</header>
+<main class="grid" id="g"></main>
+<footer>With love from Grace &amp; Jason 💜</footer>
+<div id="lb"><img alt=""></div>
+<script>
+const g=document.getElementById('g'),lb=document.getElementById('lb'),li=lb.querySelector('img');
+for(let i=1;i<=16;i++){const n=String(i).padStart(2,'0');const a=document.createElement('a');a.href='img/'+n+'.jpg';
+a.innerHTML='<img loading="lazy" src="img/'+n+'-s.jpg" alt="Photo '+i+'"><span class="n">'+i+'</span>';
+a.onclick=e=>{e.preventDefault();li.src=a.href;lb.classList.add('on')};g.appendChild(a)}
+lb.onclick=()=>lb.classList.remove('on');
+</script>
+</body>
+</html>
