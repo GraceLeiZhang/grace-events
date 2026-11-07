@@ -10,67 +10,76 @@ const BASE=(document.currentScript&&document.currentScript.src||location.href).r
 const SITE='https://graceleizhang.github.io/grace-events/';
 const WX='leigracezhang';
 
-/* 跳转目标：mod=第几个板块，card=商家卡片标题，url=链接（partners/ 开头的按本脚本所在目录算） */
-const MOD={1:['健康','Health'],2:['人与自然','Nature'],3:['人与人','Connection'],4:['人与 AI','AI'],5:['人与灵魂','Soul']};
+/* 跳转目标：mod=第几个板块（页面上的 #m1–#m5），card=商家卡片标题，url=链接（partners/ 开头的按本脚本所在目录算） */
+const MOD={1:['健康','Health'],2:['人与自然','Nature'],3:['人与人','Connection'],4:['人与科技','Tech & AI'],5:['人与 Soul · Art','Soul & Art']};
 const go=(zh,en,t)=>({l:EN?en:zh,...t});
 const M=n=>go('看「'+MOD[n][0]+'」板块','See '+MOD[n][1],{mod:n});
+const ev=(zh,en,page)=>go(zh,en,{href:SITE+page.replace(/\.html$/,EN?'-en.html':'.html')});
 
 const KB=[
  {k:['健身','减肥','减重','瘦','运动','教练','体测','burwood','s fitness','sfitness','gym','fitness','weight','trainer'],
-  zh:'推荐 S Fitness（Burwood）。Grace 亲测 2 个月减了 3 公斤。首节体验课 $40，报暗号「GraceRock」买课后加送 1 节。微信 sjs6477，电话 0410 837 664。',
-  en:'Try S Fitness in Burwood. Grace lost 3 kg in 2 months there. First trial class is $40, and mention "GraceRock" when you buy a package to get 1 extra class. WeChat sjs6477, phone 0410 837 664.',
+  zh:'推荐 S Fitness（Burwood）。Grace 亲测 2 个月减了 3 公斤，不靠饿。首节体验课 $40，使用专属优惠码 GraceRock 买课加送 1 节。微信 sjs6477，电话 0410 837 664。',
+  en:'Try S Fitness in Burwood. Grace lost 3 kg in 2 months without starving. First trial class is $40, and with the code GraceRock you get 1 extra class when you buy a package. WeChat sjs6477, phone 0410 837 664.',
   a:[go('S Fitness 详情','S Fitness details',{url:'partners/s-fitness.html'}),go('看 S Fitness 卡片','See the card',{card:'S Fitness'})]},
  {k:['养生','中医','熏蒸','百草','herbmax','刘大夫','ivy','epping','亚健康','调理','chinese medicine','wellness','herbal','steam'],
-  zh:'推荐百草养生馆 Herbmax（Epping），主理人刘大夫 Ivy 有 30 多年行医经验，做中药熏蒸和经络检测。报「GraceRock」免费送一次中医检测，扫页面上的二维码加微信预约。',
-  en:'Try Herbmax Healthcare in Epping. Dr Liu (Ivy) has over 30 years of practice in herbal steam therapy and health checks. Mention "GraceRock" for a free Chinese medicine health check. Scan the QR code on the page to book on WeChat.',
+  zh:'推荐百草养生馆 Herbmax（Epping），做中药熏蒸和中医检测。到店出示专属优惠码 GraceRock，免费中医检测一次。扫卡片上的二维码加微信预约。',
+  en:'Try Herbmax Healthcare in Epping for herbal steam therapy and health checks. Show the code GraceRock in store for a free Chinese medicine health check. Scan the QR code on the card to book on WeChat.',
   a:[go('百草养生馆详情','Herbmax details',{url:'partners/herbmax.html'}),go('看百草养生馆卡片','See the card',{card:'Herbmax'})]},
- {k:['瑜伽','yoga','meet yoga','baulkham','拉伸'],
-  zh:'推荐 Meet Yoga，Grace 老师在 Baulkham Hills 上课，周一到周六。10 节课 $300，报「GraceRock」加送 1 节。微信 MeetYoga6。',
-  en:'Try Meet Yoga with teacher Grace in Baulkham Hills, Monday to Saturday. 10 classes for $300, and mention "GraceRock" to get 1 extra class. WeChat MeetYoga6.',
+ {k:['瑜伽','yoga','meet yoga','baulkham','拉伸','何老师'],
+  zh:'推荐 Meet Yoga（Baulkham Hills），何老师小班教学，会逐一纠正动作。使用专属优惠码 GraceRock 买课加送 1 节。微信 MeetYoga6。',
+  en:'Try Meet Yoga in Baulkham Hills. Grace He teaches small groups and corrects each person\'s form. With the code GraceRock you get 1 extra class when you buy a package. WeChat MeetYoga6.',
   a:[go('Meet Yoga 详情','Meet Yoga details',{url:'partners/meet-yoga.html'}),M(1)]},
  {k:['会计','报税','税','bas','注册公司','开公司','成立公司','公司注册','保险','财务','ips','hurstville','accountant','tax','company','insurance','bookkeeping','xero'],
-  zh:'推荐 IPS Partners（Hurstville），Grace 合作了 13 年，做会计、报税、BAS、公司注册、财务规划和保险，中文服务。手机 0407 818 788，热线 1300 047 772。报「GraceRock」首次咨询免费（待 IPS 确认）。',
-  en:'Try IPS Partners in Hurstville. Grace has worked with them for 13 years. They do accounting, tax, BAS, company registration, financial planning and insurance. Mobile 0407 818 788, hotline 1300 047 772. Mention "GraceRock" for a free first consultation (to be confirmed by IPS).',
+  zh:'推荐 IPS Partners（Hurstville），Grace 2013 年起合作至今，做会计、报税、BAS、公司注册、财务规划和保险，中文服务。手机 0407 818 788，热线 1300 047 772。联系时提供推荐码 GraceRock。',
+  en:'Try IPS Partners in Hurstville. Grace has worked with them since 2013. They do accounting, tax, BAS, company registration, financial planning and insurance. Mobile 0407 818 788, hotline 1300 047 772. Mention the code GraceRock when you contact them.',
   a:[go('IPS Partners 详情','IPS Partners details',{url:'partners/ips-partners.html'}),M(3)]},
- {k:['水云间','sussex','度假','捞虾','划船','烤全羊','老傅','一月','shuiyunjian','getaway','holiday','camping','january'],
-  zh:'水云间家庭体验之旅：2027 年 1 月 12 日出发，三天两晚，在 Sussex Inlet 捞虾、划船、烤全羊，正在报名中。',
-  en:'Shuiyunjian family getaway: from 12 January 2027, 3 days and 2 nights at Sussex Inlet with prawning, boating and a lamb roast. Registration is open.',
-  a:[go('看水云间活动','See the getaway',{href:SITE+(EN?'shuiyunjian-en.html':'shuiyunjian.html')}),M(2)]},
+ {k:['狗','狗狗','宠物','洗狗','wooof','dog','grooming','pet','surry hills'],
+  zh:'推荐 WOOOF Dog Grooming（Surry Hills），各种犬种都能洗澡修剪，每只狗狗单独打理。优惠码 REF-QKSR5Q，首次美容享折扣，可在 wooof.com.au 预约。（利益公开：Grace 是 WOOOF 推荐伙伴。）',
+  en:'Try WOOOF Dog Grooming in Surry Hills. All breeds, each dog groomed individually. Code REF-QKSR5Q gives a discount on your first groom; book at wooof.com.au. (Disclosure: Grace is a WOOOF referral partner.)',
+  a:[go('WOOOF 详情','WOOOF details',{url:'partners/wooof.html'}),go('复制优惠码','Copy the code',{copy:'REF-QKSR5Q'})]},
+ {k:['补习','辅导','写作','作文','精英','oc','选校','胡老师','chatswood','tj academy','tutor','tutoring','selective','writing'],
+  zh:'推荐 TJ Academy（Chatswood），胡老师 2014 年创办，写作、OC、精英中学辅导，一对一和小组课，线上线下都有，课时可按孩子调整。微信 TJAcademy。',
+  en:'Try TJ Academy in Chatswood, founded by Ms Hu in 2014: writing, OC and selective school tutoring, one-on-one or small groups, online or in person, with flexible lesson length. WeChat TJAcademy.',
+  a:[go('TJ Academy 详情','TJ Academy details',{url:'partners/tj-academy.html'}),M(4)]},
+ {k:['静心','蓝花楹','团建','parramatta','11月8','jacaranda'],
+  zh:'11 月 8 日（周日）静心学堂春日户外团建「蓝花楹下 · 心聚同行」，Parramatta Park，10:30–15:30，正在报名。',
+  en:'Under the Jacarandas: the 静心学堂 spring outdoor day on Sunday 8 November at Parramatta Park, 10:30am–3:30pm. Registration is open.',
+  a:[ev('看活动详情','See the event','preview/events/jingxin-spring.html'),M(2)]},
+ {k:['水云间','sussex','度假','捞虾','划船','烤全羊','老傅','一月','shuiyunjian','getaway','january','候补'],
+  zh:'水云间家庭体验之旅：2027 年 1 月 12 日出发，三天两晚，在 Sussex Inlet 捞虾、划船、烤全羊。已经成团，现在开放候补登记。',
+  en:'Shuiyunjian family getaway: from 12 January 2027, 3 days and 2 nights at Sussex Inlet with prawning, boating and a lamb roast. The group is full; the waitlist is open.',
+  a:[ev('看水云间活动','See the getaway','shuiyunjian.html'),M(2)]},
  {k:['云南','墨江','北回归线','彩云','四月','版纳','yunnan','mojiang','china trip','april'],
-  zh:'2027 年 4 月学校假期的亲子之旅：从上海到云南，穿越北回归线，目前在筹备中。',
-  en:'A family trip in the April 2027 school holidays, from Shanghai to Yunnan across the Tropic of Cancer. It is being planned now.',
-  a:[go('看云南之旅','See the Yunnan trip',{href:SITE+(EN?'yunnan-april-en.html':'yunnan-april.html')}),M(2)]},
+  zh:'2027 年 4 月学校假期的亲子之旅：从上海到云南，穿越北回归线，现在是意向登记阶段。',
+  en:'A family trip in the April 2027 school holidays, from Shanghai to Yunnan across the Tropic of Cancer. Register your interest now.',
+  a:[ev('看云南之旅','See the Yunnan trip','yunnan-april.html'),M(2)]},
  {k:['彩弹','paintball','die hard','turrella'],
-  zh:'10 月 7 日的 Paintball 彩弹对战已经结束了，可以看精彩回顾。下次活动请关注「人与自然」板块。',
-  en:'The Paintball day on 7 October is over. You can see the recap, and watch the Nature section for the next event.',
-  a:[go('看彩弹回顾','See the recap',{href:SITE+(EN?'paintball-en.html':'paintball.html')}),M(2)]},
+  zh:'10 月 7 日的 Paintball 彩弹对战已经结束了，可以看精彩回顾。',
+  en:'The Paintball day on 7 October is over. You can see the recap.',
+  a:[ev('看彩弹回顾','See the recap','paintball.html'),M(2)]},
  {k:['活动','亲子','孩子','小孩','旅行','旅游','报名','event','events','kids','children','family','trip','travel','sign up'],
-  zh:'Grace 带大家一起去体验：现在报名中的是 2027 年 1 月的水云间家庭之旅，4 月还有云南亲子游在筹备。',
-  en:'Grace runs family experiences. The Shuiyunjian getaway in January 2027 is open for sign-up, and a Yunnan family trip in April is being planned.',
-  a:[go('看水云间活动','See the getaway',{href:SITE+(EN?'shuiyunjian-en.html':'shuiyunjian.html')}),M(2)]},
- {k:['gracerock','暗号','优惠','折扣','代码','discount','code','offer','deal'],
-  zh:'在推荐商家那里报暗号「GraceRock」，就能享受专属优惠，每家的优惠写在商家卡片上。Grace 如果因推荐获得好处，也会在卡片上写明。',
-  en:'Mention "GraceRock" at any recommended business to get a special offer. Each card shows its offer. If Grace gets anything from a referral, the card says so.',
+  zh:'近期活动：11 月 8 日静心学堂春日户外团建（报名中）、2027 年 1 月水云间家庭之旅（候补登记）、4 月云南亲子游（意向登记）。',
+  en:'Coming up: the spring outdoor day on 8 November (open), the Shuiyunjian getaway in January 2027 (waitlist), and a Yunnan family trip in April (register interest).',
+  a:[M(2),ev('静心学堂活动','Spring outdoor day','preview/events/jingxin-spring.html')]},
+ {k:['gracerock','暗号','优惠','折扣','代码','优惠码','推荐码','discount','code','offer','deal'],
+  zh:'联系推荐商家时提供推荐码 GraceRock，很多商家有专属优惠，每家的优惠写在商家卡片上。Grace 如果因推荐获得好处，卡片上也会写明。',
+  en:'Mention the code GraceRock when you contact a recommended business. Many offer a special deal, shown on each card. If Grace gets anything from a referral, the card says so.',
   a:[M(1),M(3)]},
  {k:['加入','合作','商家','推荐伙伴','入驻','partner','join','business','list my'],
   zh:'欢迎加入！这里只推荐 Grace 亲身体验过、真心认可的商家。创业期加入免费，还有「创始伙伴」标识。请加 Grace 微信 '+WX+'。',
   en:'You are welcome to join. Grace only recommends businesses she has tried and trusts. Joining is free during the startup period, with a "Founding partner" badge. Add Grace on WeChat: '+WX+'.',
   a:[go('复制 Grace 微信','Copy Grace\'s WeChat',{copy:WX})]},
- {k:['ai','claude','power bi','报告','人工智能','科技','科学','量子','tech','science','report'],
-  zh:'「人与 AI」板块有 Grace 每天在用的 AI 助手，还有 Power BI 和 AI 报告咨询，帮小企业自动做报表。',
-  en:'The AI section has the AI assistant Grace uses every day, plus Power BI and AI reporting help for small businesses.',
+ {k:['ai','claude','人工智能','科技','科学','量子','教育','tech','science','education'],
+  zh:'「人与科技」板块分 AI、科学、教育三部分，有 Grace 每天在用的 AI 助手，也有 TJ Academy 等教育推荐。',
+  en:'The Tech section covers AI, science and education, including the AI assistant Grace uses daily and education picks like TJ Academy.',
   a:[M(4)]},
- {k:['人物志','小说','悼念','艺术','遗嘱','灵魂','story','stories','art','memorial'],
-  zh:'「人与灵魂 · 人物志」记录一个个人物的故事，Grace 的文字即将开放阅读。',
-  en:'The Soul section collects life stories. Grace\'s writing will open for reading soon.',
+ {k:['艺术','人物志','小说','写小说','纪念','soul','art','story','stories','novel','memorial'],
+  zh:'「人与 Soul · Art」板块有艺术、人物志、纪念和全民写小说，用文字留住一个个故事。',
+  en:'The Soul & Art section has art, life stories, memorials and a community novel project.',
   a:[M(5)]},
- {k:['教育','补习','辅导','数学','演讲','口才','tutor','education','math','speech'],
-  zh:'「人与人」板块里有演讲与口才、教育和课程辅导的推荐，目前还在洽谈中。',
-  en:'The Connection section lists public speaking, education and tutoring. These are still being confirmed.',
-  a:[M(3)]},
  {k:['雅实','grace rock','宗旨','是什么','介绍','关于','about','what is grace rock'],
-  zh:'雅实 Grace Rock：每一个人，都值得越来越好。这里推荐的每一家，都是 Grace 亲身体验过的，分成健康、人与自然、人与人、人与 AI、人与灵魂五个板块。',
-  en:'Grace Rock: everyone deserves to keep getting better. Every recommendation here is one Grace has tried herself, in five sections: Health, Nature, Connection, AI and Soul.',
+  zh:'雅实 Grace Rock Group：携手同行，共见美好。这里推荐的商家，都是 Grace 亲身体验过的，分成健康、人与自然、人与人、人与科技、人与 Soul · Art 五个板块。',
+  en:'Grace Rock Group: everyone deserves to keep getting better. Every business here is one Grace has tried herself, in five sections: Health, Nature, Connection, Tech & AI, and Soul & Art.',
   a:[M(1),M(2),M(3)]},
  {k:['联系','微信','电话','找grace','grace','contact','wechat','phone','email'],
   zh:'可以直接加 Grace 微信：'+WX+'。',
@@ -80,11 +89,11 @@ const KB=[
 const T=EN?{
  title:'Grace Rock helper',hi:'Hi! Ask me anything, or tap a topic below.',ph:'Type a question…',send:'Send',open:'Ask a question',close:'Close',
  miss:'Sorry, I am not sure about that yet. Add Grace on WeChat ('+WX+') and she will reply, or look through the sections:',copied:'Copied: ',
- chips:['Fitness','Wellness','Yoga','Accounting & tax','Family trips','GraceRock code','Join as a partner']
+ chips:['Fitness','Wellness','Yoga','Accounting & tax','Tutoring','Dog grooming','Events','GraceRock code']
 }:{
  title:'雅实小助手',hi:'你好！有什么想问的？可以直接打字，或者点下面的话题。',ph:'输入你的问题…',send:'发送',open:'问问小助手',close:'关闭',
  miss:'这个我还答不上来。可以加 Grace 微信（'+WX+'）直接问她，或者先看看这几个板块：',copied:'已复制：',
- chips:['健身减肥','中医养生','瑜伽','会计报税','亲子活动','GraceRock 暗号','商家加入']
+ chips:['健身减肥','中医养生','瑜伽','会计报税','补习辅导','狗狗美容','近期活动','GraceRock 优惠码']
 };
 
 const norm=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
@@ -134,7 +143,7 @@ function acts(list){if(!list||!list.length)return;const w=document.createElement
   el.textContent=x.l;w.appendChild(el)});
  log.appendChild(w);log.scrollTop=log.scrollHeight}
 function find(x){
- if(x.mod){for(const h of document.querySelectorAll('h3.group')){const n=h.querySelector('.no');if(n&&n.textContent.trim()==String(x.mod))return h.parentElement}}
+ if(x.mod)return document.getElementById('m'+x.mod);
  if(x.card){for(const h of document.querySelectorAll('article.rich h4'))if(h.textContent.includes(x.card))return h.closest('article')}
  return null}
 function act(x){
