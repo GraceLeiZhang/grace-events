@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="alternate" hreflang="zh" href="index.html"><link rel="alternate" hreflang="en" href="en.html">
+<script src="../../lang.js"></script><script src="../../share.js" defer></script>
+<title>帮雅实点亮 50 座城市 · Grace Rock Group</title>
+<meta name="description" content="你在哪个城市？填一次，就为雅实 Grace Rock Group 点亮一座城。11 月 28 日发布日，点亮 50 城，Grace 在游船上为大家唱《听我说谢谢你》。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grace Rock Group">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="帮雅实点亮 50 座城市 · Grace Rock Group">
+<meta property="og:description" content="你在哪个城市？填一次，就为雅实 Grace Rock Group 点亮一座城。11 月 28 日发布日，点亮 50 城，Grace 在游船上为大家唱《听我说谢谢你》。">
+<meta property="og:url" content="https://graceleizhang.github.io/grace-events/preview/light/">
+<meta property="og:image" content="https://graceleizhang.github.io/grace-events/preview/light/og-light.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#140f1f;--card:#1f1830;--ink:#f3eefb;--muted:#b8acd0;--jac:#b49ae0;--gold:#ffd27a;--line:#352a4d;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#2a1f45 0,var(--bg) 60%);background-color:var(--bg);color:var(--ink);font-family:"Noto Sans SC","PingFang SC",system-ui,sans-serif;line-height:1.6;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:12px 16px 24px}
+.bar{display:flex;justify-content:space-between;align-items:center;min-height:44px}
+.bar a{color:var(--ink);text-decoration:none;font-family:"Noto Serif SC","Songti SC",serif;font-size:16px}
+.kicker{color:var(--jac);font-size:13px;margin:14px 0 4px;letter-spacing:.04em}
+h1{font-family:"Noto Serif SC","Songti SC",serif;font-size:30px;line-height:1.25;margin:0 0 8px}
+h1 em{font-style:normal;color:var(--gold);text-shadow:0 0 18px rgba(255,210,122,.6)}
+.lede{color:var(--muted);margin:0 0 14px;font-size:15px}
+.count{display:flex;align-items:baseline;gap:8px;margin:8px 0 6px}
+.count b{font-size:44px;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.count span{color:var(--muted)}
+#bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+#bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--jac),var(--gold));transition:width .8s}
+#goal-done{margin:10px 0 0;color:var(--gold);font-weight:600}
+#map{margin:14px -16px 0;}
+#map svg{width:100%;height:auto;display:block}
+.sphere{fill:#191330}.land{fill:#2c2346;stroke:#3a2f5a;stroke-width:.5}
+.city .dot{fill:var(--gold)}.city .halo{fill:rgba(255,210,122,.25)}
+.city text{fill:var(--ink);font-size:22px;font-weight:600;text-anchor:middle;paint-order:stroke;stroke:#140f1f;stroke-width:3px}
+.city.new .halo{animation:pop 1.6s ease-out}
+@keyframes pop{0%{r:4;fill:rgba(255,210,122,.9)}100%{r:44;fill:rgba(255,210,122,0)}}
+form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
+form label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:16px}
+form input{flex:1;min-width:150px;font:inherit;font-size:17px;padding:12px;border-radius:10px;border:1px solid var(--line);background:#120d1c;color:var(--ink)}
+form button{width:100%;margin-top:12px;padding:14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--jac),var(--gold));color:#1a1328;font-size:17px;font-weight:700}
+form button:disabled{opacity:.6}
+#msg{min-height:1.4em;margin:8px 0 0;color:var(--gold);font-size:14px}
+#mine{margin:8px 0 0;color:var(--muted);font-size:14px}#mine b{color:var(--gold)}
+#preview{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#3a2d12;color:#ffe2a6;font-size:13px}
+h2{font-size:17px;margin:22px 0 8px}
+#list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+#list li{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:14px}
+#list li b{color:var(--gold);margin-left:6px;font-weight:600}#list li.none{border-style:dashed;color:var(--muted)}
+ol{color:var(--muted);padding-left:20px;margin:0}
+.priv{color:var(--muted);font-size:12.5px;margin-top:12px}
+footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar"><a href="../">Grace Rock Group</a><span data-lang-slot></span></div>
+<p class="kicker">11 月 28 日 · 雅实 Grace Rock Group 发布日</p>
+<h1>帮雅实点亮 <em>50</em> 座城市</h1>
+<p class="lede">你在哪个城市？填一次，就为我们点亮一座城。点亮 50 城，Grace 会在发布日游船上现场唱《听我说谢谢你》，送给每一座城市的朋友。</p>
+<div class="count"><b id="count">0</b><span>/ 50 · 已点亮</span></div>
+<div id="bar"><i></i></div>
+<p id="goal-done" hidden>🎉 50 座城已点亮！Grace 会在游船上唱《听我说谢谢你》</p>
+<div id="map"></div>
+<form id="f">
+ <label for="city">我在 <input id="city" name="city" maxlength="30" autocomplete="off" placeholder="例如：悉尼、上海、墨江" enterkeyhint="done"> 城市</label>
+ <button id="go" type="submit">点亮 ✨</button>
+ <p id="msg" role="status" aria-live="polite"></p>
+ <p id="mine" hidden>你已点亮：<b id="mine-city"></b></p>
+ <p id="preview" hidden></p>
+</form>
+<h2>已点亮的城市</h2>
+<ul id="list"></ul>
+<h2>怎么玩</h2>
+<ol><li>每台手机填一次自己所在的城市，这座城就亮起来</li><li>地图和数字会实时更新，邀请你在别的城市的朋友一起来点亮</li><li>11 月 28 日全民K歌城市接力，悉尼时间 9:00–20:00，整点报一次点亮城市数</li></ol>
+<p class="priv">只记录城市名，不收集姓名、电话或位置。</p>
+<footer>© Grace Rock Group · 携手同行，共见美好</footer>
+</div>
+<script src="map.js"></script>
+<script src="config.js"></script>
+<script src="cities.js"></script>
+<script src="light.js"></script>
+</body>
+</html>
