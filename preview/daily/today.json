@@ -1,0 +1,71 @@
+{
+ "date": "2026-11-08",
+ "weekday": 6,
+ "generated_at": "sample",
+ "zh": {
+  "health": {
+   "title": "久坐一小时，起来动 5 分钟",
+   "body": "肩颈僵硬的朋友，可以双手在背后交握，慢慢向上抬，停 10 秒，做 3 次。想有人带着练，可以去「健康」板块看看 Meet Yoga 小班瑜伽。"
+  },
+  "outings": [
+   {
+    "title": "Powerhouse Parramatta 开幕节",
+    "when": "11 月 7–29 日，周末开到晚上 9 点",
+    "where": "34 Phillip St, Parramatta",
+    "price": "大部分活动免费，16 岁以下看展免费",
+    "note": "新馆开幕，适合全家去逛。",
+    "url": "https://www.ellaslist.com.au/sydney/events/powerhouse-parramatta-opening-festival"
+   },
+   {
+    "title": "Stardust Circus 马戏",
+    "when": "周日 11:00、14:00",
+    "where": "Boondah Reserve, Warriewood",
+    "price": "需买票",
+    "note": "建议提前订票。",
+    "url": "https://www.ellaslist.com.au/sydney/events/stardust-circus"
+   }
+  ],
+  "grace_rock": {
+   "title": "今天：蓝花楹下 · 心聚同行",
+   "body": "10:30–15:30，静心学堂春日户外团建在 Parramatta Park。看完 Powerhouse 正好顺路！",
+   "link": "preview/events/jingxin-spring.html"
+  },
+  "ai_tip": {
+   "title": "让 AI 帮你写生日祝福",
+   "body": "告诉它对方是谁、你们的关系、一件难忘的小事，写出来会比模板走心很多。"
+  }
+ },
+ "en": {
+  "health": {
+   "title": "Sat for an hour? Move for 5 minutes",
+   "body": "For a stiff neck and shoulders, clasp your hands behind your back, lift them slowly, hold for 10 seconds, and repeat 3 times. Want a teacher? See Meet Yoga in the Health section."
+  },
+  "outings": [
+   {
+    "title": "Powerhouse Parramatta Opening Festival",
+    "when": "7–29 November, open until 9pm on weekends",
+    "where": "34 Phillip St, Parramatta",
+    "price": "Most events free; exhibitions free for under-16s",
+    "note": "A brand-new museum, great for the whole family.",
+    "url": "https://www.ellaslist.com.au/sydney/events/powerhouse-parramatta-opening-festival"
+   },
+   {
+    "title": "Stardust Circus",
+    "when": "Sunday 11am and 2pm",
+    "where": "Boondah Reserve, Warriewood",
+    "price": "Ticketed",
+    "note": "Booking ahead is recommended.",
+    "url": "https://www.ellaslist.com.au/sydney/events/stardust-circus"
+   }
+  ],
+  "grace_rock": {
+   "title": "Today: Under the Jacarandas",
+   "body": "The 静心学堂 spring outdoor day is at Parramatta Park, 10:30am–3:30pm. It's right near the Powerhouse!",
+   "link": "preview/events/jingxin-spring.html"
+  },
+  "ai_tip": {
+   "title": "Let AI help with a birthday message",
+   "body": "Tell it who the person is, how you know them, and one small memory. The result feels far more personal than a template."
+  }
+ }
+}
