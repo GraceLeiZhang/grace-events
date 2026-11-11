@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A card for Kay 💐👶">
+<meta property="og:description" content="Sign our group card and send Kay your best wishes for her new baby.">
+<title>A Card for Kay</title>
+<style>
+:root{--bg:#fbf7f4;--ink:#3a2e2a;--muted:#7d6d66;--accent:#c46a7f;--accent2:#7aa38f;--card:#fff;--line:#eadfd8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",Georgia,"PingFang SC",sans-serif;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+header{text-align:center;padding:42px 16px 22px;background:linear-gradient(180deg,#f8e3e8,var(--bg))}
+.emoji{font-size:44px;line-height:1}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(30px,7vw,48px);margin:10px 0 6px}
+.sub{color:var(--muted);margin:0;font-size:17px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:22px 0 4px}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
+.box h2{font-size:18px;margin:0 0 6px}
+.box p{margin:4px 0;color:var(--muted)}
+.payid{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:.3px}
+.how{font-size:15px}
+.wishes{columns:2 300px;column-gap:14px;margin:20px 0 10px}
+.wish{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px;box-shadow:0 1px 3px #0000000d}
+.wish p{margin:0 0 8px;white-space:pre-wrap;font-family:Georgia,serif;font-size:17px}
+.wish .who{color:var(--accent);font-weight:600;font-size:15px;margin:0}
+.wish:nth-child(3n+2){background:#f4f9f6}.wish:nth-child(3n){background:#fdf6ee}
+.empty{text-align:center;color:var(--muted);padding:20px}
+.count{text-align:center;color:var(--muted);font-size:14px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:20px 16px 40px}
+.print-only{display:none}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}
+  header{background:none;padding:0 0 8mm}
+  .no-print{display:none!important}
+  .print-only{display:block}
+  .wish{box-shadow:none;background:#fff!important;border:1px solid #ddd}
+  .wishes{columns:2;margin-top:4mm}
+  h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="emoji">💐 👶 💛</div>
+  <h1>Congratulations, Kay!</h1>
+  <p class="sub">Wishing you a safe arrival, lots of rest and a very happy start to your new adventure.</p>
+  <p class="sub print-only" style="margin-top:6px">With love from all of us</p>
+  <div class="actions no-print">
+    <a class="btn primary" id="sign" target="_blank" rel="noopener" href="#">✍️ Sign the card</a>
+    <button class="btn ghost" onclick="window.print()">🖨️ Print</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="box no-print how">
+    <h2>How to sign</h2>
+    <p>Tap <b>Sign the card</b>, then type your name and message in the next empty row. That's it! Your message appears below within a minute (refresh the page).</p>
+  </div>
+
+  <div class="box no-print">
+    <h2>🎁 Chip in for a gift (optional)</h2>
+    <p>We're pooling for an e-gift card for Kay. Any amount is lovely, and it's completely optional.</p>
+    <p>PayID (name shows as <b>Lei Zhang</b>): <span class="payid" id="payid">ask Grace</span></p>
+    <p>Please put <b>“Kay gift + your name”</b> in the reference.</p>
+  </div>
+
+  <p class="count no-print" id="count"></p>
+  <main class="wishes" id="wishes"><div class="empty">Loading messages…</div></main>
+</div>
+
+<footer class="no-print">Private page, just for us. Please don't share it with Kay before Friday 🤫</footer>
+
+<script>
+const SHEET_ID = "1AdhS2-BXUNjfN8pJxsMuyXZeB4JVy84ALt8ZU7L-H6Y";
+const PAYID = "0410 931 872";
+document.getElementById('sign').href = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit";
+if (PAYID) document.getElementById('payid').textContent = PAYID;
+
+function render(res){
+  const box = document.getElementById('wishes');
+  const rows = (res && res.table && res.table.rows) || [];
+  const list = [];
+  rows.forEach(r => {
+    const c = r.c || [];
+    const name = c[0] && c[0].v != null ? String(c[0].v).trim() : "";
+    const msg  = c[1] && c[1].v != null ? String(c[1].v).trim() : "";
+    if (!msg || /^your message/i.test(msg)) return;
+    list.push({name, msg});
+  });
+  box.innerHTML = "";
+  if (!list.length){ box.innerHTML = '<div class="empty">No messages yet. Be the first to sign! ✍️</div>'; return; }
+  list.forEach(w => {
+    const d = document.createElement('div'); d.className = 'wish';
+    const p = document.createElement('p'); p.textContent = w.msg;
+    const n = document.createElement('p'); n.className = 'who'; n.textContent = '— ' + (w.name || 'A colleague');
+    d.append(p, n); box.append(d);
+  });
+  document.getElementById('count').textContent = list.length + (list.length === 1 ? ' message' : ' messages') + ' so far 💛';
+}
+window.gotWishes = render;
+const s = document.createElement('script');
+s.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=responseHandler:gotWishes&headers=1&t=" + Date.now();
+s.onerror = () => { document.getElementById('wishes').innerHTML = '<div class="empty">Messages will show here soon.</div>'; };
+document.head.append(s);
+setTimeout(() => { const b = document.getElementById('wishes'); if (/Loading/.test(b.textContent)) b.innerHTML = '<div class="empty">Messages will show here soon.</div>'; }, 8000);
+</script>
+</body>
+</html>
