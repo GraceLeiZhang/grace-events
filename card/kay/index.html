@@ -68,7 +68,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:20px 16px 40p
   <div class="box no-print">
     <h2>🎁 Chip in for a gift (optional)</h2>
     <p>We're pooling for an e-gift card for Kay. Any amount is lovely, and it's completely optional.</p>
-    <p>PayID (Grace Lei Zhang): <span class="payid" id="payid">ask Grace</span></p>
+    <p>PayID (name shows as <b>Lei Zhang</b>): <span class="payid" id="payid">ask Grace</span></p>
     <p>Please put <b>“Kay gift + your name”</b> in the reference.</p>
   </div>
 
@@ -80,7 +80,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:20px 16px 40p
 
 <script>
 const SHEET_ID = "1AdhS2-BXUNjfN8pJxsMuyXZeB4JVy84ALt8ZU7L-H6Y";
-const PAYID = ""; // fill in Grace's PayID
+const PAYID = "0410 931 872";
 document.getElementById('sign').href = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit";
 if (PAYID) document.getElementById('payid').textContent = PAYID;
 
