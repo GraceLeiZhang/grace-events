@@ -23,6 +23,12 @@ h1{margin:0 0 6px;font-size:clamp(26px,6vw,40px)}
 .n{position:absolute;left:8px;top:8px;background:#000a;color:#fff;font-weight:700;font-size:14px;padding:2px 9px;border-radius:999px}
 #lb{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:9}
 #lb.on{display:flex}#lb img{max-width:96vw;max-height:92vh;border-radius:8px}
+.hero{max-width:1100px;margin:20px auto 0;padding:0 16px}.hero img{width:100%;border-radius:14px;display:block;box-shadow:0 2px 8px #0002;cursor:zoom-in}
+.cap{text-align:center;color:var(--muted);font-size:14px;margin:8px 0 0}
+h2{text-align:center;font-size:22px;margin:32px 0 12px}
+.words{max-width:1100px;margin:0 auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+blockquote{margin:0;background:var(--card);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px #0001;font-size:15px}
+blockquote cite{display:block;margin-top:8px;color:var(--accent);font-style:normal;font-weight:600}
 footer{text-align:center;color:var(--muted);font-size:14px;padding:16px 16px 40px}
 </style>
 </head>
@@ -31,8 +37,17 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:16px 16px 40p
 <h1>Jason's 13th Birthday Cruise 🎂🚤</h1>
 <p class="sub">Rose Bay · Saturday 7 November 2026</p>
 <p class="sub">Jason 13 岁生日游船派对</p>
-<div class="note">Thank you to every family who came, helped and shared photos! To protect everyone's privacy, all people in these photos are blurred.<br>感谢每一家的参与和分享！为保护隐私，照片中的人物都已模糊处理。</div>
+<div class="note">Thank you to every family who came, helped and shared photos! To protect everyone's privacy, faces in these photos are blurred.<br>感谢每一家的参与和分享！为保护隐私，照片中的人脸都已模糊处理。</div>
 </header>
+<section class="hero"><img id="hero" src="img/group.jpg" alt="Group photo under the Harbour Bridge"><p class="cap">All of us under the Sydney Harbour Bridge 🌉 · 桥下大合影</p></section>
+<h2>Kind words · 家长的话 💌</h2>
+<section class="words">
+<blockquote>Thanks Grace, it was so much fun today and happy birthday!<cite>— Emma</cite></blockquote>
+<blockquote>Thanks for such a fun day Grace, we will all sleep well tonight! Happy 13th birthday Jason!<cite>— Danica</cite></blockquote>
+<blockquote>Thanks for a great day, we got lucky with the weather in the end. The storm was pretty cool when it finally hit ⚡ It was nice to connect with the parents too. x<cite>— Clare</cite></blockquote>
+<blockquote>Thanks everyone, great pics!!!! And thanks Grace for a wonderful day. So nice to meet you all, and the boys, what a lovely bunch x<cite>— Jess</cite></blockquote>
+</section>
+<h2>Photos · 照片</h2>
 <main class="grid" id="g"></main>
 <footer>With love from Grace &amp; Jason 💜</footer>
 <div id="lb"><img alt=""></div>
@@ -41,6 +56,7 @@ const g=document.getElementById('g'),lb=document.getElementById('lb'),li=lb.quer
 for(let i=1;i<=16;i++){const n=String(i).padStart(2,'0');const a=document.createElement('a');a.href='img/'+n+'.jpg';
 a.innerHTML='<img loading="lazy" src="img/'+n+'-s.jpg" alt="Photo '+i+'"><span class="n">'+i+'</span>';
 a.onclick=e=>{e.preventDefault();li.src=a.href;lb.classList.add('on')};g.appendChild(a)}
+document.getElementById('hero').onclick=()=>{li.src='img/group.jpg';lb.classList.add('on')};
 lb.onclick=()=>lb.classList.remove('on');
 </script>
 </body>
