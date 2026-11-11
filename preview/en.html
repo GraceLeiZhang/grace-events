@@ -192,6 +192,25 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
 .emb span{flex:1;max-width:110px;font-family:var(--display);font-size:15px;line-height:1.4;color:var(--jac-deep)}
 .emb span:first-child{text-align:right}.emb span:last-child{text-align:left}
 .emb svg{flex:none;max-width:46vw;height:auto}
+/* Email signup */
+.signup{background:linear-gradient(140deg,var(--jac),var(--jac-deep));color:#fff;border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:64px}
+.signup h2{color:#fff;margin:0}
+.signup .en{display:block;font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.08em;opacity:.85}
+.signup p{margin:0;opacity:.95}
+.signup ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.signup li{font-size:13px;background:rgba(255,255,255,.18);border-radius:99px;padding:2px 12px}
+.signup form{display:flex;flex-direction:column;gap:10px}
+.signup .field{display:flex;gap:8px;flex-wrap:wrap}
+.signup input[type=email]{flex:1 1 200px;min-height:48px;border-radius:10px;border:0;padding:0 14px;font:inherit;font-size:16px;color:#2a2233;background:#fff}
+.signup button{min-height:48px;border-radius:10px;border:0;background:#fff;color:#4f3478;font:inherit;font-weight:600;font-size:15.5px;cursor:pointer}
+.signup button:disabled{opacity:.7}
+.signup input:focus-visible,.signup button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.signup .agree{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.55;cursor:pointer}
+.signup .agree input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--gold)}
+.signup .privacy{font-size:12.5px;opacity:.85;line-height:1.6}
+.signup .hp{position:absolute;left:-9999px}
+.signup-msg{background:rgba(255,255,255,.95);color:#2a2233;border-radius:8px;padding:10px 12px;font-size:14px}
+.signup-msg.bad{color:#9b2c2c}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">Grace Rock Group</a><span class="links"><a href="#events">Events</a><a href="#partners">Partners</a><a href="#contact">Enquire</a></span><span data-lang-slot></span></nav>
@@ -234,6 +253,22 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
     <h2>Upcoming events</h2>
     <p class="lede">Come along with Grace: family trips, get-togethers and team days. Message Grace and she will take you along.</p>
     <div id="ev-list"></div>
+  </section>
+
+  <section class="signup" id="signup">
+    <h2>Join Our Community<span class="en">加入 Grace Rock 社区</span></h2>
+    <p>Leave your email and be the first to hear about Grace's new activities.</p>
+    <ul><li>Family activities</li><li>Tech experiences</li><li>China study tours</li></ul>
+    <form id="signup-form" novalidate>
+      <div class="field">
+        <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="Your email" aria-label="Email">
+      </div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="agree"><input type="checkbox" required>I agree to receive activity and community updates from Grace Rock by email.</label>
+      <button type="submit">Get Updates</button>
+      <p class="privacy">We only use your email to send Grace Rock activities and updates. We never sell or share it. Your email is stored securely by our email provider, MailerLite. Every email has an unsubscribe link, so you can leave at any time.</p>
+    </form>
+    <p class="signup-msg" id="signup-msg" role="status" hidden></p>
   </section>
 
 
@@ -430,5 +465,6 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
 </script>
 
+<script src="signup.js" defer></script>
 <script src="chatbot.js" defer></script>
 </body></html>
