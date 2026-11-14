@@ -7,7 +7,7 @@
 const ENDPOINT=null;
 const EN=(document.documentElement.lang||'').toLowerCase().startsWith('en');
 const BASE=(document.currentScript&&document.currentScript.src||location.href).replace(/[^/]*$/,'');
-const SITE='https://graceleizhang.github.io/grace-events/';
+const SITE='https://gracerock.com.au/';
 const WX='leigracezhang';
 
 /* 跳转目标：mod=第几个板块（页面上的 #m1–#m5），card=商家卡片标题，url=链接（partners/ 开头的按本脚本所在目录算） */
