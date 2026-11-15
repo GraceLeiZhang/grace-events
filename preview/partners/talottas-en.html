@@ -25,7 +25,7 @@
 <style>
 :root{
   --paper:#f6f2ea;--paper2:#efe8dc;--ink:#1e1d1b;--ink2:#5d5850;--line:#d9cfbf;--gold:#a8865a;--card:#fbf9f4;
-  --red:#836657;--red2:#5f4639;--grey:#6d6e71;
+  --red:#b5352b;--red2:#1f7a4a;--grey:#6d6e71;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
@@ -105,7 +105,10 @@ footer b{color:var(--gold)}
 .disc{font-size:12px;color:#9a948a;margin-top:6px}
 .offer .k{font-size:14.5px;letter-spacing:.5px;opacity:.95;line-height:1.6}
 .hero .logo{width:80%;max-width:320px}
-.photo{display:block;width:100%;border-radius:8px;margin-top:12px}
+.banner{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.hero .logo{position:relative;width:70%;max-width:280px;margin:-56px auto 4px;border-radius:10px;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.15);background:#fff}
+.hero .top{background:linear-gradient(90deg,#1f7a4a 33%,#fff 33% 66%,#c0392b 66%)}
+.hero .tag{background:#1f7a4a!important}
 </style>
 </head>
 <body>
@@ -122,6 +125,7 @@ footer b{color:var(--gold)}
 
 <div class="hero">
   <div class="top"></div>
+  <img class="banner" src="../assets/talottas-pizza.jpg" alt="Pizza">
   <img class="logo" src="../assets/talottas-logo.jpg" alt="Talotta's Pizzeria logo">
   <div class="who">
     <h1 class="serif">Talotta's Pizzeria</h1>
@@ -136,7 +140,6 @@ footer b{color:var(--gold)}
   <div class="story"><p class="serif">Talotta's Pizzeria is the local pizza shop in the small town of Kurnell, on Bridge St, just minutes from Kamay Botany Bay National Park.</p><p class="serif">After a bush walk, a day by the sea or whale watching at Kamay, drop in for a hot pizza, or call ahead and take it away. Supporting a local shop is supporting the people around us.</p>
     <div class="by">—— Grace Lei Zhang</div>
   </div>
-  <img class="photo" src="../assets/talottas-pizza.jpg" alt="Pizza from the menu cover">
 </section>
 
 <section>
