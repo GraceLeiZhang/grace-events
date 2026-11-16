@@ -89,11 +89,11 @@ const KB=[
 const T=EN?{
  title:'Grace Rock helper',hi:'Hi! Ask me anything, or tap a topic below.',ph:'Type a question…',send:'Send',open:'Ask a question',close:'Close',
  miss:'Sorry, I am not sure about that yet. Add Grace on WeChat ('+WX+') and she will reply, or look through the sections:',copied:'Copied: ',
- chips:['Fitness','Wellness','Yoga','Accounting & tax','Tutoring','Dog grooming','Events','GraceRock code']
+ greet:'Looking for events, partner offers, or want to become a member? I can help.',chips:['Fitness','Wellness','Yoga','Accounting & tax','Tutoring','Dog grooming','Events','GraceRock code']
 }:{
  title:'雅实小助手',hi:'你好！有什么想问的？可以直接打字，或者点下面的话题。',ph:'输入你的问题…',send:'发送',open:'问问小助手',close:'关闭',
  miss:'这个我还答不上来。可以加 Grace 微信（'+WX+'）直接问她，或者先看看这几个板块：',copied:'已复制：',
- chips:['健身减肥','中医养生','瑜伽','会计报税','补习辅导','狗狗美容','近期活动','GraceRock 优惠码']
+ greet:'想找活动、商家优惠，还是加入会员？我来帮你',chips:['健身减肥','中医养生','瑜伽','会计报税','补习辅导','狗狗美容','近期活动','GraceRock 优惠码']
 };
 
 const norm=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
@@ -125,6 +125,13 @@ const css=`
 #gr-bot form{display:flex;gap:6px;padding:10px;border-top:1px solid var(--gb-line)}
 #gr-bot input{flex:1;min-width:0;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--gb-line);border-radius:10px;background:transparent;color:inherit}
 #gr-bot form button{font:inherit;border:0;border-radius:10px;background:var(--gb-ac);color:var(--gb-on);padding:0 14px;cursor:pointer}
+#gr-bot .gb-greet{position:absolute;right:0;bottom:calc(100% + 10px);width:min(270px,calc(100vw - 32px));background:var(--gb-bg);color:var(--gb-ink);border:1px solid var(--gb-line);border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.22);padding:12px 34px 12px 14px;font-size:14.5px;line-height:1.55;cursor:pointer;animation:gbIn .35s ease}
+#gr-bot .gb-greet[hidden]{display:none}
+#gr-bot .gb-greet::after{content:"";position:absolute;right:26px;bottom:-7px;width:12px;height:12px;background:var(--gb-bg);border-right:1px solid var(--gb-line);border-bottom:1px solid var(--gb-line);transform:rotate(45deg)}
+#gr-bot .gb-greet .x{position:absolute;top:4px;right:4px;width:28px;height:28px;border:0;background:none;color:var(--gb-ink);opacity:.6;font-size:18px;line-height:1;cursor:pointer}
+#gr-bot .gb-dot{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:99px;background:#e0464e;color:#fff;font-size:11px;line-height:18px;text-align:center}
+@keyframes gbIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#gr-bot .gb-greet{animation:none}}
 .gb-flash{outline:3px solid var(--jac,#7a5ba8);outline-offset:6px;border-radius:12px;transition:outline-color 1.5s}`;
 
 const root=document.createElement('div');root.id='gr-bot';
@@ -164,4 +171,19 @@ root.querySelector(".gb-hd button").onclick=()=>toggle(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)toggle(false)});
 root.querySelector('form').onsubmit=e=>{e.preventDefault();send(inp.value);inp.value=''};
 document.body.appendChild(root);
+/* 主动打招呼：<script ... data-greet> 才开启；每次打开网站只出现一次，6 秒后弹出，可关掉 */
+const GK='gr-greeted';
+if(document.currentScript&&document.currentScript.hasAttribute('data-greet')){
+ let seen=false;try{seen=sessionStorage.getItem(GK)}catch(_){}
+ if(!seen)setTimeout(()=>{if(!box.hidden)return;
+  try{sessionStorage.setItem(GK,'1')}catch(_){}
+  const g=document.createElement('div');g.className='gb-greet';g.setAttribute('role','status');
+  g.innerHTML='<span></span><button type="button" class="x" aria-label="'+T.close+'">×</button>';
+  g.firstChild.textContent=T.greet;
+  const dot=document.createElement('span');dot.className='gb-dot';dot.textContent='1';fab.style.position='relative';fab.appendChild(dot);
+  const bye=()=>{g.remove();dot.remove()};
+  g.querySelector('.x').onclick=e=>{e.stopPropagation();bye()};
+  g.onclick=()=>{bye();toggle(true)};
+  fab.addEventListener('click',bye,{once:true});
+  root.insertBefore(g,box)},6000)}
 })();
