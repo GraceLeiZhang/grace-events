@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SBHS Orientation Day Morning Tea · Parents' Chip-in 🍉">
+<meta property="og:description" content="Tue 8 Dec 2026 · 500 guests · Chip in any amount and we'll buy the food together. 家长一起凑份子，迎接新同学。">
+<title>SBHS Morning Tea Chip-in</title>
+<style>
+:root{--bg:#f6f8f3;--ink:#26301f;--muted:#66705e;--accent:#556b2f;--accent2:#c9822b;--card:#fff;--line:#dfe5d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI","PingFang SC",sans-serif;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{text-align:center;padding:40px 16px 20px;background:linear-gradient(180deg,#e3ebd6,var(--bg))}
+.emoji{font-size:40px}
+h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(28px,6.5vw,44px);margin:8px 0 6px}
+.sub{color:var(--muted);margin:2px 0;font-size:17px}
+.zh{color:var(--muted);font-size:15px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 0;padding:0;list-style:none}
+.facts li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:22px 0 4px}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;border:0}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
+.box h2{font-size:18px;margin:0 0 8px}
+.box p,.box li{margin:4px 0;color:var(--muted)}
+.box ol{padding-left:22px;margin:0}
+.payid{font-size:22px;font-weight:700;color:var(--ink)}
+.total{text-align:center;margin:22px 0 6px}
+.total b{font-size:34px;color:var(--accent)}
+.names{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 20px}
+.names span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:15px}
+.names span.paid::after{content:" ✓";color:var(--accent)}
+.empty{color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 40px}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="emoji">🍉🥐🧃</div>
+  <h1>Orientation Day Morning Tea</h1>
+  <p class="sub">Let's welcome our new SBHS families together! Chip in any amount and we'll buy the food as one.</p>
+  <p class="zh">一起迎接新同学和新家长！随心凑份子，大家的心意集中采购。</p>
+  <ul class="facts">
+    <li>📅 Tue 8 Dec 2026</li><li>☕ 9am – 12 noon</li><li>👥 ~500 guests</li><li>🥜 Nut-free</li>
+  </ul>
+  <div class="actions">
+    <a class="btn primary" id="sign" target="_blank" rel="noopener" href="#">✍️ Add my name</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="box">
+    <h2>How it works · 怎么参与</h2>
+    <ol>
+      <li><b>Add your name</b> and amount in the next empty row (suggested <b>$20</b> per family, any amount is welcome). <span class="zh">填名字和金额，建议每家 $20，多少都可以。</span></li>
+      <li><b>Pay by PayID</b> below, reference <b>“SBHS + your name”</b>. <span class="zh">转账备注“SBHS + 名字”。</span></li>
+      <li>Grace orders from <b>Costco, delivered straight to the school canteen</b>, and buys the fresh fruit on Mon 7 Dec. <span class="zh">Costco 直接送到学校食堂，新鲜水果 12 月 7 日买。</span></li>
+      <li><b>Receipts are shared here</b> afterwards. Any balance goes to the SBHS P&amp;C. <span class="zh">事后公布小票，余款全部捐给 P&amp;C。</span></li>
+    </ol>
+    <p style="margin-top:10px">Please chip in by <b>Mon 30 Nov</b> so the Costco order arrives in time. <span class="zh">请在 11 月 30 日前参与，方便提前下单。</span></p>
+  </div>
+
+  <div class="box">
+    <h2>💳 PayID</h2>
+    <p><span class="payid" id="payid">ask Grace</span></p>
+    <p>Name shows as <b>Lei Zhang</b>. Reference: <b>SBHS + your name</b></p>
+  </div>
+
+  <div class="total"><div>Raised so far · 已筹</div><b id="sum">$0</b><div class="zh" id="cnt"></div></div>
+  <div class="names" id="names"><span class="empty">Loading…</span></div>
+
+  <div class="box">
+    <h2>🍰 Prefer to bring food?</h2>
+    <p>You can also sign up to bring homemade or store-bought treats on the P&amp;C's Food Donation Register (link in the Year 7 group). <span class="zh">想自己带食物的，请在家委会的 Food Donation Register 登记。</span></p>
+  </div>
+</div>
+
+<footer>Organised by Grace Lei Zhang, a Year 7 parent, as a volunteer. 100% goes to the morning tea, no fees.<br>家长个人志愿组织，全部用于茶歇，不收任何费用。</footer>
+
+<script>
+const SHEET_ID = "1fi_weay1s2aFusSKQSIDj0ADkY-V8fHJWOb-xuiLF5w";
+const PAYID = "0410 931 872";
+document.getElementById('sign').href = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit";
+if (PAYID) document.getElementById('payid').textContent = PAYID;
+function num(v){ const n = parseFloat(String(v==null?"":v).replace(/[^0-9.]/g,"")); return isNaN(n)?0:n; }
+window.gotRows = function(res){
+  const rows = (res && res.table && res.table.rows) || [];
+  const box = document.getElementById('names'); box.innerHTML = "";
+  let sum = 0, n = 0;
+  rows.forEach(r => {
+    const c = r.c || [];
+    const name = c[0] && c[0].v != null ? String(c[0].v).trim() : "";
+    if (!name) return;
+    const amt = num(c[2] && c[2].v);
+    const paid = c[3] && c[3].v != null && String(c[3].v).trim() !== "" && !/^(no|false|否)$/i.test(String(c[3].v).trim());
+    if (paid) sum += amt;
+    n++;
+    const s = document.createElement('span'); s.textContent = name.split(/\s+/)[0]; if (paid) s.className = 'paid'; box.append(s);
+  });
+  document.getElementById('sum').textContent = "$" + Math.round(sum);
+  document.getElementById('cnt').textContent = n ? n + (n===1?" family has":" families have") + " joined · ✓ = received" : "";
+  if (!n) box.innerHTML = '<span class="empty">Be the first to join! 🙌</span>';
+};
+const s = document.createElement('script');
+s.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=responseHandler:gotRows&headers=1&t=" + Date.now();
+s.onerror = () => { document.getElementById('names').innerHTML = '<span class="empty">Names will show here soon.</span>'; };
+document.head.append(s);
+setTimeout(() => { const b = document.getElementById('names'); if (/Loading/.test(b.textContent)) b.innerHTML = '<span class="empty">Names will show here soon.</span>'; }, 8000);
+</script>
+</body>
+</html>
