@@ -44,6 +44,13 @@ details ul{margin:6px 0 0;padding-left:18px;color:var(--sub);font-size:14px;line
 .gallery figcaption{font-size:13px;opacity:.75;margin-top:4px}
 .tag.end{background:#888;color:#fff}
 .credit{font-size:13px;opacity:.75;margin-top:10px}
+.gq{background:linear-gradient(135deg,#f3effc,#ebe4fa);border:1px solid #d9cff3;border-left:4px solid var(--accent)}
+.gq p.q{font-size:15px;color:#3d2f73;line-height:1.85;margin:0}
+.gq p.q+p.q{margin-top:12px}
+.gq .qi{width:22px;height:22px;border-radius:50%;vertical-align:-5px;margin:0 4px;box-shadow:0 1px 3px rgba(80,60,150,.25)}
+.gq .sig{margin-top:10px;font-size:14px;text-align:right;color:var(--accent);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gq{background:#231d3a;border-color:#3a3160}:root:not([data-theme="light"]) .gq p.q{color:#e2dcfa}}
+:root[data-theme="dark"] .gq{background:#231d3a;border-color:#3a3160}:root[data-theme="dark"] .gq p.q{color:#e2dcfa}
 </style>
 </head>
 <body>
@@ -54,11 +61,11 @@ details ul{margin:6px 0 0;padding-left:18px;color:var(--sub);font-size:14px;line
   <p>A cup of tea to taste life's many flavours; a good book to light up the wisdom within.<br>Between the scent of tea and the pages of a book, slow down and be present. Make friends over tea, find insight in books, and bring a little calm to a busy life.</p>
   <p style="margin-top:8px;font-weight:600;color:var(--text)">One tea, one book, one moment · Tea · Reading · Sharing · Growing</p>
   <h2>Why Grace recommends it</h2>
-  <div class="card">
-    <p style="font-size:15px;color:var(--text)">Strangers gather around one table, brought together by shared interests and like minds.</p>
-    <p style="font-size:15px;color:var(--text);margin-top:10px">It reminds me of the car I drive, BYD: Build Your Dream. Each of us has a dream of our own. We don't live for other people, and none of us knows whether tomorrow or the unexpected will come first. So cherish today, do what you love and follow your dream. That is what this tea circle means to me.</p>
-    <p style="font-size:15px;color:var(--text);margin-top:10px">In a world full of noise and material pressure, with AI changing everything, we encourage one another, fellow seekers together: sit still, drink a cup of tea, read a few lines, and give the heart a moment of peace. In Chinese and English, relaxed and easy-going.</p>
-    <p style="margin-top:8px;font-size:14px;text-align:right">— Grace Lei Zhang</p>
+  <div class="card gq">
+    <p class="q"><img class="qi" src="/icons/icon-192.png" alt="">Strangers gather around one table, brought together by shared interests and like minds.</p>
+    <p class="q">It reminds me of the car I drive, BYD: Build Your Dream. Each of us has a dream of our own. We don't live for other people, and none of us knows whether tomorrow or the unexpected will come first. So cherish today, do what you love and follow your dream. That is what this tea circle means to me.</p>
+    <p class="q">In a world full of noise and material pressure, with AI changing everything, we encourage one another, fellow seekers together: sit still, drink a cup of tea, read a few lines, and give the heart a moment of peace. In Chinese and English, relaxed and easy-going.<img class="qi" src="/icons/icon-192.png" alt=""></p>
+    <p class="sig">— Grace Lei Zhang</p>
   </div>
   <h2>When</h2>
   <div class="card" data-end="2026-11-22T12:30:00+11:00">
