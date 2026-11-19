@@ -394,7 +394,7 @@ const RICH={
   {m:"十一月",d:"21",y:"周六",chip:"公益推荐 · 社区活动",t:"Burwood 植物展 & 食虫植物展",s:"AUSCPS 春季植物集市 · Woodstock 社区中心 · 9:00–15:00",u:"https://gracerock.com.au/preview/events/plant-fair.html",ts:"2026-11-21"},
   {m:"一月",d:"12",y:"2027",chip:"已成团 · 候补登记开放",t:"水云间家庭体验之旅",s:"捞虾、划船、烤全羊 · 三天两晚",u:"https://gracerock.com.au/shuiyunjian.html",ts:"2027-01-12"},
   {m:"2027",d:"4月",y:"学校假期",chip:"亲子 · 意向登记中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://gracerock.com.au/yunnan-april.html",ts:"2027-04-01"},
-  {m:"十月",d:"7",y:"2026",chip:"精彩回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://gracerock.com.au/paintball.html",ts:"2026-10-07"}]},
+  {m:"十月",d:"7",y:"2026",chip:"往期回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://gracerock.com.au/paintball.html",ts:"2026-10-07"}]},
  "人与科技 · AI":{intro:"AI、科学和教育：一起学，一起用，激动人心。",events:[{m:"十一月",d:"18",y:"周三",chip:"公益推荐 · 线上家长课",t:"超越补习：用 AI 规划孩子未来（第 1 课）",s:"Innworks · 6–15 岁孩子家长 · 晚 8–9 点 · A$10",u:"https://gracerock.com.au/preview/events/innworks-ai.html",ts:"2026-11-18",exp:"2026-12-02"},{m:"十一月",d:"25",y:"周三",chip:"公益推荐 · 线上家长课",t:"超越补习：用 AI 规划孩子未来（第 2 课）",s:"Innworks · 动手做 AI 项目 · 晚 8–9 点 · A$15",u:"https://gracerock.com.au/preview/events/innworks-ai.html",ts:"2026-11-25",exp:"2026-12-02"}],cards:[
   {logo:"assets/tj-academy-logo.png",tag:"Grace 孩子的私教老师 · 教育",n:"TJ Academy",sub:"胡老师 · 写作 · OC · 精英中学 · Chatswood",
    say:"孩子大约 2020 年开始跟胡老师学。上课很灵活，60 分钟对孩子太长，就改成 45 分钟，收费也相应降低。",
@@ -458,7 +458,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()
 {let now=new Date(Date.now()+11*36e5).toISOString().slice(0,10);const all=Object.values(RICH).flatMap(r=>r.events||[]).filter(e=>!e.exp||e.exp>=now);
  up=all.filter(e=>!e.ts||e.ts>=now).sort((a,b)=>(a.ts||'9').localeCompare(b.ts||'9')),done=all.filter(e=>e.ts&&e.ts<now).sort((a,b)=>b.ts.localeCompare(a.ts));
  const L=document.getElementById('ev-list');L.appendChild(events(up));
- if(done.length){const h=document.createElement('p');h.className='ev-past';h.textContent='精彩回顾';L.appendChild(h);L.appendChild(events(done))}}
+ if(done.length){const h=document.createElement('p');h.className='ev-past';h.textContent='往期活动回顾';L.appendChild(h);L.appendChild(events(done.map(e=>({...e,chip:'往期回顾'}))))}}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
  const done=()=>{m.hidden=false;m.textContent='已复制微信号 leigracezhang，打开微信添加好友即可'},fb=()=>{m.hidden=false;m.textContent='微信号：leigracezhang'};
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});

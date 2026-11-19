@@ -396,7 +396,7 @@ const RICH={
   {m:"Nov",d:"21",y:"Sat",chip:"Community pick",t:"Burwood Plant Fair & Carnivorous Plant Show",s:"AUSCPS Spring Show · Woodstock Community Centre · 9am–3pm",u:"https://gracerock.com.au/preview/events/plant-fair-en.html",ts:"2026-11-21"},
   {m:"Jan",d:"12",y:"2027",chip:"Group Confirmed · Waitlist Open",t:"Shui Yun Jian family getaway",s:"Prawning, boating, whole roast lamb · 3 days, 2 nights",u:"https://gracerock.com.au/shuiyunjian-en.html",ts:"2027-01-12"},
   {m:"2027",d:"Apr",y:"School hols",chip:"Family · Registering interest",t:"Across the Tropic of Cancer · Yunnan",s:"A family adventure from Shanghai to Yunnan · School holidays",u:"https://gracerock.com.au/yunnan-april-en.html",ts:"2027-04-01"},
-  {m:"Oct",d:"7",y:"2026",chip:"Highlights",t:"Paintball battle",s:"Die Hard Indoor Paintball · Turrella",u:"https://gracerock.com.au/paintball-en.html",ts:"2026-10-07"}]},
+  {m:"Oct",d:"7",y:"2026",chip:"Past event",t:"Paintball battle",s:"Die Hard Indoor Paintball · Turrella",u:"https://gracerock.com.au/paintball-en.html",ts:"2026-10-07"}]},
  "People & Tech · AI":{intro:"AI, science and education: learning and using them together.",events:[{m:"Nov",d:"18",y:"Wed",chip:"Community pick · Online",t:"Beyond Tutoring: AI for Parents (Session 1)",s:"Innworks · Parents of kids 6–15 · 8–9pm · A$10",u:"https://gracerock.com.au/preview/events/innworks-ai-en.html",ts:"2026-11-18",exp:"2026-12-02"},{m:"Nov",d:"25",y:"Wed",chip:"Community pick · Online",t:"Beyond Tutoring: AI for Parents (Session 2)",s:"Innworks · Hands-on AI projects · 8–9pm · A$15",u:"https://gracerock.com.au/preview/events/innworks-ai-en.html",ts:"2026-11-25",exp:"2026-12-02"}],cards:[
   {logo:"assets/tj-academy-logo.png",tag:"My child’s tutor · Education",n:"TJ Academy",sub:"Ms Hu (胡老师) · Writing · OC · Selective · Chatswood",
    say:"My child has learned with Ms Hu since around 2020. Lessons are flexible: 60 minutes was too long, so she made it 45 and lowered the fee to match.",
@@ -460,7 +460,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!veil.hidden)shut()
 {let now=new Date(Date.now()+11*36e5).toISOString().slice(0,10);const all=Object.values(RICH).flatMap(r=>r.events||[]).filter(e=>!e.exp||e.exp>=now);
  up=all.filter(e=>!e.ts||e.ts>=now).sort((a,b)=>(a.ts||'9').localeCompare(b.ts||'9')),done=all.filter(e=>e.ts&&e.ts<now).sort((a,b)=>b.ts.localeCompare(a.ts));
  const L=document.getElementById('ev-list');L.appendChild(events(up));
- if(done.length){const h=document.createElement('p');h.className='ev-past';h.textContent='Highlights';L.appendChild(h);L.appendChild(events(done))}}
+ if(done.length){const h=document.createElement('p');h.className='ev-past';h.textContent='Past Events';L.appendChild(h);L.appendChild(events(done.map(e=>({...e,chip:'Past event'}))))}}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace]');if(!a)return;e.preventDefault();const m=document.getElementById('enq-copied'),v=a.dataset.copyGrace;
  const done=()=>{m.hidden=false;m.textContent='Copied WeChat ID leigracezhang. Add Grace on WeChat.'},fb=()=>{m.hidden=false;m.textContent='WeChat ID: leigracezhang'};
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});

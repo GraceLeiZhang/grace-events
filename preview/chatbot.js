@@ -54,7 +54,7 @@ const KB=[
   en:'A family trip in the April 2027 school holidays, from Shanghai to Yunnan across the Tropic of Cancer. Register your interest now.',
   a:[ev('看云南之旅','See the Yunnan trip','yunnan-april.html'),M(2)]},
  {k:['彩弹','paintball','die hard','turrella'],
-  zh:'10 月 7 日的 Paintball 彩弹对战已经结束了，可以看精彩回顾。',
+  zh:'10 月 7 日的 Paintball 彩弹对战已经结束了，可以在「往期活动回顾」里看。',
   en:'The Paintball day on 7 October is over. You can see the recap.',
   a:[ev('看彩弹回顾','See the recap','paintball.html'),M(2)]},
  {k:['活动','亲子','孩子','小孩','旅行','旅游','报名','event','events','kids','children','family','trip','travel','sign up'],
