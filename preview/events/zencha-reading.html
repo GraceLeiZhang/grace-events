@@ -44,6 +44,13 @@ details ul{margin:6px 0 0;padding-left:18px;color:var(--sub);font-size:14px;line
 .gallery figcaption{font-size:13px;opacity:.75;margin-top:4px}
 .tag.end{background:#888;color:#fff}
 .credit{font-size:13px;opacity:.75;margin-top:10px}
+.gq{background:linear-gradient(135deg,#f3effc,#ebe4fa);border:1px solid #d9cff3;border-left:4px solid var(--accent)}
+.gq p.q{font-size:15px;color:#3d2f73;line-height:1.85;margin:0}
+.gq p.q+p.q{margin-top:12px}
+.gq .qi{width:22px;height:22px;border-radius:50%;vertical-align:-5px;margin:0 4px;box-shadow:0 1px 3px rgba(80,60,150,.25)}
+.gq .sig{margin-top:10px;font-size:14px;text-align:right;color:var(--accent);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gq{background:#231d3a;border-color:#3a3160}:root:not([data-theme="light"]) .gq p.q{color:#e2dcfa}}
+:root[data-theme="dark"] .gq{background:#231d3a;border-color:#3a3160}:root[data-theme="dark"] .gq p.q{color:#e2dcfa}
 </style>
 </head>
 <body>
@@ -54,11 +61,11 @@ details ul{margin:6px 0 0;padding-left:18px;color:var(--sub);font-size:14px;line
   <p>一盏清茶，品人生百味；一本好书，照见内心智慧。<br>在茶香与书香之间，放慢脚步，安住当下。以茶会友，以书启慧，让忙碌的生活多一份宁静与自在。</p>
   <p style="margin-top:8px;font-weight:600;color:var(--text)">一茶一书 · 一期一会　品茶 · 共读 · 分享 · 成长</p>
   <h2>Grace 的推荐</h2>
-  <div class="card">
-    <p style="font-size:15px;color:var(--text)">一群素不相识的人，因为共同的爱好、相近的想法，围坐在一起。</p>
-    <p style="font-size:15px;color:var(--text);margin-top:10px">就像我的座驾 BYD：Build Your Dream。每个人心里都有自己的梦想。我们不是为别人而活，谁也不知道明天和意外哪个先来，所以珍惜当下，做想做的事，去追自己的梦。这是我对静心茶社的理解。</p>
-    <p style="font-size:15px;color:var(--text);margin-top:10px">在这个物欲横流、AI 改变一切的时代，和师兄师姐、师弟师妹们一起共勉：静下来，喝一杯茶，读一段文字，让心得到片刻的宁静。这里有中文也有英文，自由随意，让人真正放松。</p>
-    <p style="margin-top:8px;font-size:14px;text-align:right">— Grace Lei Zhang</p>
+  <div class="card gq">
+    <p class="q"><img class="qi" src="/icons/icon-192.png" alt="">一群素不相识的人，因为共同的爱好、相近的想法，围坐在一起。<img class="qi" src="/icons/icon-192.png" alt=""></p>
+    <p class="q"><img class="qi" src="/icons/icon-192.png" alt="">就像我的座驾 BYD：Build Your Dream。每个人心里都有自己的梦想。我们不是为别人而活，谁也不知道明天和意外哪个先来，所以珍惜当下，做想做的事，去追自己的梦。这是我对静心茶社的理解。<img class="qi" src="/icons/icon-192.png" alt=""></p>
+    <p class="q"><img class="qi" src="/icons/icon-192.png" alt="">在这个物欲横流、AI 改变一切的时代，和师兄师姐、师弟师妹们一起共勉：静下来，喝一杯茶，读一段文字，让心得到片刻的宁静。这里有中文也有英文，自由随意，让人真正放松。<img class="qi" src="/icons/icon-192.png" alt=""></p>
+    <p class="sig">— Grace Lei Zhang</p>
   </div>
   <h2>活动时间</h2>
   <div class="card" data-end="2026-11-22T12:30:00+11:00">
