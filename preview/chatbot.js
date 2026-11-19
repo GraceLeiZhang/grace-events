@@ -156,6 +156,7 @@ function find(x){
 function act(x){
  if(x.copy){const done=()=>bubble(T.copied+x.copy,'gb-b');try{navigator.clipboard.writeText(x.copy).then(done,done)}catch(_){done()}return}
  const el=find(x);
+ if(el&&window.grOpen)grOpen(el);
  if(!el){location.href=BASE+(EN?'en.html':'./');return}
  if(window.matchMedia('(max-width:600px)').matches)toggle(false);
  el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('gb-flash');setTimeout(()=>el.classList.remove('gb-flash'),2200)}

@@ -218,6 +218,24 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
   #gr-bot{bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
   header .acts,header .acts+.founder{display:none}
 }
+
+/* 简化版首页 2026-11-20 */
+.emb span{display:none}
+.pos{font-size:19px;max-width:22em}
+.cc{box-sizing:border-box;width:100%;max-width:360px;margin:18px auto 0;padding:18px 18px 16px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 22px rgba(60,30,90,.08);text-align:center}
+.cc-t{margin:0 0 8px;font-size:13px;color:var(--muted);letter-spacing:.1em}
+.cc-code{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border:0;border-radius:14px;background:var(--mist);color:var(--jac-deep);font:600 22px/1 var(--body);letter-spacing:.14em;cursor:pointer}
+.cc-code svg{width:20px;height:20px;flex:none}
+.cc-s{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.6}
+.ev.more{display:none}#ev-list.all .ev.more{display:flex}#ev-list:not(.all) .ev-past{display:none}
+.morebtn{display:block;margin:12px auto 0;min-height:44px;padding:0 22px;border-radius:99px;border:1.5px solid var(--jac);background:transparent;color:var(--jac-deep);font:inherit;font-weight:500;cursor:pointer}
+#partners{margin-top:-28px}#partners>h2,#partners>.lede{display:none}
+#groups>div{display:none}#groups>div.open{display:block}
+.tier[aria-pressed="true"]{outline:3px solid var(--jac-deep);outline-offset:3px}
+details.fold{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+details.fold summary{cursor:pointer;color:var(--jac-deep);font-weight:500;list-style:none}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary::after{content:" ›"}details.fold[open] summary::after{content:" ⌄"}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">近期活动</a><a href="#partners">推荐商家</a><a href="#contact">咨询合作</a><a href="join.html">加入会员</a></span><span data-lang-slot></span></nav>
@@ -251,13 +269,13 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
     <h1>雅实<small>Grace Rock Group</small></h1>
     <p class="slogan">携手同行，共创美好</p>
     <p class="motto">Together We Flourish</p>
-    <p class="pos"><span style="white-space:nowrap">亲自体验、亲自带队的</span><br><span style="white-space:nowrap">悉尼华人家庭生活圈</span></p>
+    <p class="pos">Grace 亲自试过的悉尼好活动、好商家，<br>带你一起去。</p>
     <p class="founder">创始人 Grace Lei Zhang</p>
+    <div class="cc"><p class="cc-t">GRACE ROCK 推荐码</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">联系推荐商家时报这个码，享专属优惠。</p></div>
     <div class="acts"><a class="pri" href="#events">看近期活动</a><a href="#partners">找推荐商家</a><a href="#contact">商务咨询 · 合作</a></div>
     <p class="founder" style="margin-top:10px"><a href="join.html" style="color:inherit">免费加入会员 · 商家 · 志愿者 ›</a></p>
   </header>
 
-  <section class="hc" aria-roledescription="carousel" aria-label="精选推荐"><div class="hc-track"><div class="hc-s hc-s1"><span class="k">11 月 28 日 · 周六</span><p class="big">正式开业</p><p class="sub">雅实 Grace Rock 携手同行，共创美好</p><a class="btn" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E6%83%B3%E5%8F%82%E5%8A%A0%2011%20%E6%9C%88%2028%20%E6%97%A5%E9%9B%85%E5%AE%9E%E5%BC%80%E4%B8%9A%E6%B4%BB%E5%8A%A8" target="_blank" rel="noopener">预约参加</a></div><div class="hc-s hc-s2"><span class="k">免费加入</span><p class="big">加入会员</p><p class="sub">消费攒积分，多家商家通用</p><a class="btn" href="join.html">免费加入</a></div><div class="hc-s hc-s4" data-exp="2026-11-25"><span class="k">公益推荐 · 11月18、25日</span><p class="big">AI 家长课</p><p class="sub">用 AI 规划孩子未来 · 线上</p><a class="btn" href="events/innworks-ai.html">看详情</a></div><div class="hc-s hc-s3"><span class="k">本周公益 · 11 月 21 日 周六</span><p class="big">植物展</p><p class="sub">Burwood 食虫植物展 · 9:00–15:00</p><a class="btn" href="events/plant-fair.html">看详情</a></div></div><button type="button" class="hc-arr hc-prev" aria-label="上一张">‹</button><button type="button" class="hc-arr hc-next" aria-label="下一张">›</button><div class="hc-dots"></div></section>
 
   <section id="events">
     <h2>近期活动</h2>
@@ -267,8 +285,8 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
 
 
   <section>
-    <h2>以人为中心</h2>
-    <p class="lede">每一家推荐，都是我亲身体验过的。</p>
+    <h2>Grace 推荐的商家</h2>
+    <p class="lede">选一个类别看看。每一家都是 Grace 亲身体验过的。</p>
     <div class="tiers">
       <a class="tier t1" href="#m1"><span class="tb">A</span><b>健康</b><em>人与身体</em><span class="ts">健身 · 养生 · 美容</span><span class="go">查看 ›</span></a>
       <a class="tier t2" href="#m2"><span class="tb">B</span><b>人与自然</b><em>公益</em><span class="ts">走进自然 · 行万里路 · 探险</span><span class="go">查看 ›</span></a>
@@ -284,20 +302,20 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
 
     <div id="groups"></div>
 
-    <div class="rules">
+    <details class="fold"><summary>推荐规则：口碑排名、推广位、利益公开</summary><div class="rules">
       <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。创业期加入的商家为“创始伙伴”，免费展示。</p>
       <p><b>付费推广</b>商家可以付费购买推广位。推广位单独放置，并清楚标明“推广”，不会混进口碑排名。</p>
       <p><b>口碑评分</b>只有经 Grace Rock 推荐并实际消费的客户才能评分，一人一评，满 5 条验证评价才显示分数。</p>
       <p><b>群众监督</b>低于 3.5 星显示“待改进”，付费也不能去掉。差评不删，商家可以公开回复。</p>
       <p><b>利益公开</b>部分推荐伙伴会给雅实推荐回报。所有推荐均来自 Grace 的亲身体验，回报不影响评分和口碑排名。</p>
       <p><b>待确认 TBC</b>标有“TBC”的伙伴仍在洽谈中，To be confirmed。</p>
-    </div>
+    </div></details>
   </section>
 
     <section class="mission">
     <h2>我们的宗旨</h2>
-    <p>每一个人，都值得越来越好。<br>
-    在 AI 时代的浪潮里，<br>
+    <p>每一个人，都值得越来越好。</p>
+    <details class="fold"><summary>读完整宗旨</summary><p>在 AI 时代的浪潮里，<br>
     我们愿做一棵摇动另一棵树的树，<br>
     一朵推动另一朵云的云：<br>
     倾听每个人的难处，<br>
@@ -307,7 +325,7 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
     路，终究由每个人自己走出来；<br>
     而我们，愿做同行的人。<br>
     愿每一个平凡的人，<br>
-    都成为天空中那颗闪亮的星。</p>
+    都成为天空中那颗闪亮的星。</p></details>
   </section>
 
   <section id="contact">
@@ -465,6 +483,17 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
 </script>
 
+<script>(()=>{
+const L=document.getElementById('ev-list'),ev=[...L.querySelectorAll(':scope>.ev')];
+if(ev.length>3){ev.slice(3).forEach(e=>e.classList.add('more'));const past=L.querySelector('.ev-past');if(past){let n=past.nextElementSibling;while(n){n.querySelectorAll&&n.querySelectorAll('.ev').forEach(e=>e.classList.add('more'));n=n.nextElementSibling}}
+ const b=document.createElement('button');b.type='button';b.className='morebtn';b.textContent='看全部活动 ('+L.querySelectorAll('.ev').length+')';
+ b.onclick=()=>{const a=L.classList.toggle('all');b.textContent=a?'收起':'看全部活动 ('+L.querySelectorAll('.ev').length+')'};L.after(b)}
+const T=[...document.querySelectorAll('.tier')],G=[...document.querySelectorAll('#groups>div')];
+window.grOpen=el=>{const g=el&&el.closest?el.closest('#groups>div'):null;if(!g)return;G.forEach(x=>x.classList.toggle('open',x===g));T.forEach(t=>t.setAttribute('aria-pressed',t.getAttribute('href')==='#'+g.id))};
+T.forEach(t=>t.addEventListener('click',e=>{e.preventDefault();const g=document.querySelector(t.getAttribute('href'));grOpen(g);g.scrollIntoView({behavior:'smooth',block:'start'})}));
+const hs=()=>{const g=location.hash&&document.querySelector('#groups>'+location.hash);if(g){grOpen(g);g.scrollIntoView()}};hs();addEventListener('hashchange',hs);
+document.querySelectorAll('.cc-code').forEach(b=>b.onclick=()=>{const s=b.nextElementSibling,o=s.textContent;const ok=()=>{s.textContent='已复制 GraceRock';setTimeout(()=>s.textContent=o,2000)};try{navigator.clipboard.writeText(b.dataset.cc).then(ok,ok)}catch(_){ok()}});
+})();</script>
 <nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a class="pri" href="join.html">加入会员</a><a href="#events">近期活动</a><a href="#partners">找商家</a></nav>
 <script>(()=>{const c=document.querySelector('.hc');if(!c)return;const td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);c.querySelectorAll('[data-exp]').forEach(x=>{if(x.dataset.exp<td)x.remove()});const t=c.querySelector('.hc-track'),s=t.children,n=s.length,d=c.querySelector('.hc-dots');let i=0,tm;
 for(let k=0;k<n;k++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+' / '+n);b.onclick=()=>go(k,1);d.appendChild(b)}

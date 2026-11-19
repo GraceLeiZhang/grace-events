@@ -220,6 +220,24 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
   #gr-bot{bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
   header .acts,header .acts+.founder{display:none}
 }
+
+/* 简化版首页 2026-11-20 */
+.emb span{display:none}
+.pos{font-size:19px;max-width:22em}
+.cc{box-sizing:border-box;width:100%;max-width:360px;margin:18px auto 0;padding:18px 18px 16px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 22px rgba(60,30,90,.08);text-align:center}
+.cc-t{margin:0 0 8px;font-size:13px;color:var(--muted);letter-spacing:.1em}
+.cc-code{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border:0;border-radius:14px;background:var(--mist);color:var(--jac-deep);font:600 22px/1 var(--body);letter-spacing:.14em;cursor:pointer}
+.cc-code svg{width:20px;height:20px;flex:none}
+.cc-s{margin:10px 0 0;font-size:14px;color:var(--muted);line-height:1.6}
+.ev.more{display:none}#ev-list.all .ev.more{display:flex}#ev-list:not(.all) .ev-past{display:none}
+.morebtn{display:block;margin:12px auto 0;min-height:44px;padding:0 22px;border-radius:99px;border:1.5px solid var(--jac);background:transparent;color:var(--jac-deep);font:inherit;font-weight:500;cursor:pointer}
+#partners{margin-top:-28px}#partners>h2,#partners>.lede{display:none}
+#groups>div{display:none}#groups>div.open{display:block}
+.tier[aria-pressed="true"]{outline:3px solid var(--jac-deep);outline-offset:3px}
+details.fold{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+details.fold summary{cursor:pointer;color:var(--jac-deep);font-weight:500;list-style:none}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary::after{content:" ›"}details.fold[open] summary::after{content:" ⌄"}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">Grace Rock Group</a><span class="links"><a href="#events">Events</a><a href="#partners">Partners</a><a href="#contact">Enquire</a><a href="join-en.html">Join</a></span><span data-lang-slot></span></nav>
@@ -253,13 +271,13 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
     <h1 class="en-brand">Grace Rock Group<small>雅实</small></h1>
     <p class="slogan">Together We Flourish</p>
     <p class="motto">携手同行，共创美好</p>
-    <p class="pos">A Sydney family community, with every experience tried and led by Grace Lei Zhang</p>
+    <p class="pos">Sydney activities and local businesses Grace has tried herself.<br>Come along with her.</p>
     <p class="founder">Founder: Grace Lei Zhang</p>
+    <div class="cc"><p class="cc-t">GRACE ROCK REFERRAL CODE</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">Mention this code to our partners for their exclusive offers.</p></div>
     <div class="acts"><a class="pri" href="#events">Upcoming events</a><a href="#partners">Find a recommended business</a><a href="#contact">Business enquiries</a></div>
     <p class="founder" style="margin-top:10px"><a href="join-en.html" style="color:inherit">Join free as a member, business or volunteer ›</a></p>
   </header>
 
-  <section class="hc" aria-roledescription="carousel" aria-label="Highlights"><div class="hc-track"><div class="hc-s hc-s1"><span class="k">Saturday 28 November</span><p class="big">Grand Opening</p><p class="sub">Grace Rock Group · Together, We Flourish</p><a class="btn" href="https://wa.me/61410931872?text=Hi%20Grace%2C%20I%27d%20like%20to%20join%20the%20Grace%20Rock%20opening%20on%2028%20November" target="_blank" rel="noopener">Save my spot</a></div><div class="hc-s hc-s2"><span class="k">Free to join</span><p class="big">Become a Member</p><p class="sub">Earn points on purchases, use them across our partners</p><a class="btn" href="join-en.html">Join free</a></div><div class="hc-s hc-s4" data-exp="2026-11-25"><span class="k">Community pick · Wed 18 & 25 Nov</span><p class="big">AI for Parents</p><p class="sub">Beyond Tutoring webinar · Online</p><a class="btn" href="events/innworks-ai-en.html">See details</a></div><div class="hc-s hc-s3"><span class="k">Community pick · Sat 21 Nov</span><p class="big">Plant Fair</p><p class="sub">Burwood carnivorous plant show · 9am–3pm</p><a class="btn" href="events/plant-fair-en.html">See details</a></div></div><button type="button" class="hc-arr hc-prev" aria-label="Previous">‹</button><button type="button" class="hc-arr hc-next" aria-label="Next">›</button><div class="hc-dots"></div></section>
 
   <section id="events">
     <h2>Upcoming events</h2>
@@ -269,8 +287,8 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
 
 
   <section>
-    <h2>People at the centre</h2>
-    <p class="lede">Every recommendation is one I have experienced myself.</p>
+    <h2>Businesses Grace recommends</h2>
+    <p class="lede">Pick a category. Grace has tried every one herself.</p>
     <div class="tiers">
       <a class="tier t1" href="#m1"><span class="tb">A</span><b>Health</b><em>People &amp; Body</em><span class="ts">Fitness · Wellbeing · Beauty</span><span class="go">Explore ›</span></a>
       <a class="tier t2" href="#m2"><span class="tb">B</span><b>Nature</b><em>Community</em><span class="ts">Into nature · Journeys · Adventure</span><span class="go">Explore ›</span></a>
@@ -286,20 +304,20 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
 
     <div id="groups"></div>
 
-    <div class="rules">
+    <details class="fold"><summary>Our rules: rankings, promoted spots, disclosure</summary><div class="rules">
       <p><b>Word-of-mouth ranking</b>Ranked only by verified customer ratings. Neither payment nor referral rewards can change a ranking; ratings decide who stays. Businesses that join during our start-up phase are “Founding Partners” and are listed free.</p>
       <p><b>Paid promotion</b>Businesses can pay for a promoted spot. Promoted spots are shown separately and clearly labelled “Sponsored”, never mixed into the word-of-mouth ranking.</p>
       <p><b>Ratings</b>Only customers referred by Grace Rock who actually buy can rate. One review per person; a score shows after 5 verified reviews.</p>
       <p><b>Community oversight</b>Below 3.5 stars shows “Needs improvement”, and payment cannot remove it. Bad reviews are never deleted; businesses can reply publicly.</p>
       <p><b>Disclosure</b>Some partners give Grace Rock a referral reward. Every recommendation comes from Grace’s own experience, and rewards never affect ratings or the word-of-mouth ranking.</p>
       <p><b>TBC</b>Partners marked “TBC” are still in discussion (to be confirmed).</p>
-    </div>
+    </div></details>
   </section>
 
     <section class="mission">
     <h2>Our mission</h2>
-    <p>Everyone deserves to keep growing better.<br>
-    In the rising tide of the AI age,<br>
+    <p>Everyone deserves to keep growing better.</p>
+    <details class="fold"><summary>Read our full mission</summary><p>In the rising tide of the AI age,<br>
     we want to be the tree that shakes another tree,<br>
     the cloud that moves another cloud:<br>
     to listen to each person's struggles,<br>
@@ -309,7 +327,7 @@ h3.group .no{clip-path:none;border-radius:50%;width:34px;height:34px}
     In the end, each of us walks our own path;<br>
     we simply want to walk alongside.<br>
     May every ordinary person<br>
-    become a bright star in the sky.</p>
+    become a bright star in the sky.</p></details>
   </section>
 
   <section id="contact">
@@ -467,6 +485,17 @@ document.addEventListener('click',e=>{const a=e.target.closest('[data-copy-grace
  try{navigator.clipboard.writeText(v).then(done,fb)}catch(_){fb()}});
 </script>
 
+<script>(()=>{
+const L=document.getElementById('ev-list'),ev=[...L.querySelectorAll(':scope>.ev')];
+if(ev.length>3){ev.slice(3).forEach(e=>e.classList.add('more'));const past=L.querySelector('.ev-past');if(past){let n=past.nextElementSibling;while(n){n.querySelectorAll&&n.querySelectorAll('.ev').forEach(e=>e.classList.add('more'));n=n.nextElementSibling}}
+ const b=document.createElement('button');b.type='button';b.className='morebtn';b.textContent='See all events ('+L.querySelectorAll('.ev').length+')';
+ b.onclick=()=>{const a=L.classList.toggle('all');b.textContent=a?'Show less':'See all events ('+L.querySelectorAll('.ev').length+')'};L.after(b)}
+const T=[...document.querySelectorAll('.tier')],G=[...document.querySelectorAll('#groups>div')];
+window.grOpen=el=>{const g=el&&el.closest?el.closest('#groups>div'):null;if(!g)return;G.forEach(x=>x.classList.toggle('open',x===g));T.forEach(t=>t.setAttribute('aria-pressed',t.getAttribute('href')==='#'+g.id))};
+T.forEach(t=>t.addEventListener('click',e=>{e.preventDefault();const g=document.querySelector(t.getAttribute('href'));grOpen(g);g.scrollIntoView({behavior:'smooth',block:'start'})}));
+const hs=()=>{const g=location.hash&&document.querySelector('#groups>'+location.hash);if(g){grOpen(g);g.scrollIntoView()}};hs();addEventListener('hashchange',hs);
+document.querySelectorAll('.cc-code').forEach(b=>b.onclick=()=>{const s=b.nextElementSibling,o=s.textContent;const ok=()=>{s.textContent='Copied GraceRock';setTimeout(()=>s.textContent=o,2000)};try{navigator.clipboard.writeText(b.dataset.cc).then(ok,ok)}catch(_){ok()}});
+})();</script>
 <nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=Hi%20Grace%2C%20I%20saw%20the%20Grace%20Rock%20website%20and%20would%20like%20to%20ask%3A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a class="pri" href="join-en.html">Join</a><a href="#events">Events</a><a href="#partners">Partners</a></nav>
 <script>(()=>{const c=document.querySelector('.hc');if(!c)return;const td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);c.querySelectorAll('[data-exp]').forEach(x=>{if(x.dataset.exp<td)x.remove()});const t=c.querySelector('.hc-track'),s=t.children,n=s.length,d=c.querySelector('.hc-dots');let i=0,tm;
 for(let k=0;k<n;k++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+' / '+n);b.onclick=()=>go(k,1);d.appendChild(b)}
