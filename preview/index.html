@@ -269,7 +269,7 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
     <h1>雅实<small>Grace Rock Group</small></h1>
     <p class="slogan">携手同行，共创美好</p>
     <p class="motto">Together We Flourish</p>
-    <p class="pos">Grace 亲自试过的悉尼好活动、好商家，<br>带你一起去。</p>
+    <p class="pos">Grace 亲自试过的<a href="#events" style="color:inherit;text-decoration:underline;text-underline-offset:4px">好活动</a>、<br><a href="shops.html" style="color:inherit;text-decoration:underline;text-underline-offset:4px">好商家</a>，带你一起去。</p>
     <p class="founder">创始人 Grace Lei Zhang</p>
     <div class="cc"><p class="cc-t">GRACE ROCK 推荐码</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">联系推荐商家时报这个码，享专属优惠。</p></div>
     <div class="acts"><a class="pri" href="#events">看附近有什么羊毛</a><a href="#partners">我有事情，想咨询</a><a href="#contact">商务咨询 · 合作</a></div>
@@ -502,5 +502,5 @@ function play(){clearInterval(tm);if(!matchMedia('(prefers-reduced-motion:reduce
 c.querySelector('.hc-prev').onclick=()=>go(i-1,1);c.querySelector('.hc-next').onclick=()=>go(i+1,1);
 let x0=null;t.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});t.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1),1);x0=null});
 c.addEventListener('mouseenter',()=>clearInterval(tm));c.addEventListener('mouseleave',play);go(0);play()})();</script>
-<script src="chatbot.js" data-greet defer></script>
+<script src="chatbot.js" defer></script>
 </body></html>
