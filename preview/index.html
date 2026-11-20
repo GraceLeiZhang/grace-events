@@ -238,7 +238,7 @@ details.fold summary::-webkit-details-marker{display:none}
 details.fold summary::after{content:" ›"}details.fold[open] summary::after{content:" ⌄"}
 </style>
 
-<nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">近期活动</a><a href="#partners">推荐商家</a><a href="#contact">咨询合作</a><a href="join.html">加入会员</a></span><span data-lang-slot></span></nav>
+<nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">附近羊毛</a><a href="#partners">找人帮忙</a><a href="#contact">咨询合作</a><a href="join.html">加入会员</a></span><span data-lang-slot></span></nav>
 <div class="wrap" id="top">
   <header>
     <div class="emb"><span>亲自体验</span>
@@ -272,21 +272,21 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
     <p class="pos">Grace 亲自试过的悉尼好活动、好商家，<br>带你一起去。</p>
     <p class="founder">创始人 Grace Lei Zhang</p>
     <div class="cc"><p class="cc-t">GRACE ROCK 推荐码</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">联系推荐商家时报这个码，享专属优惠。</p></div>
-    <div class="acts"><a class="pri" href="#events">看近期活动</a><a href="#partners">找推荐商家</a><a href="#contact">商务咨询 · 合作</a></div>
+    <div class="acts"><a class="pri" href="#events">看附近有什么羊毛</a><a href="#partners">我有困难，找人帮忙</a><a href="#contact">商务咨询 · 合作</a></div>
     <p class="founder" style="margin-top:10px"><a href="join.html" style="color:inherit">免费加入会员 · 商家 · 志愿者 ›</a></p>
   </header>
 
 
   <section id="events">
-    <h2>近期活动</h2>
-    <p class="lede">和 Grace 一起去：亲子旅行、家庭聚会、团队活动。想一起去就私信 Grace，我带你去体验。</p>
+    <h2>我家附近有什么羊毛可薅</h2>
+    <p class="lede">免费活动、公益活动、商家优惠，Grace 帮你找好了。想一起去就私信 Grace。</p>
     <div id="ev-list"></div>
   </section>
 
 
   <section>
-    <h2>Grace 推荐的商家</h2>
-    <p class="lede">选一个类别看看。每一家都是 Grace 亲身体验过的。</p>
+    <h2>我有困难，想找人帮忙</h2>
+    <p class="lede">健康、报税、孩子补习、宠物……选一个类别。每一家都是 Grace 亲身体验过的靠谱的人。</p>
     <div class="tiers">
       <a class="tier t1" href="#m1"><span class="tb">A</span><b>健康</b><em>人与身体</em><span class="ts">健身 · 养生 · 美容</span><span class="go">查看 ›</span></a>
       <a class="tier t2" href="#m2"><span class="tb">B</span><b>人与自然</b><em>公益</em><span class="ts">走进自然 · 行万里路 · 探险</span><span class="go">查看 ›</span></a>
@@ -455,7 +455,7 @@ function grid(items){const g=document.createElement('div');g.className='logos',t
 G.forEach((sec,gi)=>{const wrap=document.createElement('div');wrap.id='m'+(gi+1);wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
  if(R.intro){const q=document.createElement('p');q.className='intro';q.innerHTML=R.intro;wrap.appendChild(q)}
  (R.cards||[]).forEach(c=>wrap.appendChild(richCard(c,sec)));
- if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">本板块的活动见「近期活动」›</a>';wrap.appendChild(q)}
+ if(R.events){const q=document.createElement('p');q.className='intro';q.innerHTML='<a href="#events">本板块的活动见「附近羊毛」›</a>';wrap.appendChild(q)}
  
  sec.subs.forEach((sb,i)=>{const h4=document.createElement('h4');h4.className='sub';h4.textContent=sb.t;wrap.appendChild(h4);wrap.appendChild(grid(sb.items.concat(i===sec.subs.length-1?[J(sec.t)]:[])))});
 });
@@ -494,7 +494,7 @@ T.forEach(t=>t.addEventListener('click',e=>{e.preventDefault();const g=document.
 const hs=()=>{const g=location.hash&&document.querySelector('#groups>'+location.hash);if(g){grOpen(g);g.scrollIntoView()}};hs();addEventListener('hashchange',hs);
 document.querySelectorAll('.cc-code').forEach(b=>b.onclick=()=>{const s=b.nextElementSibling,o=s.textContent;const ok=()=>{s.textContent='已复制 GraceRock';setTimeout(()=>s.textContent=o,2000)};try{navigator.clipboard.writeText(b.dataset.cc).then(ok,ok)}catch(_){ok()}});
 })();</script>
-<nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a class="pri" href="join.html">加入会员</a><a href="#events">近期活动</a><a href="#partners">找商家</a></nav>
+<nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a class="pri" href="join.html">加入会员</a><a href="#events">附近羊毛</a><a href="#partners">找人帮忙</a></nav>
 <script>(()=>{const c=document.querySelector('.hc');if(!c)return;const td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);c.querySelectorAll('[data-exp]').forEach(x=>{if(x.dataset.exp<td)x.remove()});const t=c.querySelector('.hc-track'),s=t.children,n=s.length,d=c.querySelector('.hc-dots');let i=0,tm;
 for(let k=0;k<n;k++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+' / '+n);b.onclick=()=>go(k,1);d.appendChild(b)}
 function go(k,u){i=(k+n)%n;t.style.transform='translateX('+(-100*i)+'%)';[...d.children].forEach((b,j)=>b.setAttribute('aria-current',j===i));[...s].forEach((x,j)=>x.setAttribute('aria-hidden',j!==i));if(u)play()}
