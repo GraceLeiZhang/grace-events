@@ -54,3 +54,11 @@
     if (go) go.onclick = function () { done(); box.remove(); deferred.prompt(); };
   }
 })();
+
+/* Load site statistics (page views, outbound clicks) on every page that loads this file. */
+(function () {
+  if (document.querySelector('script[src="/stats.js"]')) return;
+  var s = document.createElement('script');
+  s.src = '/stats.js'; s.defer = true;
+  document.head.appendChild(s);
+})();
