@@ -67,7 +67,7 @@ form[data-role="C"] .only.C,form[data-role="S"] .only.S,form[data-role="V"] .onl
 .btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-top:10px}
 .err{color:#c0392b;font-size:14px;margin-top:8px}
 footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
-input[type=number],input[type=date],select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+input[type=password],input[type=number],input[type=date],select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:150px;border:2px dashed var(--line);border-radius:14px;background:var(--bg);cursor:pointer;text-align:center;padding:12px;font-weight:600;color:var(--accent)}
 .drop small{font-weight:400;color:var(--sub)}
 .drop img{max-height:220px;max-width:100%;border-radius:10px}
@@ -102,8 +102,10 @@ input[type=number],input[type=date],select{width:100%;font:inherit;font-size:16p
       <input type="number" id="amt" inputmode="decimal" min="0" step="0.01" placeholder="0.00">
       <label for="date">Date</label>
       <input type="date" id="date">
-      <label>Receipt photo</label>
-      <label class="drop" id="drop"><input type="file" id="photo" accept="image/*"><span id="droptxt">📷 Tap to take or choose a photo<br><small>Make sure the shop name, date and amount are readable</small></span></label>
+      <label class="agree" style="margin-top:12px"><input type="checkbox" id="cash">Paid cash, no receipt</label>
+      <div id="photobox"><label>Receipt photo</label>
+      <label class="drop" id="drop"><input type="file" id="photo" accept="image/*"><span id="droptxt">📷 Tap to take or choose a photo<br><small>Make sure the shop name, date and amount are readable</small></span></label></div>
+      <div id="pinbox" hidden><label for="pin">Staff: please enter your shop code</label><input type="password" id="pin" inputmode="numeric" maxlength="6" autocomplete="off"><p class="muted" style="font-size:13px;margin-top:4px">Grace Rock gives each partner business its own code. Staff type it in on the spot, so nothing to track at month end.</p></div>
       <p class="err" id="err" hidden></p>
       <button class="btn" type="submit">Submit receipt</button>
     </form>
@@ -121,6 +123,7 @@ input[type=number],input[type=date],select{width:100%;font:inherit;font-size:16p
   var w=document.getElementById('where');w.addEventListener('change',function(){document.getElementById('otherbox').hidden=w.value!=='3'});
   var ph=document.getElementById('photo'),dt=document.getElementById('droptxt');
   ph.addEventListener('change',function(){var x=ph.files&&ph.files[0];if(!x)return;var u=URL.createObjectURL(x);dt.innerHTML='<img src="'+u+'" alt="">'});
+  var cb=document.getElementById('cash');cb.addEventListener('change',function(){document.getElementById('photobox').hidden=cb.checked;document.getElementById('pinbox').hidden=!cb.checked});
   function v(id){return document.getElementById(id).value.trim()}
   function bad(m){err.hidden=false;err.textContent=m}
   f.addEventListener('submit',function(e){
@@ -128,12 +131,12 @@ input[type=number],input[type=date],select{width:100%;font:inherit;font-size:16p
     if(!v('mid'))return bad('Please enter your member ID or mobile.');
     if(!w.value)return bad('Please choose where you spent.');
     if(!(parseFloat(v('amt'))>0))return bad('Please enter the amount.');
-    if(!(ph.files&&ph.files[0]))return bad('Please add a photo of the receipt.');
+    var c=document.getElementById('cash').checked;if(c&&!v('pin'))return bad('For cash, please ask staff to enter the shop code.');if(!c&&!(ph.files&&ph.files[0]))return bad('Please add a receipt photo, or tick "Paid cash, no receipt".');
     err.hidden=true;
     /* TODO: send to the Google Sheet + Drive backend (Apps Script) once Grace deploys it. */
     f.hidden=true;ok.hidden=false;
   });
-  document.getElementById('again').addEventListener('click',function(){f.reset();d.value=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);dt.innerHTML='📷 Tap to take or choose a photo<br><small>Make sure the shop name, date and amount are readable</small>';ok.hidden=true;f.hidden=false});
+  document.getElementById('again').addEventListener('click',function(){f.reset();d.value=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);dt.innerHTML='📷 Tap to take or choose a photo<br><small>Make sure the shop name, date and amount are readable</small>';document.getElementById('photobox').hidden=false;document.getElementById('pinbox').hidden=true;ok.hidden=true;f.hidden=false});
 })();
 </script>
 </body>
