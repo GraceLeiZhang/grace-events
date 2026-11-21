@@ -124,6 +124,8 @@ dt{color:var(--muted)}dd{margin:0}
 .ev .d{text-align:center;color:var(--gc,var(--jac));font-family:var(--display);line-height:1.2}
 .ev .d b{display:block;font-size:24px}
 .ev .t{min-width:0}.ev .t b{display:block;font-family:var(--display);font-size:16px}.ev .t span{font-size:13px;color:var(--muted)}
+.ev .by{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.suggest{display:inline-block;margin:0 0 12px;font-size:14px;font-weight:500;color:var(--jac-deep);text-decoration:none;border:1.5px dashed var(--jac);border-radius:99px;padding:6px 14px}
 .ev .chip{display:inline-block;font-size:11.5px;background:var(--gt,var(--mist));color:var(--gc,var(--jac-deep));border:1px solid var(--gc,var(--jac));border-radius:4px;padding:0 8px;margin-bottom:2px}
 .copied{font-size:12.5px;color:var(--gc,var(--jac-deep))}
 @media (prefers-reduced-motion:reduce){.logo{transition:none}}
@@ -282,6 +284,7 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
   <section id="events">
     <h2>Free stuff & deals near me</h2>
     <p class="lede">Free events, community days and partner offers, picked by Grace. Message Grace to come along.</p>
+    <a class="suggest" href="scouts-en.html">＋ Know a great event? Recommend it ›</a>
     <div id="ev-list"></div>
   </section>
 
@@ -446,7 +449,7 @@ function richCard(c,sec){const el=document.createElement('article');el.className
   if(b.dataset.qr){el.querySelector('.qr').scrollIntoView({behavior:'smooth',block:'center'})}});
  return el}
 function events(list){const f=document.createDocumentFragment();list.forEach(e=>{const a=document.createElement(e.u?'a':'div');a.className='ev';if(e.u){a.href=e.u;a.target='_blank';a.rel='noopener'}
- a.innerHTML=`<div class="d">${e.m}<b>${e.d}</b>${e.y}</div><div class="t"><span class="chip">${e.chip}</span><b>${e.t}</b><span>${e.s}</span></div>`;f.appendChild(a)});return f}
+ a.innerHTML=`<div class="d">${e.m}<b>${e.d}</b>${e.y}</div><div class="t"><span class="chip">${e.chip}</span><b>${e.t}</b><span>${e.s}</span>${e.by?`<small class="by">👤 Recommended by ${e.by} · not yet tried by Grace</small>`:''}</div>`;f.appendChild(a)});return f}
 const J=t=>({k:'join-'+t,n:'Join us',s:'Become a partner',c:t+' · Businesses · Personal services',m:'＋',bg:'#7a5ba8',d:'I only recommend businesses I have experienced and truly trust. Join free during our start-up phase and get a “Founding Partner” badge.',o:'WeChat: leigracezhang',nr:1,ghost:1});
 function grid(items){const g=document.createElement('div');g.className='logos',td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);
  items.filter(x=>!x.exp||x.exp>=td).forEach(x=>{P[x.k]=x;const b=document.createElement('button');
