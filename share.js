@@ -74,9 +74,12 @@
     if (foot && foot.parentNode) foot.parentNode.insertBefore(box, foot); else document.body.appendChild(box);
   }
   // Top-right "分享" pill next to the 中文/EN switch, where people look for a share button.
-  function topBtn() {
+  function topBtn(tries) {
     if (document.getElementById('gr-share-top')) return;
     var lang = document.getElementById('gr-lang');
+    // lang.js may build the 中文/EN switch after this runs; wait for it so the button never covers the switch.
+    tries = tries || 0;
+    if (!lang && tries < 40) { setTimeout(function () { topBtn(tries + 1); }, 50); return; }
     var css = document.createElement('style');
     css.textContent =
       '#gr-share-top{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));z-index:2147483000;display:flex;align-items:center;gap:6px;' +
@@ -105,6 +108,6 @@
     function place() { b.style.right = (lang ? lang.offsetWidth + 20 : 12) + 'px'; }
     place(); window.addEventListener('resize', place);
   }
-  function init() { build(); setTimeout(topBtn, 0); }
+  function init() { build(); setTimeout(function () { topBtn(0); }, 0); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
