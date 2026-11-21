@@ -8,11 +8,12 @@
   var url = meta('og:url') || location.href.split('#')[0];
   var title = meta('og:title') || document.title;
   var desc = meta('og:description');
-  var text = '*' + title + '*\n\n' + (desc ? desc + '\n\n' : '') + '👉 ' + url + '\n';
+  // Share only the link: the app shows the preview card (title, image) by itself. Grace didn't want extra text in front.
+  var text = url;
 
   var T = en
-    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy message', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.', wx: 'In WeChat, tap ··· at the top right to share this page.' }
-    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制分享文字', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp', wx: '在微信里，点右上角 ··· 就能分享给朋友。' };
+    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy link', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.', wx: 'In WeChat, tap ··· at the top right to share this page.' }
+    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制链接', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp', wx: '在微信里，点右上角 ··· 就能分享给朋友。' };
 
   function copy(done) {
     function legacy() {
@@ -64,7 +65,7 @@
     if (navigator.share) {
       var more = document.createElement('button');
       more.type = 'button'; more.textContent = T.more;
-      more.addEventListener('click', function () { navigator.share({ title: title, text: (desc ? desc + '\n\n' : ''), url: url }).catch(function () {}); });
+      more.addEventListener('click', function () { navigator.share({ url: url }).catch(function () {}); });
       row.appendChild(more);
     }
 
@@ -100,7 +101,7 @@
     }
     b.addEventListener('click', function () {
       if (wechat) { tip(T.wx); return; }
-      if (navigator.share) { navigator.share({ title: title, text: (desc ? desc + '\n\n' : ''), url: url }).catch(function () {}); return; }
+      if (navigator.share) { navigator.share({ url: url }).catch(function () {}); return; }
       copy(function () { tip(T.done); });
     });
     if (lang && lang.className === 'slot') { b.className = 'inslot'; var sl = lang.parentNode; sl.style.display = 'flex'; sl.style.alignItems = 'center'; sl.insertBefore(b, lang); return; }
