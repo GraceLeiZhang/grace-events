@@ -8,11 +8,12 @@
   var url = meta('og:url') || location.href.split('#')[0];
   var title = meta('og:title') || document.title;
   var desc = meta('og:description');
-  var text = '*' + title + '*\n\n' + (desc ? desc + '\n\n' : '') + '👉 ' + url + '\n';
+  // Share only the link: the app shows the preview card (title, image) by itself. Grace didn't want extra text in front.
+  var text = url;
 
   var T = en
-    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy message', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.', wx: 'In WeChat, tap ··· at the top right to share this page.' }
-    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制分享文字', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp', wx: '在微信里，点右上角 ··· 就能分享给朋友。' };
+    ? { h: 'Share with friends', wa: 'WhatsApp', copy: 'Copy link', more: 'More…', done: 'Copied. Paste it into WhatsApp or WeChat.', wx: 'In WeChat, tap ··· at the top right to share this page.' }
+    : { h: '分享给朋友', wa: 'WhatsApp', copy: '复制链接', more: '更多…', done: '已复制，可以直接粘贴到微信或 WhatsApp', wx: '在微信里，点右上角 ··· 就能分享给朋友。' };
 
   function copy(done) {
     function legacy() {
@@ -64,7 +65,7 @@
     if (navigator.share) {
       var more = document.createElement('button');
       more.type = 'button'; more.textContent = T.more;
-      more.addEventListener('click', function () { navigator.share({ title: title, text: (desc ? desc + '\n\n' : ''), url: url }).catch(function () {}); });
+      more.addEventListener('click', function () { navigator.share({ url: url }).catch(function () {}); });
       row.appendChild(more);
     }
 
@@ -73,5 +74,41 @@
     var foot = document.querySelector('footer');
     if (foot && foot.parentNode) foot.parentNode.insertBefore(box, foot); else document.body.appendChild(box);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+  // Top-right "分享" pill next to the 中文/EN switch, where people look for a share button.
+  function topBtn(tries) {
+    if (document.getElementById('gr-share-top')) return;
+    var lang = document.getElementById('gr-lang');
+    // lang.js may build the 中文/EN switch after this runs; wait for it so the button never covers the switch.
+    tries = tries || 0;
+    if (!lang && tries < 40) { setTimeout(function () { topBtn(tries + 1); }, 50); return; }
+    var css = document.createElement('style');
+    css.textContent =
+      '#gr-share-top{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));z-index:2147483000;display:flex;align-items:center;gap:6px;' +
+      'min-height:44px;padding:0 16px;border:0;border-radius:999px;background:#efe9e1;color:#1e1d1b;box-shadow:0 1px 6px rgba(0,0,0,.10);' +
+      'font:600 15px/1 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;cursor:pointer}' +
+      '#gr-share-top.inslot{position:static;box-shadow:none;margin-right:8px}' +
+      '#gr-share-tip{position:fixed;top:calc(62px + env(safe-area-inset-top,0px));right:12px;z-index:2147483000;max-width:260px;padding:10px 14px;' +
+      'border-radius:12px;background:#1e1d1b;color:#fff;font:14px/1.5 -apple-system,"PingFang SC",sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.25)}';
+    document.head.appendChild(css);
+    var b = document.createElement('button');
+    b.type = 'button'; b.id = 'gr-share-top';
+    b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/></svg><span></span>';
+    b.querySelector('span').textContent = en ? 'Share' : '分享';
+    function tip(t) {
+      var old = document.getElementById('gr-share-tip'); if (old) old.remove();
+      var d = document.createElement('div'); d.id = 'gr-share-tip'; d.textContent = t; document.body.appendChild(d);
+      setTimeout(function () { d.remove(); }, 4000);
+    }
+    b.addEventListener('click', function () {
+      if (wechat) { tip(T.wx); return; }
+      if (navigator.share) { navigator.share({ url: url }).catch(function () {}); return; }
+      copy(function () { tip(T.done); });
+    });
+    if (lang && lang.className === 'slot') { b.className = 'inslot'; var sl = lang.parentNode; sl.style.display = 'flex'; sl.style.alignItems = 'center'; sl.insertBefore(b, lang); return; }
+    document.body.appendChild(b);
+    function place() { b.style.right = (lang ? lang.offsetWidth + 20 : 12) + 'px'; }
+    place(); window.addEventListener('resize', place);
+  }
+  function init() { build(); setTimeout(function () { topBtn(0); }, 0); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
