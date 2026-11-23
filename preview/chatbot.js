@@ -11,7 +11,7 @@ const SITE='https://gracerock.com.au/';
 const WX='leigracezhang';
 
 /* 跳转目标：mod=第几个板块（页面上的 #m1–#m5），card=商家卡片标题，url=链接（partners/ 开头的按本脚本所在目录算） */
-const MOD={1:['健康','Health'],2:['人与自然','Nature'],3:['人与人','Connection'],4:['人与科技','Tech & AI'],5:['人与 Soul · Art','Soul & Art']};
+const MOD={1:['健康','Health'],2:['人与自然','Nature'],3:['人与 Soul · Art','Soul & Art'],4:['人与科技','Tech & AI'],5:['人与人','Connection']};
 const go=(zh,en,t)=>({l:EN?en:zh,...t});
 const M=n=>go('看「'+MOD[n][0]+'」板块','See '+MOD[n][1],{mod:n});
 const ev=(zh,en,page)=>go(zh,en,{href:SITE+page.replace(/\.html$/,EN?'-en.html':'.html')});
@@ -32,7 +32,7 @@ const KB=[
  {k:['会计','报税','税','bas','注册公司','开公司','成立公司','公司注册','保险','财务','ips','hurstville','accountant','tax','company','insurance','bookkeeping','xero'],
   zh:'推荐 IPS Partners（Hurstville），Grace 2013 年起合作至今，做会计、报税、BAS、公司注册、财务规划和保险，中文服务。手机 0407 818 788，热线 1300 047 772。联系时提供推荐码 GraceRock。',
   en:'Try IPS Partners in Hurstville. Grace has worked with them since 2013. They do accounting, tax, BAS, company registration, financial planning and insurance. Mobile 0407 818 788, hotline 1300 047 772. Mention the code GraceRock when you contact them.',
-  a:[go('IPS Partners 详情','IPS Partners details',{url:'partners/ips-partners.html'}),M(3)]},
+  a:[go('IPS Partners 详情','IPS Partners details',{url:'partners/ips-partners.html'}),M(5)]},
  {k:['狗','狗狗','宠物','洗狗','wooof','dog','grooming','pet','surry hills'],
   zh:'推荐 WOOOF Dog Grooming（Surry Hills），各种犬种都能洗澡修剪，每只狗狗单独打理。优惠码 REF-QKSR5Q，首次美容享折扣，可在 wooof.com.au 预约。（利益公开：Grace 是 WOOOF 推荐伙伴。）',
   en:'Try WOOOF Dog Grooming in Surry Hills. All breeds, each dog groomed individually. Code REF-QKSR5Q gives a discount on your first groom; book at wooof.com.au. (Disclosure: Grace is a WOOOF referral partner.)',
@@ -64,7 +64,7 @@ const KB=[
  {k:['gracerock','暗号','优惠','折扣','代码','优惠码','推荐码','discount','code','offer','deal'],
   zh:'联系推荐商家时提供推荐码 GraceRock，很多商家有专属优惠，每家的优惠写在商家卡片上。Grace 如果因推荐获得好处，卡片上也会写明。',
   en:'Mention the code GraceRock when you contact a recommended business. Many offer a special deal, shown on each card. If Grace gets anything from a referral, the card says so.',
-  a:[M(1),M(3)]},
+  a:[M(1),M(5)]},
  {k:['加入','合作','商家','推荐伙伴','入驻','partner','join','business','list my'],
   zh:'欢迎加入！这里只推荐 Grace 亲身体验过、真心认可的商家。创业期加入免费，还有「创始伙伴」标识。请加 Grace 微信 '+WX+'。',
   en:'You are welcome to join. Grace only recommends businesses she has tried and trusts. Joining is free during the startup period, with a "Founding partner" badge. Add Grace on WeChat: '+WX+'.',
@@ -76,11 +76,11 @@ const KB=[
  {k:['艺术','人物志','小说','写小说','纪念','soul','art','story','stories','novel','memorial'],
   zh:'「人与 Soul · Art」板块有艺术、人物志、纪念和全民写小说，用文字留住一个个故事。',
   en:'The Soul & Art section has art, life stories, memorials and a community novel project.',
-  a:[M(5)]},
+  a:[M(3)]},
  {k:['雅实','grace rock','宗旨','是什么','介绍','关于','about','what is grace rock'],
   zh:'雅实 Grace Rock Group：携手同行，共创美好。这里推荐的商家，都是 Grace 亲身体验过的，分成健康、人与自然、人与人、人与科技、人与 Soul · Art 五个板块。',
   en:'Grace Rock Group: everyone deserves to keep getting better. Every business here is one Grace has tried herself, in five sections: Health, Nature, Connection, Tech & AI, and Soul & Art.',
-  a:[M(1),M(2),M(3)]},
+  a:[M(1),M(2),M(5)]},
  {k:['联系','微信','电话','找grace','grace','contact','wechat','phone','email'],
   zh:'可以直接加 Grace 微信：'+WX+'。',
   en:'You can add Grace on WeChat: '+WX+'.',
@@ -100,7 +100,7 @@ const norm=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
 const hit=(q,k)=>/^[a-z ]+$/.test(k)?new RegExp('\\b'+k+'\\b').test(q):q.includes(k);
 function local(q){q=norm(q);let best=null,top=0;
  KB.forEach(e=>{let s=0;e.k.forEach(k=>{if(hit(q,k))s+=k.length});if(s>top){top=s;best=e}});
- return best?{t:EN?best.en:best.zh,a:best.a}:{t:T.miss,a:[M(1),M(2),M(3),go('复制 Grace 微信','Copy Grace\'s WeChat',{copy:WX})]}}
+ return best?{t:EN?best.en:best.zh,a:best.a}:{t:T.miss,a:[M(1),M(2),M(5),go('复制 Grace 微信','Copy Grace\'s WeChat',{copy:WX})]}}
 async function ask(q){
  if(ENDPOINT){try{const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q,lang:EN?'en':'zh'})});
   if(r.ok){const j=await r.json();if(j&&j.t)return j}}catch(_){}}
