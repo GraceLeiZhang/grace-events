@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"><link rel="alternate" hreflang="zh" href="join.html"><link rel="alternate" hreflang="en" href="join-en.html"><script src="../lang.js"></script><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#f6f3f9"><link rel="icon" type="image/png" href="/icons/favicon-32.png"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Grace Rock"><script src="/pwa.js" defer></script><script src="../share.js" defer></script>
 <meta name="robots" content="noindex">
-<meta name="description" content="Join Grace Rock for free as a member, partner business or volunteer. Points come only from real purchases, and every rule is public.">
+<meta name="description" content="Join Grace Rock for free as a member, partner business or volunteer. Partner Points come only from real purchases, and every rule is public.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grace Rock Group">
 <meta property="og:title" content="Join Grace Rock · Member rules">
-<meta property="og:description" content="Join Grace Rock for free as a member, partner business or volunteer. Points come only from real purchases, and every rule is public.">
+<meta property="og:description" content="Join Grace Rock for free as a member, partner business or volunteer. Partner Points come only from real purchases, and every rule is public.">
 <meta property="og:url" content="https://gracerock.com.au/preview/join-en.html">
 <meta property="og:image" content="https://gracerock.com.au/preview/og-cover.jpg?v=2">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -67,6 +67,13 @@ form[data-role="C"] .only.C,form[data-role="S"] .only.S,form[data-role="V"] .onl
 .btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-top:10px}
 .err{color:#c0392b;font-size:14px;margin-top:8px}
 footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}
+.pts>div{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--soft)}
+.pts h3{margin:0 0 4px;font-size:16px}.pts p{margin:0 0 8px;font-size:13.5px;color:var(--sub)}
+.pts .flow{display:flex;flex-direction:column;gap:2px;font-size:13.5px;color:var(--text)}
+.pts .flow span{padding:4px 8px;border-radius:8px;background:var(--card)}
+.pts .flow i{font-style:normal;color:var(--accent);text-align:center;line-height:1}
+@media (max-width:360px){.pts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -88,11 +95,18 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
 
   <h2>2. Member points rules</h2>
   <div class="card">
+    <div class="pts">
+      <div><h3>🤝 Good Points</h3><p>A thank-you for helping out, funded by Grace Rock.</p>
+        <div class="flow"><span>Help lead an event</span><i>↓</i><span>Earn Good Points</span><i>↓</i><span>Use them under the rules at Grace Rock’s own events (e.g. tickets)</span></div></div>
+      <div><h3>🛍️ Partner Points</h3><p>Only from real purchases at partner businesses, funded by those businesses.</p>
+        <div class="flow"><span>Spend at a partner business</span><i>↓</i><span>Earn Partner Points ($1 = 1 point)</span><i>↓</i><span>From 100 points, redeem under the rules at partner businesses</span></div></div>
+    </div>
+    <p class="muted" style="margin:0 0 10px;font-size:14px">The two are kept separate, cannot be swapped, and cannot be cashed out.</p>
     <ol class="rules">
       <li><b>Free to join</b><span>No joining fee and no package you have to buy.</span></li>
       <li><b>One member ID for life</b><span>Format <span class="code">GR-C-AU-0001</span>. Businesses get GR-S and volunteers GR-V. IDs are issued by Grace Rock.</span></li>
-      <li><b>Points come only from real purchases</b><span>At businesses in the program, $1 spent = 1 point (unless a business page says otherwise).</span></li>
-      <li><b>Referrals count only after a real purchase</b><span>Sign-up without a purchase = 0 points. We never reward recruiting on its own. The number of referral levels and their share are still in trial and will be published on this page.</span></li>
+      <li><b>Partner Points come only from real purchases</b><span>At businesses in the program, $1 spent = 1 point (unless a business page says otherwise).</span></li>
+      <li><b>Referrals count only after a real purchase</b><span>Sign-up without a purchase = 0 Partner Points. We never reward recruiting on its own. The number of referral levels and their share are still in trial and will be published on this page.</span></li>
       <li><b>Two kinds of points, kept separate</b><span>① <strong>Good Points</strong>: earned by uploading receipts or joining community and volunteer activities. Use them at Grace Rock’s own events and shop (for example event tickets), and in future at our Yunnan base (being planned).<br>② <strong>Partner Points</strong>: earned by spending at partner businesses in the program. From 100 points, use them at any business in the program.<br>The two cannot be swapped.</span></li>
       <li><b>Points are not money, but they never expire</b><span>No cash-out and not transferable. Once you join, your membership and points are kept for good and never cleared. If you are away for a long time you are just marked inactive, and everything is back when you return. We promise no income or returns.</span></li>
       <li><b>Who pays for points</b><span>Good Points are funded by the Grace Rock company, at no cost to businesses. Partner Points are funded by each business in the program, at a share it agrees in writing. Points used across businesses are settled monthly, and the accounts are open to the businesses in the program.</span></li>
@@ -104,9 +118,10 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
 
   <h2>3. How businesses are ranked, and offers</h2>
   <div class="card">
-    <p><b>Word-of-mouth rankings use verified reviews only.</b> Paid placements are always labelled "Promoted" and kept separate from the rankings.</p>
+    <p><b>Word-of-mouth rankings use verified reviews only.</b> Paid placements are always labelled "Promoted" and kept separate from the rankings. Only customers referred by Grace Rock who actually bought can rate, and a score shows only after 5 verified reviews.</p>
+    <p style="margin-top:8px">Every business card spells out separately: <b>why Grace recommends it</b>, <b>our actual relationship</b> and <b>the member benefit</b>. “Tried by Grace” appears only where Grace has really tried it. The code GraceRock lets a business identify the referral source; confirmed offers show the amount, conditions and validity, and unconfirmed ones say “Offer TBC”.</p>
     <p class="muted" style="margin-top:8px;font-size:14px">Each business card carries one label that says how we work with them:</p>
-    <div class="labels"><span><b>Community</b> no money involved</span><span><b>Founding partner</b> listed free</span><span><b>Referral reward</b> Grace Rock earns a disclosed commission</span><span><b>Promoted</b> paid by the business</span><span><b>Grace Rock event</b> run by us</span></div>
+    <div class="labels"><span><b>Community pick</b> a community project Grace supports, says who it helps, no money involved</span><span><b>Grace’s pick · Listed free</b> business terms TBC</span><span><b>Referral reward</b> Grace Rock earns a disclosed commission</span><span><b>Promoted</b> paid by the business</span><span><b>Grace Rock event</b> run by us</span></div>
   </div>
   <div class="card">
     <p><b>Grace Rock Exclusive Offers</b></p>
@@ -164,7 +179,7 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
   function setRole(r){f.dataset.role=r;var i=f.querySelector('input[value="'+r+'"]');if(i)i.checked=true}
   f.addEventListener('change',function(e){if(e.target.name==='role')setRole(e.target.value)});
   document.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){setRole(a.dataset.pick)})});
-  var m=location.hash.match(/^#join-([CSV])$/);if(m)setRole(m[1]);
+  var m=location.hash.match(/^#join-([CSV])$/);if(m){setRole(m[1]);var jj=document.getElementById('join');if(jj)jj.scrollIntoView()}
   var via='wa';
   f.querySelectorAll('button[type=submit]').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
   function v(id){var e=document.getElementById(id);return e?e.value.trim():''}
