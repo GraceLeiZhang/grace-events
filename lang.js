@@ -62,5 +62,13 @@
     var slot = document.querySelector('[data-lang-slot]');
     if (slot) { box.className = 'slot'; slot.replaceChildren(box); } else { document.documentElement.classList.add('gr-lang-fixed'); document.body.appendChild(box); }
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+  /* Event tags with data-end-date="YYYY-MM-DD" switch to 已结束 / Ended after that day (Sydney time). */
+  function ended() {
+    var td = new Date(Date.now() + 11 * 36e5).toISOString().slice(0, 10);
+    document.querySelectorAll('[data-end-date]').forEach(function (el) {
+      if (el.getAttribute('data-end-date') < td) { el.textContent = cur === 'en' ? 'Ended · thank you' : '已结束 · 感谢参与'; el.classList.add('ended'); }
+    });
+  }
+  function init() { build(); ended(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

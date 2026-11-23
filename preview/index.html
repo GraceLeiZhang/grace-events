@@ -1,10 +1,10 @@
 <!doctype html><html lang="zh-CN"><head><meta charset=utf8><link rel="alternate" hreflang="zh" href="./"><link rel="alternate" hreflang="en" href="en.html"><script src="../lang.js"></script><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#f6f3f9"><link rel="icon" type="image/png" href="/icons/favicon-32.png"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="雅实"><script src="/pwa.js" defer></script><script src="../share.js" defer></script>
-<meta name="description" content="Grace 亲自体验过的好商家和亲子活动。联系合作商家时可提供推荐码 GraceRock。">
+<meta name="description" content="和 Grace 一起，发现悉尼值得参加的活动，认识身边值得推荐的人。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="雅实 Grace Rock Group">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="雅实 Grace Rock Group · 携手同行，共创美好">
-<meta property="og:description" content="Grace 亲自体验过的好商家和亲子活动。联系合作商家时可提供推荐码 GraceRock。">
+<meta property="og:description" content="和 Grace 一起，发现悉尼值得参加的活动，认识身边值得推荐的人。">
 <meta property="og:url" content="https://gracerock.com.au/preview/">
 <meta property="og:image" content="https://gracerock.com.au/preview/og-cover.jpg?v=2">
 <meta property="og:image:secure_url" content="https://gracerock.com.au/preview/og-cover.jpg?v=2">
@@ -162,7 +162,7 @@ h3.group .no{background:rgba(255,255,255,.95);color:var(--gc,var(--jac));border-
 .acts{display:grid;gap:10px;width:100%;max-width:420px;margin:14px auto 0}
 .acts a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1.5px solid var(--jac);color:var(--jac-deep);text-decoration:none;font-weight:500;font-size:15.5px;background:var(--surface)}
 .acts a.pri{background:var(--jac-deep);border-color:var(--jac-deep);color:#fff}
-#events,#partners,#contact{scroll-margin-top:64px}
+#recap,#events,#partners,#contact{scroll-margin-top:64px}
 .ev-past{font-size:12.5px;color:var(--muted,#888);letter-spacing:.1em;margin:14px 2px 6px}
 .tbc-toggle{appearance:none;display:block;margin:18px auto 0;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:10px 18px;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
 #groups.hide-tbc .logo.tbc{display:none}
@@ -236,6 +236,37 @@ details.fold{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
 details.fold summary{cursor:pointer;color:var(--jac-deep);font-weight:500;list-style:none}
 details.fold summary::-webkit-details-marker{display:none}
 details.fold summary::after{content:" ›"}details.fold[open] summary::after{content:" ⌄"}
+
+/* 2026-11-23 一眼看懂：三件事、活动回顾、卡片三栏 */
+.acts a.pri2{background:var(--jac);border-color:var(--jac);color:#fff}
+@media (max-width:639px){header .acts{display:grid!important}}
+.how{list-style:none;margin:14px auto 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:460px;width:100%;counter-reset:h}
+.how li{counter-increment:h;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 8px;font-size:12.5px;line-height:1.45;color:var(--muted);text-align:center}
+.how li::before{content:counter(h);display:block;margin:0 auto 4px;width:22px;height:22px;line-height:22px;border-radius:50%;background:var(--jac-deep);color:#fff;font-size:12px;font-weight:700}
+.how b{display:block;color:var(--ink);font-size:13.5px;margin-bottom:2px}
+.recap{background:var(--surface);border-radius:14px;border-top:4px solid var(--jac);padding:16px;display:flex;flex-direction:column;gap:10px}
+.recap img{width:100%;height:190px;object-fit:cover;border-radius:10px}
+.recap h3{font-family:var(--display);font-size:21px;margin:0}
+.recap .rtag,.rich .rtag{align-self:flex-start;background:var(--gc,var(--jac));color:#fff;font-size:12.5px;padding:2px 12px;border-radius:4px}
+.recap .say{background:var(--mist);border-radius:8px;padding:10px 14px;margin:0;font-size:14px}
+.recap-go{align-self:flex-start;color:var(--jac-deep);font-weight:600}
+dl.facts{display:grid;grid-template-columns:5.6em 1fr;gap:8px 12px;margin:0;font-size:14px;line-height:1.6}
+dl.facts dt{color:var(--gc,var(--jac-deep));font-weight:600}
+dl.facts dd{margin:0}
+.rich dl.facts{border:1px solid var(--line);border-radius:10px;padding:12px}
+.rich dl.facts dd.perk{font-weight:500}
+.tried{align-self:flex-start;font-size:12px;color:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:0 10px;margin-top:-6px}
+.rtag.gy{background:#2f8a4a!important}
+@media (max-width:380px){dl.facts{grid-template-columns:1fr;gap:2px}dl.facts dd{margin-bottom:6px}}
+#c-rel{font-size:13.5px;color:var(--muted)}
+@media (max-width:639px){
+  .emb svg{width:112px;height:auto}header{gap:4px}.wrap{padding-top:14px;gap:36px}
+  h1{font-size:28px}.slogan{font-size:16px;margin-top:2px}.motto{font-size:12px}
+  .pos{font-size:17px;margin-top:6px}
+  .mbar{grid-template-columns:46px repeat(4,1fr);gap:4px}.mbar a{font-size:13px;min-height:44px}
+}
+.pos{text-wrap:balance}
+dl.facts{grid-template-columns:1fr;gap:0}dl.facts dt{font-size:12.5px;letter-spacing:.06em}dl.facts dd{margin:0 0 8px}dl.facts dd:last-child{margin-bottom:0}
 </style>
 
 <nav class="nav" aria-label="Main"><a class="brand" href="#top">雅实</a><span class="links"><a href="#events">附近羊毛</a><a href="#partners">有事咨询</a><a href="#contact">咨询合作</a><a href="join.html">加入会员</a></span><span data-lang-slot></span></nav>
@@ -269,13 +300,32 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
     <h1>雅实<small>Grace Rock Group</small></h1>
     <p class="slogan">携手同行，共创美好</p>
     <p class="motto">Together We Flourish</p>
-    <p class="pos">Grace 亲自试过的<a href="#events" style="color:inherit;text-decoration:underline;text-underline-offset:4px">好活动</a>、<br><a href="shops.html" style="color:inherit;text-decoration:underline;text-underline-offset:4px">好商家</a>，带你一起去。</p>
+    <p class="pos">和 Grace 一起，发现悉尼值得参加的活动，认识身边值得推荐的人。</p>
     <p class="founder">创始人 Grace Lei Zhang</p>
-    <div class="cc"><p class="cc-t">GRACE ROCK 推荐码</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">联系推荐商家时报这个码，享专属优惠。</p></div>
-    <div class="acts"><a class="pri" href="#events">看附近有什么羊毛</a><a href="#partners">我有事情，想咨询</a><a href="#contact">商务咨询 · 合作</a></div>
+    <div class="acts"><a class="pri" href="#recap">看活动回顾</a><a class="pri2" href="shops.html">找附近商家</a><a href="#events">附近羊毛 · 近期活动</a></div>
+    <ol class="how"><li><b>能参加什么</b>活动回顾和近期活动</li><li><b>为什么推荐</b>卡片写明推荐理由</li><li><b>能享受什么</b>看卡片「会员福利」</li></ol>
+    <div class="cc"><p class="cc-t">GRACE ROCK 推荐码</p><button type="button" class="cc-code" data-cc="GraceRock">GraceRock<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button><p class="cc-s">用途：让商家知道你是 Grace 推荐来的。<br>能享什么优惠，以每家卡片的「会员福利」为准。</p></div>
     <p class="founder" style="margin-top:10px"><a href="join.html" style="color:inherit">免费加入会员 · 商家 · 志愿者 ›</a></p>
   </header>
 
+
+  <section id="recap">
+    <h2>活动回顾</h2>
+    <p class="lede">Grace 真实带过的活动：适合谁、Grace 帮大家做了什么。</p>
+    <article class="recap">
+      <img src="../img/paintball/p_gear.jpg" alt="孩子们戴好面罩护具，准备上场" loading="lazy">
+      <span class="rtag">亲子彩弹 · 2018 年起多次组织</span>
+      <h3>Paintball 彩弹对战</h3>
+      <dl class="facts">
+        <dt>适合谁</dt><dd>12 岁以上的孩子，男孩女孩都欢迎；想让孩子离开屏幕、练胆量和团队合作的家庭。家长也可以买票一起下场。</dd>
+        <dt>Grace 做了什么</dt><dd>2018 年起多次组织亲子彩弹（堪培拉 Delta Force 野外场）。找好团购优惠、约同一时段；写清报名步骤和入场须知；当天带队签到，孩子可搭 Grace 的车；赛前提醒安全和战术。</dd>
+        <dt>最近一次</dt><dd>2026 年 10 月 7 日 · Die Hard 室内彩弹场（Turrella）· 9 个孩子参加，人人平安。</dd>
+      </dl>
+      <p class="say">“Thanks so much for taking them all, my son had a blast!” —— J.，妈妈</p>
+      <a class="recap-go" href="../paintball.html">看完整回顾 ›</a>
+    </article>
+    <p class="caption">更多往期活动见下方「往期活动回顾」。照片只用已获准公开的资料。</p>
+  </section>
 
   <section id="events">
     <h2>我家附近有什么羊毛可薅</h2>
@@ -303,7 +353,8 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
     <div id="groups"></div>
 
     <details class="fold"><summary>推荐规则：口碑排名、推广位、利益公开</summary><div class="rules">
-      <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。创业期加入的商家为“创始伙伴”，免费展示。</p>
+      <p><b>口碑排名</b>只按验证客户的评分排序。付费和推荐回报都改变不了排名，评分决定能不能留下来。</p>
+      <p><b>两种免费展示</b>Grace 认可、愿意支持的公益项目标「公益推荐」，写明它帮助了谁；Grace 欣赏、但商业合作条件还没谈定的，标「Grace 推荐 · 免费展示」，并注明「合作条件待确认」。</p>
       <p><b>付费推广</b>商家可以付费购买推广位。推广位单独放置，并清楚标明“推广”，不会混进口碑排名。</p>
       <p><b>口碑评分</b>只有经 Grace Rock 推荐并实际消费的客户才能评分，一人一评，满 5 条验证评价才显示分数。</p>
       <p><b>群众监督</b>低于 3.5 星显示“待改进”，付费也不能去掉。差评不删，商家可以公开回复。</p>
@@ -350,6 +401,7 @@ details.fold summary::after{content:" ›"}details.fold[open] summary::after{con
     <div class="card-head"><span class="mark" id="c-mark"></span><div><h4 id="c-name"></h4><div class="cat" id="c-cat"></div></div></div>
     <p id="c-desc"></p>
     <div class="rate" id="c-rate"><span class="stars">★★★★★</span><span>口碑评分收集中（满 5 条验证评价后显示）</span></div>
+    <p id="c-rel"></p>
     <div class="offer" id="c-offer"></div>
     <dl id="c-info"></dl>
     <button class="close" id="c-close">关闭</button>
@@ -364,45 +416,45 @@ const G=[
  {"t": "人与自然 · 公益", "gc": "var(--c-nature)", "no": "B", "gt": "var(--t-nature)", "subs": [{"t": "1. 走进自然", "items": [{"k": "bush", "n": "Bushwalking", "s": "老蔡带队徒步", "m": "徒步", "bg": "#4a6b47", "d": "老蔡带队徒步", "c": "老蔡带队徒步", "tbc": 1}, {"k": "plantfair", "n": "Burwood 植物展", "s": "11月21日 · AUSCPS", "m": "植", "bg": "#3f7a3a", "badge": "公益推荐", "gy": 1, "d": "AUSCPS 春季植物集市 & 食虫植物展：仙人掌、多肉、凤梨、食虫植物等。11月21日周六 9:00–15:00，Burwood Woodstock 社区中心。", "c": "植物展 · Burwood · 公益推荐", "o": "<a href=\"events/plant-fair.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}, {"k": "bushcare", "n": "Bush care", "s": "一起学认植物", "m": "植", "bg": "#3f8a3a", "d": "一起学认植物", "c": "一起学认植物", "tbc": 1}]}, {"t": "2. 行万里路 · 自营", "items": [{"k": "shuiyun", "n": "水云间", "s": "Sussex Inlet · 老付", "m": "水云", "bg": "#2f78c4", "d": "老傅的水云间，捞虾、划船、烤全羊。", "c": "Sussex Inlet · 老付", "self": 1, "nr": 1, "o": "<a href=\"../shuiyunjian.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "yunnan", "n": "云南四月", "s": "上海出发 · 2027 年 4 月", "m": "云南", "bg": "#3f7a52", "d": "从上海到云南的亲子探索之旅。", "c": "上海出发 · 2027 年 4 月", "self": 1, "nr": 1, "o": "<a href=\"../yunnan-april.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "uluru", "n": "Uluru 乌鲁鲁", "s": "2027 年 7 月", "m": "U", "bg": "#b0602f", "d": "2027 年 7 月，去澳洲红色中心。", "c": "2027 年 7 月", "tbc": 1, "self": 1, "nr": 1}, {"k": "usa", "n": "美国科技之旅", "s": "2027 年 9 月底至 10 月初", "m": "US", "bg": "#2b4f8a", "d": "Tesla、Google、MIT、Apple。", "c": "2027 年 9 月底至 10 月初", "tbc": 1, "self": 1, "nr": 1}, {"k": "snow", "n": "冰雪中国", "s": "2027 年 12 月中至 2028 年 1 月", "m": "雪", "bg": "#5a7fb0", "d": "哈尔滨冰城雪乡，北京、天津，再到昆明元谋土林。", "c": "2027 年 12 月中至 2028 年 1 月", "tbc": 1, "self": 1, "nr": 1}]}, {"t": "3. 探险", "items": [{"k": "fly", "n": "开小飞机", "s": "Grace 亲身体验过", "m": "飞", "bg": "#1f5f9a", "d": "Grace 亲身体验过", "c": "Grace 亲身体验过", "nr": 1}, {"k": "dive", "n": "深潜", "s": "Cairns · Grace 亲身体验过", "m": "潜", "bg": "#1f7f8f", "d": "Cairns · Grace 亲身体验过", "c": "Cairns · Grace 亲身体验过", "nr": 1}, {"k": "snorkel", "n": "浮潜", "s": "水下探索", "m": "浮潜", "bg": "#2e86ab", "d": "水下探索", "c": "水下探索", "tbc": 1}, {"k": "balloon", "n": "热气球", "s": "空中看日出", "m": "球", "bg": "#c0792f", "d": "空中看日出", "c": "空中看日出", "tbc": 1}, {"k": "para", "n": "滑翔伞", "s": "高空飞翔", "m": "伞", "bg": "#4a8ac4", "d": "高空飞翔", "c": "高空飞翔", "tbc": 1}, {"k": "boat", "n": "开船", "s": "学驾船出海", "m": "船", "bg": "#2c6f8f", "d": "学驾船出海", "c": "学驾船出海", "tbc": 1}, {"k": "tourism", "n": "澳洲旅游局", "s": "澳洲旅行", "m": "AU", "bg": "#b0752f", "d": "澳洲旅行", "c": "澳洲旅行", "tbc": 1}, {"k": "mojiang", "n": "墨江文旅", "s": "云南墨江", "m": "墨江", "bg": "#6a5a3a", "d": "云南墨江", "c": "云南墨江", "tbc": 1}, {"k": "zhangling", "n": "张玲旅行社", "s": "旅行社", "m": "旅", "bg": "#3f7a52", "d": "旅行社", "c": "旅行社", "tbc": 1}, {"k": "kmcharity", "n": "昆明公益团", "s": "公益旅行", "m": "昆", "bg": "#4a7a5a", "d": "公益旅行", "c": "公益旅行", "tbc": 1}, {"k": "tianjin", "n": "天津地接", "s": "当地接待", "m": "津", "bg": "#5a6a8a", "d": "当地接待", "c": "当地接待", "tbc": 1}, {"k": "linda", "n": "Linda", "s": "旅行", "m": "L", "bg": "#6a4a8a", "d": "旅行", "c": "旅行", "tbc": 1}]}]},
  {"t": "人与人 · Connection", "gc": "var(--jac-deep)", "no": "C", "gt": "var(--mist)", "subs": [{"t": "1. 财务", "items": [{"k": "ipa", "n": "IPA 协会", "s": "会计师协会", "m": "IPA", "bg": "#3b4a6b", "d": "会计师协会", "c": "会计师协会", "tbc": 1}, {"k": "cba", "n": "银行贷款 · CBA", "s": "贷款咨询", "m": "CBA", "bg": "#c9962b", "d": "贷款咨询", "c": "贷款咨询", "tbc": 1}, {"k": "stg", "n": "银行贷款 · St George", "s": "贷款咨询", "m": "SG", "bg": "#c0392b", "d": "贷款咨询", "c": "贷款咨询", "tbc": 1}, {"k": "jlin", "n": "会计 · Jason Lin", "s": "会计服务", "m": "会", "bg": "#3a6a6a", "d": "会计服务", "c": "会计服务", "tbc": 1}]}, {"t": "2. 房产 · 家居服务", "items": [{"k": "nell", "n": "Nell", "s": "N W Real Estate", "m": "N", "bg": "#7a5a3a", "d": "房产买卖 · 拍卖 · 租赁 · 物业管理，Auburn 一带。联系时报「Grace 推荐」即可。", "c": "N W Real Estate · Auburn", "o": "<a href=\"partners/nell.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}, {"k": "amanda", "n": "Amanda", "s": "房产", "m": "A", "bg": "#8a6a4a", "d": "房产服务。", "c": "房产"}, {"k": "conv", "n": "过户师", "s": "Alice Yang · Auburn", "m": "过户", "bg": "#5a6b4a", "d": "Alice Yang · Auburn", "c": "Alice Yang · Auburn", "tbc": 1}, {"k": "styling", "n": "房屋 Styling", "s": "卖房前布置", "m": "布", "bg": "#8a5a7a", "d": "卖房前布置", "c": "卖房前布置", "tbc": 1}, {"k": "tailor", "n": "裁缝 Tailor", "s": "Hurstville · City", "m": "裁", "bg": "#5a4a6a", "d": "Hurstville · City", "c": "Hurstville · City", "tbc": 1}, {"k": "handy", "n": "Handyman", "s": "家居维修", "m": "修", "bg": "#6a5a3a", "d": "家居维修", "c": "家居维修", "tbc": 1}, {"k": "organise", "n": "收纳师", "s": "整理收纳", "m": "纳", "bg": "#7a6a8a", "d": "整理收纳", "c": "整理收纳", "tbc": 1}, {"k": "move", "n": "搬家公司", "s": "搬家", "m": "搬", "bg": "#4a5a7a", "d": "搬家", "c": "搬家", "tbc": 1}, {"k": "pet", "n": "宠物美容", "s": "Pet groomer", "m": "宠", "bg": "#b0752f", "d": "Pet groomer", "c": "Pet groomer", "tbc": 1}, {"k": "daigou", "n": "代购", "s": "周家华", "m": "购", "bg": "#a33a2e", "d": "周家华", "c": "周家华", "tbc": 1}]}, {"t": "3. 社会组织 · 社团", "items": [{"k": "mensa", "n": "Mensa", "s": "高智商社群", "m": "M", "bg": "#3d5a80", "d": "高智商社群", "c": "高智商社群", "tbc": 1}, {"k": "women", "n": "中小妇女协会", "s": "妇女协会", "m": "妇", "bg": "#9a4a6a", "d": "妇女协会", "c": "妇女协会", "tbc": 1}, {"k": "twins", "n": "墨江双胞胎协会", "s": "墨江文旅", "m": "双", "bg": "#6a5a3a", "d": "墨江文旅", "c": "墨江文旅", "tbc": 1}, {"k": "lfusyd", "n": "Leading Finance · USYD", "s": "悉尼大学", "m": "LF", "bg": "#b0602f", "d": "悉尼大学", "c": "悉尼大学", "tbc": 1}, {"k": "hrfws", "n": "华人服务社", "s": "社区服务", "m": "华人", "bg": "#9a4a4a", "d": "社区服务", "c": "社区服务", "tbc": 1}, {"k": "nankai", "n": "南开校友会", "s": "校友会", "m": "南开", "bg": "#6a3d8a", "d": "校友会", "c": "校友会", "tbc": 1}, {"k": "yunnanhx", "n": "云南同乡会", "s": "同乡会", "m": "滇", "bg": "#3f7a52", "d": "同乡会", "c": "同乡会", "tbc": 1}, {"k": "martial", "n": "中澳技击协会", "s": "武术协会", "m": "技", "bg": "#9b3b2b", "d": "武术协会", "c": "武术协会", "tbc": 1}]}, {"t": "4. 社区信息", "items": [{"k": "jobs", "n": "找工作", "s": "求职 · 招聘信息", "m": "工", "bg": "#4f3478", "d": "求职 · 招聘信息", "c": "求职 · 招聘信息", "tbc": 1}, {"k": "rent", "n": "找房子", "s": "求租 · 出租", "m": "租", "bg": "#7a5ba8", "d": "求租 · 出租", "c": "求租 · 出租", "tbc": 1}]}, {"t": "5. 娱乐", "items": [{"k": "ksong", "n": "全民 K 歌", "s": "绽放", "m": "K", "bg": "#c0392b", "d": "绽放", "c": "绽放", "tbc": 1}, {"k": "photo", "n": "摄影", "s": "人像 · 活动", "m": "摄", "bg": "#3a3a3a", "d": "人像 · 活动", "c": "人像 · 活动", "tbc": 1}, {"k": "star", "n": "The Star", "s": "娱乐", "m": "★", "bg": "#2a2f5a", "d": "娱乐", "c": "娱乐", "tbc": 1}, {"k": "crystal", "n": "水晶 · Crystal", "s": "水晶饰品", "m": "晶", "bg": "#7a5ba8", "d": "水晶饰品", "c": "水晶饰品", "tbc": 1}]}, {"t": "6. 生活", "items": [{"k": "ikea", "n": "IKEA", "s": "家居", "m": "I", "bg": "#2b5fb3", "d": "家居", "c": "家居", "tbc": 1}, {"k": "outlet", "n": "折扣仓库店", "s": "折扣购物", "m": "折", "bg": "#a8854a", "d": "折扣购物", "c": "折扣购物", "tbc": 1}, {"k": "wooof", "n": "WOOOF 狗狗美容", "s": "Surry Hills", "m": "W", "bg": "#7fb98a", "d": "精品狗狗美容：全犬种全体型，天然产品，低压力环境。", "c": "狗狗美容 · Surry Hills", "o": "专属优惠码：<b>REF-QKSR5Q</b>，首次美容享折扣 · <a href=\"partners/wooof.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>", "nr": 1}, {"k":  "pyng", "n":  "Pyng 扫码付款", "s":  "付款攒 Pops", "m":  "P", "bg":  "#4b3fd9", "badge":  "推荐链接", "d":  "澳洲扫码付款 App，钱直接从银行账户付给商家，每笔都攒 Pops，附近商家还有返现和集章。", "c":  "扫码付款 · 推荐链接", "o":  "用 Grace 的链接注册并完成首笔付款，你和 Grace 各得 <b>100 Pops</b> · <a href=\"partners/pyng.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>利益公开：这是推荐链接，Grace Lei Zhang 会获得 Pyng 的 Pops 奖励</small>", "nr":  1, "ref":  1}, {"k": "anita", "n": "Anita", "s": "生活服务", "m": "A", "bg": "#8a5a9a", "d": "生活服务", "c": "生活服务", "tbc": 1}]}, {"t": "7. 饭店", "items": [{"k": "talottas", "n": "Talotta's 披萨店", "s": "Kurnell · 近 Kamay", "m": "披", "bg": "#2f7a4a", "badge": "公益推荐", "gy": 1, "d": "Kurnell 社区披萨店，紧邻 Kamay 国家公园。外卖、送餐、堂食，可自带酒水（BYO）。老板多年来把玩具送给医院和山火灾区的孩子。去 Kamay 徒步后可以来这里吃披萨。", "c": "披萨 · Kurnell · 公益推荐", "o": "<a href=\"partners/talottas.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a> · <a href=\"tel:+61296688994\" style=\"color:inherit;text-decoration:underline\">电话 9668 8994</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}, {"k": "kbutcher", "n": "Korea Butcher’s", "s": "韩式自助", "m": "韩", "bg": "#9b3b2b", "d": "韩式自助", "c": "韩式自助", "tbc": 1}, {"k": "jpbuffet", "n": "日式自助", "s": "Japanese buffet", "m": "日", "bg": "#c0392b", "d": "Japanese buffet", "c": "Japanese buffet", "tbc": 1}, {"k": "haidilao", "n": "海底捞", "s": "火锅", "m": "海", "bg": "#b8643f", "d": "火锅", "c": "火锅", "tbc": 1}]}]},
  {"t": "人与科技 · AI", "gc": "var(--c-ai)", "no": "D", "gt": "var(--t-ai)", "subs": [{"t": "1. AI", "items": [{"k": "claude", "n": "Claude", "s": "AI 助手", "m": "AI", "bg": "#b8643f", "d": "我每天在用的 AI 助手：写文案、做网页、整理资料、排日程。", "c": "AI 助手", "nr": 1}, {"k": "chatgpt", "n": "ChatGPT", "s": "AI 助手", "m": "GPT", "bg": "#3a7a6a", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "gemini", "n": "Gemini", "s": "AI 助手", "m": "G", "bg": "#2b5fb3", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "doubao", "n": "豆包", "s": "AI 助手", "m": "豆", "bg": "#2f63c6", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "deepseek", "n": "DeepSeek", "s": "AI 助手", "m": "DS", "bg": "#2a4f9a", "d": "AI 助手", "c": "AI 助手", "tbc": 1}, {"k": "aiapp", "n": "AI 与应用", "s": "Grace 与朋友", "m": "用", "bg": "#7a5ba8", "d": "自动报告（Claudia、Sophia）、Power BI Dashboard、用 AI 创一人公司。", "c": "Grace 与朋友", "tbc": 1}, {"k": "byd", "n": "BYD 比亚迪", "s": "电动车", "m": "BYD", "bg": "#2f6f6a", "d": "我自己开的比亚迪，安静省心。", "c": "电动车", "tbc": 1}, {"k": "meta", "n": "Meta 智能眼镜", "s": "智能穿戴", "m": "M", "bg": "#2b5fb3", "d": "智能穿戴", "c": "智能穿戴", "tbc": 1}, {"k": "samsung", "n": "三星手机", "s": "手机", "m": "S", "bg": "#1f3b8a", "d": "手机", "c": "手机", "tbc": 1}, {"k": "huawei", "n": "华为", "s": "通信与智能科技", "m": "华为", "bg": "#c7000b", "d": "通信与智能科技", "c": "通信与智能科技", "tbc": 1}, {"k": "apple", "n": "Apple", "s": "科技", "m": "A", "bg": "#3a3a3a", "d": "科技", "c": "科技", "tbc": 1}]}, {"t": "2. 科学", "items": [{"k": "usydfest", "n": "USYD Community Festival", "s": "悉尼大学社区节", "m": "USYD", "bg": "#b0602f", "d": "悉尼大学社区节", "c": "悉尼大学社区节", "tbc": 1}, {"k": "karl", "n": "Dr Karl", "s": "科普", "m": "K", "bg": "#2a5a8a", "d": "科普", "c": "科普", "tbc": 1}, {"k": "ufo", "n": "UFO 飞碟探索", "s": "宇宙探索", "m": "UFO", "bg": "#4a4f6a", "d": "宇宙探索", "c": "宇宙探索", "tbc": 1}, {"k": "translate", "n": "攻克“鸡同鸭讲”", "s": "一起讨论实时翻译技术", "m": "译", "bg": "#1f63c6", "d": "号召大家群策群力，讨论实时翻译：屏蔽原声、“传音入密”。", "c": "一起讨论实时翻译技术", "tbc": 1}]}, {"t": "3. 教育", "items": [{"k": "hu", "n": "TJ Academy · 胡老师", "s": "写作 · OC · 精英中学", "m": "TJ", "bg": "#1f3b6e", "d": "2014 年成立，专注个性化辅导：写作、OC 和精英中学考试备考。一对一和小组课，线上线下结合，Chatswood。", "c": "教育辅导 · Chatswood", "o": "微信 TJAcademy · <a href=\"partners/tj-academy.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>", "nr": 1}, {"k": "innworks", "n": "Innworks AI 家长课", "s": "11月18日、25日 · 线上", "m": "AI", "bg": "#1f5f8a", "badge": "公益推荐", "gy": 1, "d": "超越补习：教家长把 AI 变成孩子的个性化学习伙伴。面向 6–15 岁孩子家长，线上英文，11月18日、25日周三晚 8–9 点，A$10 起。", "c": "家长网课 · 线上 · 公益推荐", "o": "<a href=\"events/innworks-ai.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1, "exp": "2026-11-25"}, {"k": "sbhs", "n": "SBHS P&C", "s": "学校家委会", "m": "P&C", "bg": "#556b2f", "d": "学校家委会", "c": "学校家委会", "tbc": 1}, {"k": "ishs", "n": "ISHS P&C", "s": "学校家委会", "m": "P&C", "bg": "#2f6b55", "d": "学校家委会", "c": "学校家委会", "tbc": 1}, {"k": "cos", "n": "City of Sydney", "s": "社区活动", "m": "CoS", "bg": "#3a6f8a", "d": "社区活动", "c": "社区活动", "tbc": 1}, {"k": "usstudy", "n": "美国留学 · 一对一", "s": "留学规划", "m": "留", "bg": "#2b4f8a", "d": "留学规划", "c": "留学规划", "tbc": 1}, {"k": "usprof", "n": "美国教授", "s": "学术交流", "m": "教", "bg": "#3d5a80", "d": "学术交流", "c": "学术交流", "tbc": 1}, {"k": "dragon", "n": "Smart Dragon", "s": "课程辅导", "m": "龙", "bg": "#a33a2e", "d": "课程辅导", "c": "课程辅导", "tbc": 1}, {"k": "supermind", "n": "Supermind", "s": "课程辅导", "m": "S", "bg": "#5a3a8a", "d": "课程辅导", "c": "课程辅导", "tbc": 1}, {"k": "steven", "n": "Steven", "s": "小红书老师", "m": "S", "bg": "#c0583a", "d": "小红书老师", "c": "小红书老师", "tbc": 1}, {"k": "helen", "n": "Helen", "s": "课程辅导", "m": "H", "bg": "#7a5a8a", "d": "课程辅导", "c": "课程辅导", "tbc": 1}]}]},
- {"t": "人与 Soul · Art", "gc": "var(--c-soul)", "no": "E", "gt": "var(--t-soul)", "subs": [{"t": "1. 艺术", "items": [{"k": "erica", "n": "Erica", "s": "绘画", "m": "画", "bg": "#8a5a9a", "d": "绘画", "c": "绘画", "tbc": 1}, {"k": "xiong", "n": "熊老师", "s": "艺术家", "m": "熊", "bg": "#7a4a8a", "d": "艺术家", "c": "艺术家", "tbc": 1}, {"k": "huangyu", "n": "黄瑜", "s": "艺术", "m": "黄", "bg": "#9a6a3a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "yvonne", "n": "播音 · Yvonne", "s": "播音主持", "m": "播", "bg": "#3a6a8a", "d": "播音主持", "c": "播音主持", "tbc": 1}, {"k": "michelle", "n": "Michelle", "s": "艺术", "m": "M", "bg": "#8a4a6a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "standup", "n": "脱口秀", "s": "喜剧", "m": "笑", "bg": "#c0792f", "d": "喜剧", "c": "喜剧", "tbc": 1}, {"k": "liyi", "n": "李忆", "s": "探险", "m": "李", "bg": "#4a6b47", "d": "探险", "c": "探险", "tbc": 1}, {"k": "piano", "n": "钢琴老师 · Uncle", "s": "钢琴", "m": "琴", "bg": "#2a2f5a", "d": "钢琴", "c": "钢琴", "tbc": 1}]}, {"t": "2. 人物志", "items": [{"k": "monkeyking", "n": "云南美猴王 · 小圣", "s": "街头演了 14 年", "m": "猴", "bg": "#c8331f", "badge": "公益推荐", "gy": 1, "d": "云南丽江小伙和铃铎，从小喜欢美猴王，在街头演了 14 年，边演边读大学。台下没人也照样演完。", "c": "人物志 · 公益分享", "o": "<a href=\"stories/monkey-king.html\" style=\"color:inherit;text-decoration:underline\">看他的故事 ›</a><br><small>同学刘广分享</small>", "nr": 1}, {"k": "chl", "n": "叶绿素 f 科学家", "s": "悉尼大学", "m": "叶", "bg": "#3f8a3a", "d": "发现叶绿素 f，六十多年来首个新型叶绿素。", "c": "悉尼大学", "tbc": 1}, {"k": "qiu", "n": "邱教授", "s": "科技研究", "m": "邱", "bg": "#1f3b57", "d": "科技研究", "c": "科技研究", "tbc": 1}, {"k": "diver", "n": "跳水亚军", "s": "跳水", "m": "跳水", "bg": "#2e86ab", "d": "跳水", "c": "跳水", "tbc": 1}, {"k": "swim", "n": "游泳冠军", "s": "游泳", "m": "泳", "bg": "#1f7f8f", "d": "游泳", "c": "游泳", "tbc": 1}]}, {"t": "3. 纪念", "items": [{"k": "memorial", "n": "纪念", "s": "一个人，一个故事", "m": "念", "bg": "#5d6b7a", "d": "生者与逝者，都在这里被记住。名单正在逐家确认，确认后再公布。", "c": "一个人，一个故事", "tbc": 1}]}, {"t": "4. 全民写小说", "items": [{"k": "words", "n": "渊瑶的文字", "s": "小说 · 悼念", "m": "文", "bg": "#4f3478", "d": "我在这里写小说，记录一个个人物的故事，也写给离开的好朋友的悼念文章。", "c": "小说 · 悼念", "self": 1, "nr": 1}]}, {"t": "5. 心理健康 · 公益", "items": [{"k": "headspace", "n": "headspace Syndal", "s": "墨尔本 · 青年志愿者招募", "m": "hs", "bg": "#2e8b57", "badge": "公益推荐", "gy": 1, "exp": "2026-11-20", "d": "墨尔本 headspace Syndal 招募 8 名 18–25 岁中英文流利青年志愿者，参与 2027 年华人社区心理健康项目。无需经验，欢迎留学生。报名截止 11月20日。", "c": "心理健康 · 墨尔本 VIC · 公益推荐", "o": "<a href=\"events/headspace-syndal.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}]}, {"t": "6. 静心 · 禅茶", "items": [{"k": "zencha", "n": "禅茶读书会 · 静心学堂", "s": "Summer Hill · 隔周周日", "m": "茶", "bg": "#8a7a55", "badge": "公益推荐", "gy": 1, "d": "我亲身参加过，非常好。忙碌的 AI 时代里难得的安静之地：品茶、共读、分享，中英文都有，自由随意。下一场 11月22日周日 10:30–12:30。", "c": "身心修养 · Summer Hill · 公益推荐", "o": "<a href=\"events/zencha-reading.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}]}]}
+ {"t": "人与 Soul · Art", "gc": "var(--c-soul)", "no": "E", "gt": "var(--t-soul)", "subs": [{"t": "1. 艺术", "items": [{"k": "wuyun", "n": "舞韵东方 · 古典舞专场", "s": "2027年2月18日 / 28日", "m": "舞", "bg": "#a3242b", "badge": "Grace 参演", "d": "悉尼华人舞蹈团中国古典舞专场，两场：2月18日 Bankstown Sports Club，2月28日 Canterbury League Club。Grace Lei Zhang 也在演出阵容中。在 Grace 这里预订，团体统一取票。", "c": "古典舞演出 · Bankstown / Belmore", "o": "<a href=\"events/wuyun-dongfang.html\" style=\"color:inherit;text-decoration:underline\">查看详情 · 预订 ›</a>", "nr": 1, "exp": "2027-02-28"}, {"k": "erica", "n": "Erica", "s": "绘画", "m": "画", "bg": "#8a5a9a", "d": "绘画", "c": "绘画", "tbc": 1}, {"k": "xiong", "n": "熊老师", "s": "艺术家", "m": "熊", "bg": "#7a4a8a", "d": "艺术家", "c": "艺术家", "tbc": 1}, {"k": "huangyu", "n": "黄瑜", "s": "艺术", "m": "黄", "bg": "#9a6a3a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "yvonne", "n": "播音 · Yvonne", "s": "播音主持", "m": "播", "bg": "#3a6a8a", "d": "播音主持", "c": "播音主持", "tbc": 1}, {"k": "michelle", "n": "Michelle", "s": "艺术", "m": "M", "bg": "#8a4a6a", "d": "艺术", "c": "艺术", "tbc": 1}, {"k": "standup", "n": "脱口秀", "s": "喜剧", "m": "笑", "bg": "#c0792f", "d": "喜剧", "c": "喜剧", "tbc": 1}, {"k": "liyi", "n": "李忆", "s": "探险", "m": "李", "bg": "#4a6b47", "d": "探险", "c": "探险", "tbc": 1}, {"k": "piano", "n": "钢琴老师 · Uncle", "s": "钢琴", "m": "琴", "bg": "#2a2f5a", "d": "钢琴", "c": "钢琴", "tbc": 1}]}, {"t": "2. 人物志", "items": [{"k": "monkeyking", "n": "云南美猴王 · 小圣", "s": "街头演了 14 年", "m": "猴", "bg": "#c8331f", "badge": "公益推荐", "gy": 1, "d": "云南丽江小伙和铃铎，从小喜欢美猴王，在街头演了 14 年，边演边读大学。台下没人也照样演完。", "c": "人物志 · 公益分享", "o": "<a href=\"stories/monkey-king.html\" style=\"color:inherit;text-decoration:underline\">看他的故事 ›</a><br><small>同学刘广分享</small>", "nr": 1}, {"k": "chl", "n": "叶绿素 f 科学家", "s": "悉尼大学", "m": "叶", "bg": "#3f8a3a", "d": "发现叶绿素 f，六十多年来首个新型叶绿素。", "c": "悉尼大学", "tbc": 1}, {"k": "qiu", "n": "邱教授", "s": "科技研究", "m": "邱", "bg": "#1f3b57", "d": "科技研究", "c": "科技研究", "tbc": 1}, {"k": "diver", "n": "跳水亚军", "s": "跳水", "m": "跳水", "bg": "#2e86ab", "d": "跳水", "c": "跳水", "tbc": 1}, {"k": "swim", "n": "游泳冠军", "s": "游泳", "m": "泳", "bg": "#1f7f8f", "d": "游泳", "c": "游泳", "tbc": 1}]}, {"t": "3. 纪念", "items": [{"k": "memorial", "n": "纪念", "s": "一个人，一个故事", "m": "念", "bg": "#5d6b7a", "d": "生者与逝者，都在这里被记住。名单正在逐家确认，确认后再公布。", "c": "一个人，一个故事", "tbc": 1}]}, {"t": "4. 全民写小说", "items": [{"k": "words", "n": "渊瑶的文字", "s": "小说 · 悼念", "m": "文", "bg": "#4f3478", "d": "我在这里写小说，记录一个个人物的故事，也写给离开的好朋友的悼念文章。", "c": "小说 · 悼念", "self": 1, "nr": 1}]}, {"t": "5. 心理健康 · 公益", "items": [{"k": "headspace", "n": "headspace Syndal", "s": "墨尔本 · 青年志愿者招募", "m": "hs", "bg": "#2e8b57", "badge": "公益推荐", "gy": 1, "exp": "2026-11-20", "d": "墨尔本 headspace Syndal 招募 8 名 18–25 岁中英文流利青年志愿者，参与 2027 年华人社区心理健康项目。无需经验，欢迎留学生。报名截止 11月20日。", "c": "心理健康 · 墨尔本 VIC · 公益推荐", "o": "<a href=\"events/headspace-syndal.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}]}, {"t": "6. 静心 · 禅茶", "items": [{"k": "zencha", "n": "禅茶读书会 · 静心学堂", "s": "Summer Hill · 隔周周日", "m": "茶", "bg": "#8a7a55", "badge": "公益推荐", "gy": 1, "d": "我亲身参加过，非常好。忙碌的 AI 时代里难得的安静之地：品茶、共读、分享，中英文都有，自由随意。下一场 11月22日周日 10:30–12:30。", "c": "身心修养 · Summer Hill · 公益推荐", "o": "<a href=\"events/zencha-reading.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>", "nr": 1}]}]}
 ];
 const P={};const host=document.getElementById('groups');
 
 const RICH={
  "健康 · 人与身体":{intro:"健康是 1，其余都是后面的 0。<br>没有 1，再多的 0 也只是零。",cards:[
-  {logo:"assets/sfitness-logo.jpg",photos:["assets/sfitness-1.jpg","assets/sfitness-2.jpg"],tag:"Grace 亲测 · 中文服务",n:"S Fitness 悉尼",sub:"运动健身 · Burwood · 教练可英文授课",
+  {logo:"assets/sfitness-logo.jpg",photos:["assets/sfitness-1.jpg","assets/sfitness-2.jpg"],tag:"Grace 亲测 · 中文服务",n:"S Fitness 悉尼",lab:"Grace 推荐 · 免费展示",tried:1,why:"Grace 自己在这里练：2 个月减了 3 公斤，不靠饿。教练懂营养，每天帮看三餐。",rel:"免费展示 · 合作条件待确认",perk:"首节体验课 <b>$40</b>；报推荐码 <b>GraceRock</b>，买课加送 <b>1 节</b>。有效期待确认。",sub:"运动健身 · Burwood · 教练可英文授课",
    hl:"Grace 亲测：2 个月减了 3 公斤，不靠饿！",hl2:"目标 10 公斤，还在继续，欢迎一起来练 💪",
    li:["首次全身 3D 体测，站上去转一圈，数据一目了然","教练懂营养，三餐拍照发教练，每天帮你把关饮食","上课时间多，预约很灵活"],
    offer:"首节体验课 <b>$40</b><br>使用专属优惠码 <b>GraceRock</b>，买课加送 <b>1 节</b>",
    btns:[["copy","微信预约","sjs6477"],["tel","电话","0410837664"],["map","地址导航","6 Railway Parade, Burwood NSW 2134"]],
    contact:"6 Railway Parade, Burwood · 微信 sjs6477 · 0410 837 664 · <a href=\"partners/s-fitness.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"},
-  {logo:"assets/herbmax-logo.jpg",posters:["assets/herbmax-store.jpg","assets/herbmax-flyer.jpg"],tag:"Grace 亲测 · 中药熏蒸",n:"百草养生馆 Herbmax",sub:"中医养生 · Epping",
+  {logo:"assets/herbmax-logo.jpg",posters:["assets/herbmax-store.jpg","assets/herbmax-flyer.jpg"],tag:"Grace 亲测 · 中药熏蒸",n:"百草养生馆 Herbmax",lab:"Grace 推荐 · 免费展示",tried:1,why:"约姐妹熏蒸完喝茶聊天，很放松。主理人有 20 多年中药熏蒸调理经验。",rel:"免费展示 · 合作条件待确认",perk:"到店报 <b>GraceRock</b>，<b>免费</b>中医经络检测一次。有效期待确认。",sub:"中医养生 · Epping",
    say:"休闲养生的好去处，约上姐妹，熏蒸完喝茶聊天，特别放松。",
    li:["主理人有 20 多年中药熏蒸调理经验，擅长运用中药熏蒸调理保健身体，美容美肤，纤体瘦身。","按个人体质调配熏蒸方，内调外蒸，结合营养食疗，适合亚健康调理","中药熏蒸 · 经络检测 · 血压检测 · 私人订制美肤瘦身方案"],
    offer:"到店出示专属优惠码 <b>GraceRock</b>，<b>免费</b>中医经络检测一次",
    btns:[["qr","微信预约",""],["map","地址导航","Epping NSW 2121"]],
    qr:"assets/herbmax-qr2.jpg",qrt:"长按或扫码<br>加微信预约<br>悉尼 Epping",
    contact:"<a href=\"partners/herbmax.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"},
-  {logo:"assets/meetyoga-logo.jpg",tag:"Grace 亲测 · 瑜伽",n:"Meet Yoga 瑜伽",sub:"何老师 · 小班教学 · Baulkham Hills",
+  {logo:"assets/meetyoga-logo.jpg",tag:"Grace 亲测 · 瑜伽",n:"Meet Yoga 瑜伽",lab:"推荐回报",tried:1,why:"小班教学，何老师逐一纠正动作，第一次上课就发现 Grace 肩颈僵硬。",rel:"推荐回报：每推荐一位朋友购课，Grace Lei Zhang 获赠一节课。",perk:"报 <b>GraceRock</b>，买课加送 <b>1 节</b>。跟 Grace 一起去可免费试课（每次最多 2 位）。有效期待确认。",sub:"何老师 · 小班教学 · Baulkham Hills",
    say:"小班上课，何老师会逐一看每个人的动作、纠正姿势。第一次上课她就发现我肩颈很僵硬，这堂课让我对坚持练瑜伽更有信心。—— Grace Lei Zhang",
    offer:"使用专属优惠码 <b>GraceRock</b>，买课加送 <b>1 节</b>",
    btns:[["qr","微信预约",""],["copy","复制微信号","MeetYoga6"],["map","地址导航","Baulkham Hills NSW 2153"]],
    qr:"assets/meetyoga-qr.jpg",qrt:"长按或扫码<br>加何老师微信<br>课程时间请咨询",
-   contact:"微信 MeetYoga6 · <a href=\"partners/meet-yoga.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>利益公开：每推荐一位朋友购课，Grace Lei Zhang 也获赠一节课。Grace 每次可带最多两位朋友免费试课</small>"}
+   contact:"微信 MeetYoga6 · <a href=\"partners/meet-yoga.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}
  ]},
  "人与人 · Connection":{intro:"人与人之间的连接，才是最珍贵的。<br>愿每个人，都是一只 Social Butterfly。",cards:[
-  {logo:"assets/ips-logo.png",tag:"Grace 合作 13 年 · 中文服务",n:"IPS Partners",sub:"会计 · 公司注册 · Hurstville · DipFP, Cert IV GI",
+  {logo:"assets/ips-logo.png",tag:"Grace 合作 13 年 · 中文服务",n:"IPS Partners",lab:"Grace 推荐 · 免费展示",tried:1,why:"Grace 2013 年起一直找他们做账，专业、靠谱省心。",rel:"免费展示 · 合作条件待确认",perk:"优惠待确认。推荐码 <b>GraceRock</b> 目前只用于识别推荐来源。",sub:"会计 · 公司注册 · Hurstville · DipFP, Cert IV GI",
    say:"2013 年相识合作至今，专业知识丰富，靠谱省心。",
    li:["会计 · 报税 · BAS · 公司注册","财务规划 · 保险","房地产"],
    offer:"推荐码 <b>GraceRock</b>：联系时提供，以便识别推荐来源",
    btns:[["tel","电话","0407818788"],["map","地址导航","Hurstville NSW 2220"]],
    contact:"手机 0407 818 788 · 热线 1300 047 772 · grace@ipspartners.com.au · <a href=\"partners/ips-partners.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"},
-  {logo:"assets/talottas-logo.jpg",photos:["assets/talottas-pizza.jpg","assets/talottas-vinyl.jpg","assets/talottas-wall.jpg"],tag:"公益推荐 · 披萨店",n:"Talotta's Pizzeria",sub:"Kurnell · 近 Kamay 国家公园",say:"本地特色小店，汉堡和披萨超好吃，趁热到店吃！",btns:[["tel","打电话点餐","+61296688994"],["map","地址导航","Talotta's Pizzeria 1-3 Bridge St Kurnell NSW"]],contact:"<a href=\"partners/talottas.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a> · <a href=\"https://www.google.com/maps/search/?api=1&query=Talotta%27s+Pizzeria+Kurnell\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline\">店家 Google 主页 ›</a><br><small>公益推荐：Grace Rock 不收取任何费用</small>"},
-  {logo:"assets/wooof-logo.jpg",tag:"Grace Rock 推荐伙伴 · 狗狗美容",n:"WOOOF Dog Grooming",sub:"精品狗狗美容 · Surry Hills | Manuka",
+  {logo:"assets/talottas-logo.jpg",photos:["assets/talottas-pizza.jpg","assets/talottas-vinyl.jpg","assets/talottas-wall.jpg"],tag:"公益推荐 · 披萨店",n:"Talotta's Pizzeria",lab:"公益推荐",gy:1,why:"帮助了谁：老板多年来把玩具送给医院和山火灾区的孩子。",rel:"公益推荐：Grace Rock 不收取任何费用。",perk:"优惠待确认。",sub:"Kurnell · 近 Kamay 国家公园",say:"本地特色小店，汉堡和披萨超好吃，趁热到店吃！",btns:[["tel","打电话点餐","+61296688994"],["map","地址导航","Talotta's Pizzeria 1-3 Bridge St Kurnell NSW"]],contact:"<a href=\"partners/talottas.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a> · <a href=\"https://www.google.com/maps/search/?api=1&query=Talotta%27s+Pizzeria+Kurnell\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline\">店家 Google 主页 ›</a>"},
+  {logo:"assets/wooof-logo.jpg",tag:"Grace Rock 推荐伙伴 · 狗狗美容",n:"WOOOF Dog Grooming",lab:"推荐回报",tried:1,why:"全犬种、天然产品、低压力环境，Grace 的狗狗在这里美容过。",rel:"推荐回报：经此优惠码的每次到访，Grace Lei Zhang 获得消费金额 10% 的 WOOOF 奖励。",perk:"优惠码 <b>REF-QKSR5Q</b>：首次美容享折扣。具体金额和有效期待确认，以 WOOOF 官网为准。",sub:"精品狗狗美容 · Surry Hills | Manuka",
    li:["全犬种、各种体型：洗澡、修剪、手工剪毛、去浮毛、舒缓 Spa","每只狗狗单独打理，低压力环境","天然产品，养护皮肤和毛发","网上或电话预约"],
    offer:"专属优惠码：<b>REF-QKSR5Q</b><br>首次美容享折扣",
    btns:[["copy","复制优惠码","REF-QKSR5Q"],["map","地址导航","WOOOF Dog Grooming Surry Hills"]],
-   contact:"<a href=\"https://wooof.com.au/\" target=\"_blank\" rel=\"noopener sponsored\" style=\"color:inherit;text-decoration:underline\">wooof.com.au 官网预约</a> · <a href=\"partners/wooof.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a><br><small>利益公开：Grace Lei Zhang 是 WOOOF 推荐伙伴，经此优惠码推荐的每次到访，Grace 获得消费金额 10% 的 WOOOF 奖励</small>"}
+   contact:"<a href=\"https://wooof.com.au/\" target=\"_blank\" rel=\"noopener sponsored\" style=\"color:inherit;text-decoration:underline\">wooof.com.au 官网预约</a> · <a href=\"partners/wooof.html\" style=\"color:inherit;text-decoration:underline\">查看详情 ›</a>"}
  ]},
  "人与自然 · 公益":{intro:"走出屏幕，去真实的世界里看看。<br>以旅行沉淀心灵，以自然开阔胸怀。",events:[
   {"m": "十月", "d": "31", "y": "周六", "chip": "试点 · 私信 Grace 一起去", "t": "USYD 社区节 + 小班瑜伽", "s": "10:00 USYD Community Festival · 1:30 Meet Yoga 小班瑜伽", "u": "https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E6%83%B3%2010%20%E6%9C%88%2031%20%E6%97%A5%EF%BC%88%E5%91%A8%E5%85%AD%EF%BC%89%E8%B7%9F%E4%BD%A0%E4%B8%80%E8%B5%B7%E5%8E%BB%EF%BC%9A", "ts": "2026-10-31"},
@@ -414,7 +466,7 @@ const RICH={
   {m:"2027",d:"4月",y:"学校假期",chip:"亲子 · 意向登记中",t:"穿越北回归线 · 彩云之南",s:"从上海到云南的亲子探索之旅 · 学校假期",u:"https://gracerock.com.au/yunnan-april.html",ts:"2027-04-01"},
   {m:"十月",d:"7",y:"2026",chip:"往期回顾",t:"Paintball 彩弹对战",s:"Die Hard Indoor Paintball · Turrella",u:"https://gracerock.com.au/paintball.html",ts:"2026-10-07"}]},
  "人与科技 · AI":{intro:"AI、科学和教育：一起学，一起用，激动人心。",events:[{m:"十一月",d:"18",y:"周三",chip:"公益推荐 · 线上家长课",t:"超越补习：用 AI 规划孩子未来（第 1 课）",s:"Innworks · 6–15 岁孩子家长 · 晚 8–9 点 · A$10",u:"https://gracerock.com.au/preview/events/innworks-ai.html",ts:"2026-11-18",exp:"2026-12-02"},{m:"十一月",d:"25",y:"周三",chip:"公益推荐 · 线上家长课",t:"超越补习：用 AI 规划孩子未来（第 2 课）",s:"Innworks · 动手做 AI 项目 · 晚 8–9 点 · A$15",u:"https://gracerock.com.au/preview/events/innworks-ai.html",ts:"2026-11-25",exp:"2026-12-02"}],cards:[
-  {logo:"assets/tj-academy-logo.png",tag:"Grace 孩子的私教老师 · 教育",n:"TJ Academy",sub:"胡老师 · 写作 · OC · 精英中学 · Chatswood",
+  {logo:"assets/tj-academy-logo.png",tag:"Grace 孩子的私教老师 · 教育",n:"TJ Academy",lab:"Grace 推荐 · 免费展示",tried:1,why:"Grace 的孩子约 2020 年起跟胡老师学。课时灵活，60 分钟可改 45 分钟，收费相应调整。",rel:"免费展示 · 合作条件待确认",perk:"优惠待确认。",sub:"胡老师 · 写作 · OC · 精英中学 · Chatswood",
    say:"孩子大约 2020 年开始跟胡老师学。上课很灵活，60 分钟对孩子太长，就改成 45 分钟，收费也相应降低。",
    li:["2014 年成立，专注个性化教育辅导","一对一辅导 + 小组课，线上线下结合","按学生的需求、优势和需要提升的地方定制方案","课时灵活：按孩子特点调整，比如 60 分钟改 45 分钟，收费相应调整"],
    btns:[["copy","复制微信号咨询","TJAcademy"],["map","地址导航","Chatswood NSW 2067"]],
@@ -422,18 +474,20 @@ const RICH={
  ]},
  "人与 Soul · Art":{intro:"以艺术陶冶情操，以文字留住故事。",events:[
   {m:"十一月",d:"20",y:"截止",chip:"公益推荐 · 墨尔本 VIC",t:"headspace Syndal 青年志愿者招募",s:"18–25 岁中英文流利 · 2027 全年 · 11月20日截止",u:"https://gracerock.com.au/preview/events/headspace-syndal.html",ts:"2026-11-20",exp:"2026-11-20"},
-  {m:"十一月",d:"22",y:"周日",chip:"公益推荐 · Summer Hill",t:"禅茶读书会 · 一茶一书，一期一会",s:"静心学堂正心小院 · 隔周周日 10:30–12:30 · 中英文",u:"https://gracerock.com.au/preview/events/zencha-reading.html",ts:"2026-11-22",exp:"2026-11-22"}]}
+  {m:"十一月",d:"22",y:"周日",chip:"公益推荐 · Summer Hill",t:"禅茶读书会 · 一茶一书，一期一会",s:"静心学堂正心小院 · 隔周周日 10:30–12:30 · 中英文",u:"https://gracerock.com.au/preview/events/zencha-reading.html",ts:"2026-11-22",exp:"2026-11-22"},
+  {m:"二月",d:"18",y:"2027",chip:"Grace 参演 · 接受预订",t:"舞韵东方 · 古典舞专场",s:"悉尼华人舞蹈团 · Bankstown Sports Club · 晚 7:30",u:"https://gracerock.com.au/preview/events/wuyun-dongfang.html",ts:"2027-02-18",exp:"2027-02-18"},
+  {m:"二月",d:"28",y:"2027",chip:"Grace 参演 · 接受预订",t:"舞韵东方 · 古典舞专场",s:"悉尼华人舞蹈团 · Canterbury League Club · 下午 4:00",u:"https://gracerock.com.au/preview/events/wuyun-dongfang.html",ts:"2027-02-28",exp:"2027-02-28"}]}
 };
 function richCard(c,sec){const el=document.createElement('article');el.className='rich';
  let h='';
  if(c.logo)h+=`<img class="rlogo" src="${c.logo}" alt="${c.n} logo">`;
  if(c.posters)h+=`<div class="posters">${c.posters.map(p=>`<img src="${p}" alt="百草养生馆宣传图" loading="lazy">`).join('')}</div>`;
  if(c.photos)h+=`<div class="photos">${c.photos.map(p=>`<img src="${p}" alt="" loading="lazy">`).join('')}</div>`;
- h+=`<span class="rtag">${c.tag}</span><h4>${c.n}</h4><div class="rsub">${c.sub}</div>`;
- if(c.hl)h+=`<div><div class="hl">${c.hl}</div><div style="color:var(--muted)">${c.hl2||''}</div></div>`;
- if(c.say)h+=`<div class="say"><b>Grace 说：</b>${c.say}</div>`;
+ h+=`<span class="rtag${c.gy?' gy':''}">${c.lab||c.tag}</span>`+(c.tried?`<span class="tried">Grace 亲自体验</span>`:'')+`<h4>${c.n}</h4><div class="rsub">${c.sub}</div>`;
+ if(c.hl&&!c.why)h+=`<div><div class="hl">${c.hl}</div><div style="color:var(--muted)">${c.hl2||''}</div></div>`;
+ if(c.say&&!c.why)h+=`<div class="say"><b>Grace 说：</b>${c.say}</div>`;
  if(c.li)h+=`<ul>${c.li.map(x=>`<li>${x}</li>`).join('')}</ul>`;
- if(c.offer)h+=`<div class="roffer">${c.offer}</div>`;
+ if(c.why)h+=`<dl class="facts"><dt>推荐理由</dt><dd>${c.why}</dd><dt>合作关系</dt><dd>${c.rel}</dd><dt>会员福利</dt><dd class="perk">${c.perk}</dd></dl>`;else if(c.offer)h+=`<div class="roffer">${c.offer}</div>`;
  h+=`<div class="btns">${c.btns.map(([t,l,v],i)=>t==='tel'?`<a href="tel:${v}" class="${i?'':'pri'}">${l}</a>`:t==='map'?`<a href="https://maps.google.com/?q=${encodeURIComponent(v)}" target="_blank" rel="noopener" class="${i?'':'pri'}">${l}</a>`:t==='copy'?`<button type="button" class="${i?'':'pri'}" data-copy="${v}">${l}</button>`:`<button type="button" class="pri" data-qr="1">${l}</button>`).join('')}</div><span class="copied" hidden></span>`;
  if(c.contact)h+=`<div class="contact">${c.contact}</div>`;
  if(c.qr)h+=`<div class="qr"><img src="${c.qr}" alt="微信二维码"><div>${c.qrt}</div></div>`;
@@ -445,11 +499,11 @@ function richCard(c,sec){const el=document.createElement('article');el.className
  return el}
 function events(list){const f=document.createDocumentFragment();list.forEach(e=>{const a=document.createElement(e.u?'a':'div');a.className='ev';if(e.u){a.href=e.u;a.target='_blank';a.rel='noopener'}
  a.innerHTML=`<div class="d">${e.m}<b>${e.d}</b>${e.y}</div><div class="t"><span class="chip">${e.chip}</span><b>${e.t}</b><span>${e.s}</span></div>`;f.appendChild(a)});return f}
-const J=t=>({k:'join-'+t,n:'我要加入',s:'成为推荐伙伴',c:t+' · 商家 · 个人服务',m:'＋',bg:'#7a5ba8',d:'只推荐我亲身体验过、真心认可的商家。创业期加入免费，并获“创始伙伴”标识。',o:'微信：leigracezhang',nr:1,ghost:1});
+const J=t=>({k:'join-'+t,n:'我要加入',s:'成为推荐伙伴',c:t+' · 商家 · 个人服务',m:'＋',bg:'#7a5ba8',d:'只推荐我亲身体验过、真心认可的商家。Grace 认可的先免费展示，标「Grace 推荐 · 免费展示」。',o:'微信：leigracezhang',nr:1,ghost:1});
 function grid(items){const g=document.createElement('div');g.className='logos',td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);
  items.filter(x=>!x.exp||x.exp>=td).forEach(x=>{P[x.k]=x;const b=document.createElement('button');
   b.className='logo'+(x.tbc?' tbc':'')+(x.ghost?' ghost':'');b.id='p-'+x.k;b.dataset.k=x.k;
-  const badge=x.ghost?'':x.badge?'<span class="badge">'+x.badge+'</span>':x.tbc?'<span class="badge soon">进行中</span>':x.self?'<span class="badge">自营</span>':(x.k==='claude'?'<span class="badge">Grace 推荐</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">自营</span>':'<span class="badge">创始伙伴</span>');
+  const badge=x.ghost?'':x.badge?'<span class="badge">'+x.badge+'</span>':x.tbc?'<span class="badge soon">进行中</span>':x.self?'<span class="badge">自营</span>':(x.k==='claude'?'<span class="badge">Grace 推荐</span>':(x.k==='gai'||x.k==='words')?'<span class="badge">自营</span>':'<span class="badge">Grace 推荐 · 免费展示</span>');
   b.innerHTML=`<span class="mark" style="${x.ghost?'':'background:'+x.bg}">${x.m}</span>${x.n}<small>${x.s}</small>${badge}`;
   g.appendChild(b)});return g}
 G.forEach((sec,gi)=>{const wrap=document.createElement('div');wrap.id='m'+(gi+1);wrap.style.setProperty('--gc',sec.gc);wrap.style.setProperty('--gt',sec.gt);host.appendChild(wrap);const h=document.createElement('h3');h.className='group';h.innerHTML=`<span class="no">${sec.no}</span>${sec.t}`;wrap.appendChild(h);const R=RICH[sec.t]||{};
@@ -464,6 +518,7 @@ host.addEventListener('click',e=>{const b=e.target.closest('.logo');if(!b)return
  const mk=document.getElementById('c-mark');mk.textContent=p.m;mk.style.background=p.ghost?'#7a5ba8':p.bg;
  document.getElementById('c-name').textContent=p.n;document.getElementById('c-cat').textContent=p.c;
  document.getElementById('c-desc').textContent=p.d;
+ document.getElementById('c-rel').textContent=p.tbc||p.ghost?'':'合作关系：'+(p.gy?'公益推荐：Grace Rock 不收取任何费用':p.self?'雅实自营活动':(p.ref||p.badge==='推荐链接')?'推荐回报：见下方利益公开':'Grace 推荐 · 免费展示 · 合作条件待确认');
  document.getElementById('c-offer').innerHTML=p.tbc?TBC:(p.o||'');
  document.getElementById('c-rate').hidden=!!(p.tbc||p.nr);
  document.getElementById('c-info').innerHTML=(p.i||[]).map(([a,v])=>`<dt>${a}</dt><dd>${v}</dd>`).join('');
@@ -494,7 +549,7 @@ T.forEach(t=>t.addEventListener('click',e=>{e.preventDefault();const g=document.
 const hs=()=>{const g=location.hash&&document.querySelector('#groups>'+location.hash);if(g){grOpen(g);g.scrollIntoView()}};hs();addEventListener('hashchange',hs);
 document.querySelectorAll('.cc-code').forEach(b=>b.onclick=()=>{const s=b.nextElementSibling,o=s.textContent;const ok=()=>{s.textContent='已复制 GraceRock';setTimeout(()=>s.textContent=o,2000)};try{navigator.clipboard.writeText(b.dataset.cc).then(ok,ok)}catch(_){ok()}});
 })();</script>
-<nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a class="pri" href="card.html">会员卡</a><a href="#events">附近羊毛</a><a href="#partners">有事咨询</a></nav>
+<nav class="mbar" aria-label="Quick links"><a class="wa" href="https://wa.me/61410931872?text=%E4%BD%A0%E5%A5%BD%20Grace%EF%BC%8C%E6%88%91%E5%9C%A8%E9%9B%85%E5%AE%9E%20Grace%20Rock%20%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9C%8B%E5%88%B0%EF%BC%8C%E6%83%B3%E5%92%A8%E8%AF%A2%EF%BC%9A" target="_blank" rel="noopener" aria-label="WhatsApp 0410 931 872"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 2 1-.5 1.5c-3.5.5-8-4-7.5-7.5L10 7.5l1 2z"/></svg></a><a href="#recap">活动回顾</a><a href="shops.html">找商家</a><a href="#events">附近羊毛</a><a class="pri" href="card.html">会员卡</a></nav>
 <script>(()=>{const c=document.querySelector('.hc');if(!c)return;const td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);c.querySelectorAll('[data-exp]').forEach(x=>{if(x.dataset.exp<td)x.remove()});const t=c.querySelector('.hc-track'),s=t.children,n=s.length,d=c.querySelector('.hc-dots');let i=0,tm;
 for(let k=0;k<n;k++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+' / '+n);b.onclick=()=>go(k,1);d.appendChild(b)}
 function go(k,u){i=(k+n)%n;t.style.transform='translateX('+(-100*i)+'%)';[...d.children].forEach((b,j)=>b.setAttribute('aria-current',j===i));[...s].forEach((x,j)=>x.setAttribute('aria-hidden',j!==i));if(u)play()}

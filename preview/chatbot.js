@@ -162,16 +162,38 @@ function act(x){
  el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('gb-flash');setTimeout(()=>el.classList.remove('gb-flash'),2200)}
 async function send(q){q=q.trim();if(!q)return;bubble(q,'gb-u');const r=await ask(q);bubble(r.t,'gb-b');acts(r.a)}
 let started=false;
-function toggle(open){box.hidden=!open;fab.hidden=open;fab.setAttribute('aria-expanded',open);
+function toggle(open){box.hidden=!open;fab.hidden=open;fab.setAttribute('aria-expanded',open);if(typeof place=='function')place();
  if(open){if(!started){started=true;bubble(T.hi,'gb-b');
    const w=document.createElement('div');w.className='gb-acts';
    T.chips.forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=()=>send(c);w.appendChild(b)});log.appendChild(w)}
   inp.focus()}else fab.focus()}
+/* 拖动：按住按钮可挪到任意位置（手指/鼠标），位置记在本机；轻点仍是打开 */
+const PK='gr-bot-pos';let pos=null,drag=null,moved=false;
+try{pos=JSON.parse(localStorage.getItem(PK))}catch(_){}
+function place(){if(!pos||!box.hidden){['left','top','right','bottom'].forEach(k=>root.style.removeProperty(k));return}
+ const w=root.offsetWidth,h=root.offsetHeight,W=innerWidth,H=innerHeight;
+ const x=Math.max(4,Math.min(W-w-4,pos.x*W)),y=Math.max(4,Math.min(H-h-4,pos.y*H));
+ root.style.setProperty('left',x+'px','important');root.style.setProperty('top',y+'px','important');
+ root.style.setProperty('right','auto','important');root.style.setProperty('bottom','auto','important');
+ const g=root.querySelector('.gb-greet');if(g){if(x<W/2){g.style.left='0';g.style.right='auto'}else{g.style.left='';g.style.right=''}
+  if(y<H/3){g.style.top='calc(100% + 10px)';g.style.bottom='auto'}else{g.style.top='';g.style.bottom=''}}}
+fab.style.touchAction='none';
+fab.addEventListener('pointerdown',e=>{if(e.button)return;const r=root.getBoundingClientRect();
+ drag={id:e.pointerId,sx:e.clientX,sy:e.clientY,ox:r.left,oy:r.top};moved=false});
+fab.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;
+ const dx=e.clientX-drag.sx,dy=e.clientY-drag.sy;
+ if(!moved&&Math.hypot(dx,dy)<8)return;
+ if(!moved){moved=true;try{fab.setPointerCapture(e.pointerId)}catch(_){}fab.style.cursor='grabbing'}
+ pos={x:(drag.ox+dx)/innerWidth,y:(drag.oy+dy)/innerHeight};place();e.preventDefault()});
+function endDrag(){if(!drag)return;drag=null;fab.style.cursor='';if(moved)try{localStorage.setItem(PK,JSON.stringify(pos))}catch(_){}}
+fab.addEventListener('pointerup',endDrag);fab.addEventListener('pointercancel',endDrag);
+fab.addEventListener('click',e=>{if(moved){moved=false;e.stopImmediatePropagation();e.preventDefault()}});
+addEventListener('resize',place);
 fab.onclick=()=>toggle(true);
 root.querySelector(".gb-hd button").onclick=()=>toggle(false);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)toggle(false)});
 root.querySelector('form').onsubmit=e=>{e.preventDefault();send(inp.value);inp.value=''};
-document.body.appendChild(root);
+document.body.appendChild(root);place();
 /* 主动打招呼：<script ... data-greet> 才开启；每次打开网站只出现一次，6 秒后弹出，可关掉 */
 const GK='gr-greeted';
 if(document.currentScript&&document.currentScript.hasAttribute('data-greet')){
@@ -186,5 +208,5 @@ if(document.currentScript&&document.currentScript.hasAttribute('data-greet')){
   g.querySelector('.x').onclick=e=>{e.stopPropagation();bye()};
   g.onclick=()=>{bye();toggle(true)};
   fab.addEventListener('click',bye,{once:true});
-  root.insertBefore(g,box)},6000)}
+  root.insertBefore(g,box);place()},6000)}
 })();
