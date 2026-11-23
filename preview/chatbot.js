@@ -78,7 +78,7 @@ const KB=[
   en:'The Soul & Art section has art, life stories, memorials and a community novel project.',
   a:[M(5)]},
  {k:['雅实','grace rock','宗旨','是什么','介绍','关于','about','what is grace rock'],
-  zh:'雅实 Grace Rock Group：携手同行，共建美好。这里推荐的商家，都是 Grace 亲身体验过的，分成健康、人与自然、人与人、人与科技、人与 Soul · Art 五个板块。',
+  zh:'雅实 Grace Rock Group：携手同行，共创美好。这里推荐的商家，都是 Grace 亲身体验过的，分成健康、人与自然、人与人、人与科技、人与 Soul · Art 五个板块。',
   en:'Grace Rock Group: everyone deserves to keep getting better. Every business here is one Grace has tried herself, in five sections: Health, Nature, Connection, Tech & AI, and Soul & Art.',
   a:[M(1),M(2),M(3)]},
  {k:['联系','微信','电话','找grace','grace','contact','wechat','phone','email'],
