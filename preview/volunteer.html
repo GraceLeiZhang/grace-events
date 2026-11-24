@@ -57,6 +57,11 @@ a{color:var(--accent)}
 <style>
 .lv{width:100%;border-collapse:collapse;font-size:14px}.lv td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:top}.lv td:first-child{white-space:nowrap;font-weight:700;color:var(--text)}.lv td:nth-child(2){white-space:nowrap;color:var(--accent);font-weight:700}.lv td:last-child{color:var(--sub)}
 .wall{list-style:none;margin:0;padding:0}.wall li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}.wall li:first-child{border-top:0}.wall code{color:var(--sub);font-size:13px}
+form label{display:block;font-size:14px;font-weight:600;margin:12px 0 4px;color:var(--text)}
+form input,form select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-top:10px}
+button.btn{cursor:pointer;font:inherit;font-size:16px;font-weight:600}
+.err{color:#c0392b;font-size:14px;margin-top:8px}
 </style>
 </head>
 <body>
@@ -65,7 +70,7 @@ a{color:var(--accent)}
   <h1>做义工 · 攒好人分</h1>
   <p>和 Grace 一起做好事。每参加一次，都留下记录；分越攒越多，等级越来越高。</p>
   <div class="hero" style="background:linear-gradient(135deg,#4f3478,#7a5ba8)"><div class="big">🤝</div><b>GR-V 义工</b><span>自愿参加 · 按次感谢 · 永久记录</span></div>
-  <a class="btn" href="join.html#join-V">报名做义工 ›</a>
+  <a class="btn" href="#signup">报名做义工 ›</a>
   <h2>怎么得好人分</h2>
   <div class="card"><ul class="steps">
     <li><b>参加一次活动 +10</b>帮忙、拍照、翻译、接待都算。</li>
@@ -85,7 +90,23 @@ a{color:var(--accent)}
   <div class="card"><ul class="wall">
     <li><span><b>1 号</b> Grace Lei Zhang · 创始人</span><code>GR-V-AU-0001</code></li>
   </ul><p style="font-size:13px;margin-top:8px">更多义工经本人同意后显示名字。手机号等联系方式只存在后台，不会出现在网页上。</p></div>
-  <a class="btn" href="join.html#join-V">报名做义工 ›</a>
+  <h2 id="signup">报名做义工</h2>
+  <div class="card"><form id="vf" novalidate>
+    <label for="vn">姓名</label><input type="text" id="vn" autocomplete="name">
+    <label for="vp">手机号</label><input type="tel" id="vp" autocomplete="tel">
+    <label for="vl">国家 / 城市</label><input type="text" id="vl" placeholder="例如：澳洲 悉尼">
+    <label for="va">年龄段</label><select id="va"><option value="">请选择</option><option value="18 岁以下">18 岁以下</option><option value="18–25">18–25</option><option value="26–40">26–40</option><option value="41–60">41–60</option><option value="60 岁以上">60 岁以上</option></select>
+    <p class="err" id="ve" hidden></p>
+    <button class="btn" type="submit" data-via="wa">用 WhatsApp 发送</button>
+    <button class="btn alt" type="submit" data-via="mail">用邮件发送</button>
+    <p style="font-size:13px;margin-top:10px">只收这 4 项。手机号只用来联系你，不会出现在网页上。18 岁以下请先征得家长同意。在微信里打不开 WhatsApp，请加微信 <b>leigracezhang</b>。</p>
+  </form></div>
+  <script>(function(){var f=document.getElementById('vf'),e=document.getElementById('ve'),via='wa';
+  f.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
+  function v(i){return document.getElementById(i).value.trim()}
+  f.addEventListener('submit',function(x){x.preventDefault();if(!v('vn')||!v('vp')||!v('vl')||!v('va')){e.hidden=false;e.textContent='请填写全部 4 项。';return}e.hidden=true;
+  var L=['你好 Grace，我想报名做雅实义工：','姓名：'+v('vn'),'手机：'+v('vp'),'国家/城市：'+v('vl'),'年龄段：'+v('va')],m=L.join('\n');
+  location.href=via==='mail'?'mailto:leigrace@gmail.com?subject='+encodeURIComponent('报名雅实义工：'+v('vn'))+'&body='+encodeURIComponent(m):'https://wa.me/61410931872?text='+encodeURIComponent(m)})})();</script>
   <footer>雅实 Grace Rock Group · 携手同行，共创美好<br><a href="./">返回首页</a></footer>
 </main>
 </body>

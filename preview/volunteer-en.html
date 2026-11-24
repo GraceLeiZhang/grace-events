@@ -57,6 +57,11 @@ a{color:var(--accent)}
 <style>
 .lv{width:100%;border-collapse:collapse;font-size:14px}.lv td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:top}.lv td:first-child{white-space:nowrap;font-weight:700;color:var(--text)}.lv td:nth-child(2){white-space:nowrap;color:var(--accent);font-weight:700}.lv td:last-child{color:var(--sub)}
 .wall{list-style:none;margin:0;padding:0}.wall li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}.wall li:first-child{border-top:0}.wall code{color:var(--sub);font-size:13px}
+form label{display:block;font-size:14px;font-weight:600;margin:12px 0 4px;color:var(--text)}
+form input,form select{width:100%;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);margin-top:10px}
+button.btn{cursor:pointer;font:inherit;font-size:16px;font-weight:600}
+.err{color:#c0392b;font-size:14px;margin-top:8px}
 </style>
 </head>
 <body>
@@ -65,7 +70,7 @@ a{color:var(--accent)}
   <h1>Volunteer · Earn Good Points</h1>
   <p>Do good things with Grace. Every time you help is recorded, your points add up, and your level grows.</p>
   <div class="hero" style="background:linear-gradient(135deg,#4f3478,#7a5ba8)"><div class="big">🤝</div><b>GR-V Volunteers</b><span>Voluntary · thanked per activity · recorded forever</span></div>
-  <a class="btn" href="join-en.html#join-V">Sign up to volunteer ›</a>
+  <a class="btn" href="#signup">Sign up to volunteer ›</a>
   <h2>How to earn Good Points</h2>
   <div class="card"><ul class="steps">
     <li><b>Join an activity +10</b>Helping, photos, translating, welcoming guests all count.</li>
@@ -85,7 +90,23 @@ a{color:var(--accent)}
   <div class="card"><ul class="wall">
     <li><span><b>No. 1</b> Grace Lei Zhang · Founder</span><code>GR-V-AU-0001</code></li>
   </ul><p style="font-size:13px;margin-top:8px">Other volunteers are shown by name once they agree. Phone numbers and contact details stay private and never appear on the site.</p></div>
-  <a class="btn" href="join-en.html#join-V">Sign up to volunteer ›</a>
+  <h2 id="signup">Sign up to volunteer</h2>
+  <div class="card"><form id="vf" novalidate>
+    <label for="vn">Name</label><input type="text" id="vn" autocomplete="name">
+    <label for="vp">Mobile number</label><input type="tel" id="vp" autocomplete="tel">
+    <label for="vl">Country / city</label><input type="text" id="vl" placeholder="e.g. Australia, Sydney">
+    <label for="va">Age group</label><select id="va"><option value="">Please choose</option><option value="Under 18">Under 18</option><option value="18–25">18–25</option><option value="26–40">26–40</option><option value="41–60">41–60</option><option value="Over 60">Over 60</option></select>
+    <p class="err" id="ve" hidden></p>
+    <button class="btn" type="submit" data-via="wa">Send via WhatsApp</button>
+    <button class="btn alt" type="submit" data-via="mail">Send by email</button>
+    <p style="font-size:13px;margin-top:10px">Only these 4 details. Your number is only used to contact you and never shown on the site. Under 18? Please ask a parent first.</p>
+  </form></div>
+  <script>(function(){var f=document.getElementById('vf'),e=document.getElementById('ve'),via='wa';
+  f.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
+  function v(i){return document.getElementById(i).value.trim()}
+  f.addEventListener('submit',function(x){x.preventDefault();if(!v('vn')||!v('vp')||!v('vl')||!v('va')){e.hidden=false;e.textContent='Please fill in all 4 fields.';return}e.hidden=true;
+  var L=['Hi Grace, I would like to sign up as a Grace Rock volunteer:','Name: '+v('vn'),'Mobile: '+v('vp'),'Country/city: '+v('vl'),'Age group: '+v('va')],m=L.join('\n');
+  location.href=via==='mail'?'mailto:leigrace@gmail.com?subject='+encodeURIComponent('Grace Rock volunteer sign-up: '+v('vn'))+'&body='+encodeURIComponent(m):'https://wa.me/61410931872?text='+encodeURIComponent(m)})})();</script>
   <footer>Grace Rock Group · Together, We Flourish<br><a href="en.html">Back to home</a></footer>
 </main>
 </body>
