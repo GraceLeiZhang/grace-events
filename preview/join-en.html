@@ -179,7 +179,7 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
   function setRole(r){f.dataset.role=r;var i=f.querySelector('input[value="'+r+'"]');if(i)i.checked=true}
   f.addEventListener('change',function(e){if(e.target.name==='role')setRole(e.target.value)});
   document.querySelectorAll('[data-pick]').forEach(function(a){a.addEventListener('click',function(){setRole(a.dataset.pick)})});
-  var m=location.hash.match(/^#join-([CSV])$/);if(m)setRole(m[1]);
+  var m=location.hash.match(/^#join-([CSV])$/);if(m){setRole(m[1]);var jj=document.getElementById('join');if(jj)jj.scrollIntoView()}
   var via='wa';
   f.querySelectorAll('button[type=submit]').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
   function v(id){var e=document.getElementById(id);return e?e.value.trim():''}
