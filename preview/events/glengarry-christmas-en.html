@@ -106,9 +106,6 @@ form .ck input{width:auto;margin-top:3px}
   <h2>Team &amp; partners</h2>
   <div class="card">
     <div class="row"><span>Hosts</span><span>Glengarry Jinwen Gallery &amp;<br>Aus–China Interchange</span></div>
-    <div class="row"><span>MC</span><span><i class="tbd">TBC</i></span></div>
-    <div class="row"><span>Director</span><span><i class="tbd">TBC</i></span></div>
-    <div class="row"><span>Artistic operations</span><span><i class="tbd">TBC</i></span></div>
     <div class="row"><span>Technology sponsor</span><span>Grace Rock Group (GR)</span></div>
     <div class="row"><span>Media partner</span><span>FM 90.1 community charity radio<br>Tune in to FM 90.1 for event coverage; air times TBC</span></div>
     <div class="row"><span>Host contact</span><span>Dahao Lin · 0466 179 953</span></div>
@@ -119,6 +116,7 @@ form .ck input{width:auto;margin-top:3px}
     <form id="f">
       <label>Name</label><input name="name" required>
       <label>Phone</label><input name="phone" type="tel" required>
+      <label>Age group (person registering)</label><select name="ages"><option value="">Please choose</option><option>Under 18</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65+</option></select>
       <label>Adults</label><input name="ad" type="number" min="0" value="1">
       <label>Children</label><input name="kid" type="number" min="0" value="0">
       <div class="ck"><input type="checkbox" name="attire" id="attire"><label for="attire" style="margin:0">We will wear traditional attire</label></div>
@@ -141,7 +139,7 @@ form .ck input{width:auto;margin-top:3px}
 <script>
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
 L.push('Hi, I would like to attend the 5 Dec Glengarry Christmas Celebration');
-[['name','Name'],['phone','Phone'],['ad','Adults'],['kid','Children']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
+[['name','Name'],['phone','Phone'],['ad','Adults'],['kid','Children'],['ages','Age group']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
 L.push('Traditional attire：'+(d.get('attire')?'Yes':'No'));
 L.push('Register as GR volunteer (Good Points)：'+(d.get('vol')?'Yes':'No'));
 L.push('Tell me about future events：'+(d.get('news')?'Yes':'No'));

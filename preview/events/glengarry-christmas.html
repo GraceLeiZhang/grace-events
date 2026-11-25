@@ -106,9 +106,6 @@ form .ck input{width:auto;margin-top:3px}
   <h2>活动团队与合作伙伴</h2>
   <div class="card">
     <div class="row"><span>主办</span><span>Glengarry Jinwen Gallery &amp;<br>Aus–China Interchange</span></div>
-    <div class="row"><span>主持</span><span><i class="tbd">待公布</i></span></div>
-    <div class="row"><span>总监</span><span><i class="tbd">待公布</i></span></div>
-    <div class="row"><span>艺术运营</span><span><i class="tbd">待公布</i></span></div>
     <div class="row"><span>技术赞助</span><span>雅实 Grace Rock Group（GR）</span></div>
     <div class="row"><span>媒体合作伙伴</span><span>FM 90.1 慈善社区电台<br>活动相关节目请收听 FM 90.1，播出时间待公布</span></div>
     <div class="row"><span>主办方联系</span><span>Dahao Lin · 0466 179 953</span></div>
@@ -119,6 +116,7 @@ form .ck input{width:auto;margin-top:3px}
     <form id="f">
       <label>姓名</label><input name="name" required>
       <label>电话</label><input name="phone" type="tel" required>
+      <label>年龄段（报名人）</label><select name="ages"><option value="">请选择</option><option>18岁以下</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65岁以上</option></select>
       <label>成人人数</label><input name="ad" type="number" min="0" value="1">
       <label>小孩人数</label><input name="kid" type="number" min="0" value="0">
       <div class="ck"><input type="checkbox" name="attire" id="attire"><label for="attire" style="margin:0">我们会穿传统服装</label></div>
@@ -141,7 +139,7 @@ form .ck input{width:auto;margin-top:3px}
 <script>
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
 L.push('您好，我报名12月5日 Glengarry 圣诞庆典');
-[['name','姓名'],['phone','电话'],['ad','成人'],['kid','小孩']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
+[['name','姓名'],['phone','电话'],['ad','成人'],['kid','小孩'],['ages','年龄段']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
 L.push('穿传统服装：'+(d.get('attire')?'是':'否'));
 L.push('注册 GR 义工（得好人分）：'+(d.get('vol')?'是':'否'));
 L.push('以后活动通知我：'+(d.get('news')?'是':'否'));
