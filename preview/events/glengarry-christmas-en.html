@@ -121,6 +121,7 @@ form .ck input{width:auto;margin-top:3px}
       <label>Age group (person registering)</label><select name="ages"><option value="">Please choose</option><option>Under 18</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65+</option></select>
       <label>Adults</label><input name="ad" type="number" min="0" value="1">
       <label>Children</label><input name="kid" type="number" min="0" value="0">
+      <div id="more"></div>
       <div class="ck"><input type="checkbox" name="attire" id="attire"><label for="attire" style="margin:0">We will wear traditional attire</label></div>
       <div class="ck"><input type="checkbox" name="vol" id="vol"><label for="vol" style="margin:0">Register as a Grace Rock volunteer (earn Good Points)</label></div>
       <div class="ck"><input type="checkbox" name="news" id="news"><label for="news" style="margin:0">Tell me about future events that suit me (unsubscribe any time)</label></div>
@@ -143,6 +144,7 @@ form .ck input{width:auto;margin-top:3px}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
 L.push('Hi, I would like to attend the 5 Dec Glengarry Christmas Celebration');
 [['name','Name'],['phone','Phone'],['ad','Adults'],['kid','Children'],['ages','Age group']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
+var P=[];for(var i=2;d.get('p'+i)!==null;i++)P.push((d.get('p'+i)||'').trim());if(P.length)L.push('Others: '+P.join(', '));
 L.push('Traditional attire：'+(d.get('attire')?'Yes':'No'));
 L.push('Register as GR volunteer (Good Points)：'+(d.get('vol')?'Yes':'No'));
 L.push('Tell me about future events：'+(d.get('news')?'Yes':'No'));
@@ -150,5 +152,6 @@ L.push('（Grace Rock）');
 var T=L.join('\n'),U='https://wa.me/61410931872?text='+encodeURIComponent(T);document.getElementById('tx').value=T;document.getElementById('wa').href=U;var o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth',block:'center'});try{window.open(U,'_blank')}catch(x){}});
 document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('tx');t.select();try{document.execCommand('copy')}catch(x){}try{navigator.clipboard.writeText(t.value).catch(function(){})}catch(x){}this.textContent='Copied';});
 </script>
+<script>(function(){var m=document.getElementById('more'),F=m.closest('form'),E=F.elements;function cnt(){var n=E.n?(+E.n.value||1):(+E.ad.value||0)+(+E.kid.value||0);return Math.max(0,Math.min(20,n-1))}function draw(){var k=cnt(),h=m.querySelectorAll('input').length;for(var i=h;i<k;i++){var l=document.createElement('label');l.textContent='Name of person #'.replace('#',i+2);var x=document.createElement('input');x.name='p'+(i+2);x.required=true;m.appendChild(l);m.appendChild(x)}while(m.querySelectorAll('input').length>k){m.removeChild(m.lastChild);m.removeChild(m.lastChild)}}['n','ad','kid'].forEach(function(n){if(E[n])E[n].addEventListener('input',draw)});draw()})();</script>
 </body>
 </html>

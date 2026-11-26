@@ -121,6 +121,7 @@ form .ck input{width:auto;margin-top:3px}
       <label>年龄段（报名人）</label><select name="ages"><option value="">请选择</option><option>18岁以下</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–64</option><option>65岁以上</option></select>
       <label>成人人数</label><input name="ad" type="number" min="0" value="1">
       <label>小孩人数</label><input name="kid" type="number" min="0" value="0">
+      <div id="more"></div>
       <div class="ck"><input type="checkbox" name="attire" id="attire"><label for="attire" style="margin:0">我们会穿传统服装</label></div>
       <div class="ck"><input type="checkbox" name="vol" id="vol"><label for="vol" style="margin:0">注册成为 雅实义工（得好人分）</label></div>
       <div class="ck"><input type="checkbox" name="news" id="news"><label for="news" style="margin:0">以后有适合我的活动，请通知我（可随时取消）</label></div>
@@ -143,6 +144,7 @@ form .ck input{width:auto;margin-top:3px}
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
 L.push('您好，我报名12月5日 Glengarry 圣诞庆典');
 [['name','姓名'],['phone','电话'],['ad','成人'],['kid','小孩'],['ages','年龄段']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
+var P=[];for(var i=2;d.get('p'+i)!==null;i++)P.push((d.get('p'+i)||'').trim());if(P.length)L.push('同伴姓名：'+P.join('、'));
 L.push('穿传统服装：'+(d.get('attire')?'是':'否'));
 L.push('注册 GR 义工（得好人分）：'+(d.get('vol')?'是':'否'));
 L.push('以后活动通知我：'+(d.get('news')?'是':'否'));
@@ -150,5 +152,6 @@ L.push('（Grace Rock）');
 var T=L.join('\n'),U='https://wa.me/61410931872?text='+encodeURIComponent(T);document.getElementById('tx').value=T;document.getElementById('wa').href=U;var o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth',block:'center'});try{window.open(U,'_blank')}catch(x){}});
 document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('tx');t.select();try{document.execCommand('copy')}catch(x){}try{navigator.clipboard.writeText(t.value).catch(function(){})}catch(x){}this.textContent='已复制';});
 </script>
+<script>(function(){var m=document.getElementById('more'),F=m.closest('form'),E=F.elements;function cnt(){var n=E.n?(+E.n.value||1):(+E.ad.value||0)+(+E.kid.value||0);return Math.max(0,Math.min(20,n-1))}function draw(){var k=cnt(),h=m.querySelectorAll('input').length;for(var i=h;i<k;i++){var l=document.createElement('label');l.textContent='第 # 位姓名（必填）'.replace('#',i+2);var x=document.createElement('input');x.name='p'+(i+2);x.required=true;m.appendChild(l);m.appendChild(x)}while(m.querySelectorAll('input').length>k){m.removeChild(m.lastChild);m.removeChild(m.lastChild)}}['n','ad','kid'].forEach(function(n){if(E[n])E[n].addEventListener('input',draw)});draw()})();</script>
 </body>
 </html>
