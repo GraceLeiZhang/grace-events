@@ -66,7 +66,11 @@ form label{display:block;font-size:14px;color:var(--sub);margin:10px 0 4px}
 form input,form select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:16px}
 form .ck{display:flex;gap:8px;align-items:flex-start;color:var(--text);font-size:14px;margin-top:12px}
 form .ck input{width:auto;margin-top:3px}
-.want{display:inline-block;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--accent);color:#fff;margin:0 6px 6px 0}.sess{font-size:13px;color:var(--gold);letter-spacing:.05em;margin:0 0 2px}</style>
+.want{display:inline-block;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--accent);color:#fff;margin:0 6px 6px 0}.sess{font-size:13px;color:var(--gold);letter-spacing:.05em;margin:0 0 2px}form label{display:block;font-size:14px;color:var(--sub);margin:10px 0 4px}
+form input,form select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:16px;box-sizing:border-box}
+form .ck{display:flex;gap:8px;align-items:flex-start;color:var(--text);font-size:14px;margin-top:12px}
+form .ck input{width:auto;margin-top:3px}
+</style>
 </head>
 <body>
 <div class="top">
@@ -75,7 +79,7 @@ form .ck input{width:auto;margin-top:3px}
   <p class="s">Sat 5 Dec · 12:30–about 4:00pm · North Turramurra</p>
 </div>
 <main>
-  <img class="poster" src="../assets/family-fun-day/flyer-en.jpg" alt="Migrant Family Fun Day flyer">
+  <img class="poster" src="../assets/family-fun-day/flyer-en.jpg?v=2" alt="Migrant Family Fun Day flyer">
   <p class="lead" style="margin-top:16px">Migrant parents and families are warmly invited to a relaxed and enjoyable family gathering! A great chance to connect with support services, meet other families and enjoy a relaxing day together.</p>
 
   <h2>Event highlights</h2>
@@ -100,14 +104,25 @@ form .ck input{width:auto;margin-top:3px}
   <div class="card">
     <div class="row"><span>👟</span><span>Please wear non-slip sports shoes</span></div>
     <div class="row"><span>☀️</span><span>Apply sunscreen before coming along</span></div>
-    <div class="row"><span>📝</span><span>Complete the waiver form when you register</span></div>
+    <div class="row"><span>📝</span><span>A waiver will need to be signed on the day</span></div>
   </div>
 
   <h2 id="f">Register</h2>
   <div class="card">
-    <p>Please register with the official form (includes the waiver).</p>
-    <a class="btn" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAEVx0w2jR5UNTY4REFPRk9JMkJUMzVJNklJOTcyNVVYSS4u" target="_blank" rel="noopener">Open registration form</a>
-    <div class="row" style="margin-top:12px"><span>Enquiry</span><span><a href="tel:0413963304">0413 963 304</a><br><a href="tel:0412477535">0412 477 535</a></span></div>
+    <p>Register here. Grace Rock Group records every registration and will reply to confirm.</p>
+    <form id="f2">
+      <label>Parent name</label><input name="name" required>
+      <label>Phone</label><input name="phone" type="tel" required>
+      <label>Adults</label><input name="ad" type="number" min="0" value="1">
+      <label>Children (9+)</label><input name="kid" type="number" min="0" value="1">
+      <label>Children's ages</label><input name="kage" placeholder="e.g. 10, 13">
+      <div class="ck"><input type="checkbox" name="eve" id="eve"><label for="eve" style="margin:0">We'll also stay for the Christmas party after 4pm</label></div>
+      <div class="ck"><input type="checkbox" name="vol" id="vol"><label for="vol" style="margin:0">Register as a Grace Rock volunteer (earn Good Points)</label></div>
+      <div class="ck"><input type="checkbox" name="news" id="news"><label for="news" style="margin:0">Tell me about future events that suit me (opt out any time)</label></div>
+      <button class="btn" type="submit" style="width:100%;border:0;margin-top:14px;cursor:pointer">Submit registration</button>
+    </form>
+    <div id="ok" style="display:none;margin-top:14px;padding:12px;border:2px solid #7a3fa0;border-radius:12px"><p><b>One more step!</b> Please press "Send" in WhatsApp. Your place is confirmed once we reply.</p><p>WhatsApp didn't open? Tap the button below, or copy the text and send it to WhatsApp 0410 931 872.</p><a id="wa" class="btn" target="_blank" rel="noopener">Open WhatsApp to send</a> <button type="button" class="btn" id="cp" style="border:0;cursor:pointer">Copy my registration</button><textarea id="tx" readonly style="width:100%;height:120px;margin-top:8px;box-sizing:border-box"></textarea></div>
+    <p class="note" style="font-size:13px;margin-top:10px">Questions: WhatsApp 0410 931 872 (Grace Rock Group)</p>
   </div>
 
   <h2>In partnership with</h2>
@@ -117,6 +132,14 @@ form .ck input{width:auto;margin-top:3px}
 
   <footer>© Grace Rock Group · Together, We Flourish</footer>
 </main>
-<div class="bar"><div><a class="btn" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAEVx0w2jR5UNTY4REFPRk9JMkJUMzVJNklJOTcyNVVYSS4u" target="_blank" rel="noopener">👨‍👩‍👧 Register now</a></div></div>
+<div class="bar"><div><a class="btn" href="#f">👨‍👩‍👧 Register</a></div></div>
+<script>
+document.getElementById('f2').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
+L.push('Hi, I would like to register for the 5 Dec Migrant Family Fun Day');
+[['name', 'Parent'], ['phone', 'Phone'], ['ad', 'Adults'], ['kid', 'Children'], ['kage', "Children's ages"]].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+': '+v)});
+L.push('Staying for the Christmas party: '+(d.get('eve')?'Yes':'No'));L.push('Register as GR volunteer: '+(d.get('vol')?'Yes':'No'));L.push('Notify me of future events: '+(d.get('news')?'Yes':'No'));L.push('（Grace Rock）');
+var T=L.join('\n'),U='https://wa.me/61410931872?text='+encodeURIComponent(T);document.getElementById('tx').value=T;document.getElementById('wa').href=U;var o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth',block:'center'});try{window.open(U,'_blank')}catch(x){}});
+document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('tx');t.select();try{document.execCommand('copy')}catch(x){}try{navigator.clipboard.writeText(t.value).catch(function(){})}catch(x){}this.textContent='Copied';});
+</script>
 </body>
 </html>
