@@ -66,7 +66,11 @@ form label{display:block;font-size:14px;color:var(--sub);margin:10px 0 4px}
 form input,form select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:16px}
 form .ck{display:flex;gap:8px;align-items:flex-start;color:var(--text);font-size:14px;margin-top:12px}
 form .ck input{width:auto;margin-top:3px}
-.want{display:inline-block;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--accent);color:#fff;margin:0 6px 6px 0}.sess{font-size:13px;color:var(--gold);letter-spacing:.05em;margin:0 0 2px}</style>
+.want{display:inline-block;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--accent);color:#fff;margin:0 6px 6px 0}.sess{font-size:13px;color:var(--gold);letter-spacing:.05em;margin:0 0 2px}form label{display:block;font-size:14px;color:var(--sub);margin:10px 0 4px}
+form input,form select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:16px;box-sizing:border-box}
+form .ck{display:flex;gap:8px;align-items:flex-start;color:var(--text);font-size:14px;margin-top:12px}
+form .ck input{width:auto;margin-top:3px}
+</style>
 </head>
 <body>
 <div class="top">
@@ -75,7 +79,7 @@ form .ck input{width:auto;margin-top:3px}
   <p class="s">12月5日（周六）12:30–约4:00pm · North Turramurra</p>
 </div>
 <main>
-  <img class="poster" src="../assets/family-fun-day/flyer-zh.jpg" alt="12月5日家庭活动日海报">
+  <img class="poster" src="../assets/family-fun-day/flyer-zh.jpg?v=2" alt="12月5日家庭活动日海报">
   <p class="lead" style="margin-top:16px">诚邀移民家长和孩子一起参加轻松愉快的家庭派对！这是了解社区机构、认识其他家庭、互相交流、放松身心的好机会。</p>
 
   <h2>活动亮点</h2>
@@ -100,14 +104,25 @@ form .ck input{width:auto;margin-top:3px}
   <div class="card">
     <div class="row"><span>👟</span><span>请穿防滑的球鞋</span></div>
     <div class="row"><span>☀️</span><span>请提前涂好防晒霜</span></div>
-    <div class="row"><span>📝</span><span>报名时请填写 waiver（免责声明）</span></div>
+    <div class="row"><span>📝</span><span>活动当天需签 waiver（免责声明）</span></div>
   </div>
 
   <h2 id="f">报名</h2>
   <div class="card">
-    <p>请通过官方报名表报名（含 waiver）。</p>
-    <a class="btn" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAEVx0w2jR5UNTY4REFPRk9JMkJUMzVJNklJOTcyNVVYSS4u" target="_blank" rel="noopener">打开报名表</a>
-    <div class="row" style="margin-top:12px"><span>联系人</span><span><a href="tel:0413963304">0413 963 304</a><br><a href="tel:0412477535">0412 477 535</a></span></div>
+    <p>请在这里报名，提交后由雅实 Grace Rock 统一登记，并回复确认。</p>
+    <form id="f2">
+      <label>家长姓名</label><input name="name" required>
+      <label>电话</label><input name="phone" type="tel" required>
+      <label>成人人数</label><input name="ad" type="number" min="0" value="1">
+      <label>孩子人数（9岁以上）</label><input name="kid" type="number" min="0" value="1">
+      <label>孩子年龄</label><input name="kage" placeholder="例如 10岁、13岁">
+      <div class="ck"><input type="checkbox" name="eve" id="eve"><label for="eve" style="margin:0">4点后也留下参加圣诞晚会</label></div>
+      <div class="ck"><input type="checkbox" name="vol" id="vol"><label for="vol" style="margin:0">注册成为 雅实义工（得好人分）</label></div>
+      <div class="ck"><input type="checkbox" name="news" id="news"><label for="news" style="margin:0">以后有适合我的活动，请通知我（可随时取消）</label></div>
+      <button class="btn" type="submit" style="width:100%;border:0;margin-top:14px;cursor:pointer">提交报名</button>
+    </form>
+    <div id="ok" style="display:none;margin-top:14px;padding:12px;border:2px solid #7a3fa0;border-radius:12px"><p><b>还差一步！</b>请在 WhatsApp 里按「发送」，我们回复确认后才算报名成功。</p><p>没打开 WhatsApp？点下面按钮，或复制内容发到 WhatsApp 0410 931 872。</p><a id="wa" class="btn" target="_blank" rel="noopener">打开 WhatsApp 发送</a> <button type="button" class="btn" id="cp" style="border:0;cursor:pointer">复制报名内容</button><textarea id="tx" readonly style="width:100%;height:120px;margin-top:8px;box-sizing:border-box"></textarea></div>
+    <p class="note" style="font-size:13px;margin-top:10px">咨询：WhatsApp 0410 931 872（雅实 Grace Rock）</p>
   </div>
 
   <h2>合作机构</h2>
@@ -117,6 +132,14 @@ form .ck input{width:auto;margin-top:3px}
 
   <footer>© Grace Rock Group · 携手同行，共创美好</footer>
 </main>
-<div class="bar"><div><a class="btn" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAEVx0w2jR5UNTY4REFPRk9JMkJUMzVJNklJOTcyNVVYSS4u" target="_blank" rel="noopener">👨‍👩‍👧 我要报名</a></div></div>
+<div class="bar"><div><a class="btn" href="#f">👨‍👩‍👧 我要报名</a></div></div>
+<script>
+document.getElementById('f2').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this),L=[];
+L.push('您好，我报名12月5日家庭活动日 Family Fun Day');
+[['name', '家长姓名'], ['phone', '电话'], ['ad', '成人'], ['kid', '孩子'], ['kage', '孩子年龄']].forEach(function(k){var v=(d.get(k[0])||'').trim();if(v)L.push(k[1]+'：'+v)});
+L.push('4点后留下参加圣诞晚会：'+(d.get('eve')?'是':'否'));L.push('注册 GR 义工（得好人分）：'+(d.get('vol')?'是':'否'));L.push('以后活动通知我：'+(d.get('news')?'是':'否'));L.push('（Grace Rock）');
+var T=L.join('\n'),U='https://wa.me/61410931872?text='+encodeURIComponent(T);document.getElementById('tx').value=T;document.getElementById('wa').href=U;var o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth',block:'center'});try{window.open(U,'_blank')}catch(x){}});
+document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('tx');t.select();try{document.execCommand('copy')}catch(x){}try{navigator.clipboard.writeText(t.value).catch(function(){})}catch(x){}this.textContent='已复制';});
+</script>
 </body>
 </html>
