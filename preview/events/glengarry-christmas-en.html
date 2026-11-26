@@ -127,6 +127,7 @@ form .ck input{width:auto;margin-top:3px}
       <div class="ck"><input type="checkbox" name="news" id="news"><label for="news" style="margin:0">Tell me about future events that suit me (unsubscribe any time)</label></div>
       <button class="btn" type="submit">Send registration via WhatsApp</button>
     </form>
+    <div id="ok" class="card" style="display:none;border:2px solid #7a3fa0"><p><b>One more step!</b> Please press "Send" in WhatsApp. Your place is confirmed once we reply.</p><p>WhatsApp didn't open? Tap the button below, or copy the text and send it to WhatsApp 0410 931 872.</p><a id="wa" class="btn" target="_blank" rel="noopener">Open WhatsApp to send</a> <button type="button" class="btn ghost" id="cp">Copy my registration</button><textarea id="tx" readonly style="width:100%;height:120px;margin-top:8px"></textarea></div>
     <p class="note">Your details are used only for this event and any updates you agree to, and are never passed to others.</p>
   </div>
 
@@ -147,7 +148,8 @@ L.push('Traditional attire：'+(d.get('attire')?'Yes':'No'));
 L.push('Register as GR volunteer (Good Points)：'+(d.get('vol')?'Yes':'No'));
 L.push('Tell me about future events：'+(d.get('news')?'Yes':'No'));
 L.push('（Grace Rock）');
-window.open('https://wa.me/61410931872?text='+encodeURIComponent(L.join('\n')),'_blank');});
+var T=L.join('\n'),U='https://wa.me/61410931872?text='+encodeURIComponent(T);document.getElementById('tx').value=T;document.getElementById('wa').href=U;var o=document.getElementById('ok');o.style.display='block';o.scrollIntoView({behavior:'smooth',block:'center'});try{window.open(U,'_blank')}catch(x){}});
+document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('tx');t.select();try{document.execCommand('copy')}catch(x){}try{navigator.clipboard.writeText(t.value).catch(function(){})}catch(x){}this.textContent='Copied';});
 </script>
 </body>
 </html>
