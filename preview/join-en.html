@@ -162,7 +162,8 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
         <label for="skill">How you can help and when you're free</label>
         <textarea id="skill" placeholder="e.g. weekends, photography, Chinese–English translation"></textarea>
       </div>
-      <label class="agree" style="margin-top:16px"><input type="checkbox" id="ok">I have read and agree to the rules above, and agree that Grace Rock keeps my details for member services.</label>
+      <label class="agree" style="margin-top:16px"><input type="checkbox" id="news">Send me earning opportunities and offers (members hear 2 hours before the website; unsubscribe any time from any email; please add your email).</label>
+      <label class="agree" style="margin-top:10px"><input type="checkbox" id="ok">I have read and agree to the rules above, and agree that Grace Rock keeps my details for member services.</label>
       <p class="err" id="err" hidden></p>
       <button class="btn" type="submit" data-via="wa">Send via WhatsApp</button>
       <button class="btn alt" type="submit" data-via="mail">Send via email</button>
@@ -172,6 +173,13 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
 
   <footer>Grace Rock Group · Together, We Flourish<br><a href="en.html">Back to home</a></footer>
 </main>
+<script>
+/* Member alerts list (Spam Act: opt-in only, unticked by default; the email service adds unsubscribe to every email).
+   Set ML_FORM to the MailerLite embedded-form subscribe URL once Grace's account exists, e.g.
+   https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe  — empty = not connected yet. */
+var ML_FORM='';
+function GRList(email,name){if(!ML_FORM)return;try{var d=new FormData();d.append('fields[email]',email);d.append('fields[name]',name);d.append('ml-submit','1');d.append('anticsrf','true');navigator.sendBeacon?navigator.sendBeacon(ML_FORM,d):fetch(ML_FORM,{method:'POST',body:d,mode:'no-cors',keepalive:true});}catch(e){}}
+</script>
 <script>
 (function(){
   var f=document.getElementById('f'),err=document.getElementById('err');
@@ -186,6 +194,7 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
   f.addEventListener('submit',function(e){
     e.preventDefault();var r=f.dataset.role;
     if(!v('name')||!v('phone')){err.hidden=false;err.textContent='Please fill in your name and mobile or WeChat ID.';return}
+    var news=document.getElementById('news').checked;if(news&&!/^\S+@\S+\.\S+$/.test(v('email'))){err.hidden=false;err.textContent='Please add your email to receive alerts.';return}
     if(!document.getElementById('ok').checked){err.hidden=false;err.textContent='Please tick the box to agree to the rules.';return}
     err.hidden=true;
     var L=['Hi Grace, I would like to join Grace Rock:','Joining as: '+names[r]+' (GR-'+r+')','Name: '+v('name'),'Mobile/WeChat: '+v('phone')];
@@ -195,6 +204,8 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
     if(r==='S'){if(v('biz'))L.push('Business: '+v('biz'));L.push('Points program: '+(document.getElementById('pts').checked?'interested':'not now'))}
     if(r==='V'&&v('skill'))L.push('Can help with / free: '+v('skill'));
     L.push('I have read and agree to the member rules.');
+    L.push('Opportunity & offer alerts: '+(news?'YES ('+new Date().toLocaleString('en-AU',{timeZone:'Australia/Sydney'})+')':'no'));
+    if(news)GRList(v('email'),v('name'));
     var t=L.join('\n');
     location.href=via==='mail'?'mailto:leigrace@gmail.com?subject='+encodeURIComponent('Join Grace Rock: '+names[r]+' · '+v('name'))+'&body='+encodeURIComponent(t):'https://wa.me/61410931872?text='+encodeURIComponent(t);
   });

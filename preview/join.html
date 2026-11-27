@@ -162,7 +162,8 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
         <label for="skill">你能帮忙做什么、什么时候有空</label>
         <textarea id="skill" placeholder="例如：周末可以带活动、会拍照、会英文翻译"></textarea>
       </div>
-      <label class="agree" style="margin-top:16px"><input type="checkbox" id="ok">我已阅读并同意上面的规则，同意雅实保存我的资料用于会员服务。</label>
+      <label class="agree" style="margin-top:16px"><input type="checkbox" id="news">愿意接收赚钱机会和优惠通知（会员比网站早 2 小时收到；每封信都可一键退订，请同时填写邮箱）。</label>
+      <label class="agree" style="margin-top:10px"><input type="checkbox" id="ok">我已阅读并同意上面的规则，同意雅实保存我的资料用于会员服务。</label>
       <p class="err" id="err" hidden></p>
       <button class="btn" type="submit" data-via="wa">用 WhatsApp 发送</button>
       <button class="btn alt" type="submit" data-via="mail">用邮件发送</button>
@@ -172,6 +173,13 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
 
   <footer>雅实 Grace Rock Group · 携手同行，共创美好<br><a href="./">返回首页</a></footer>
 </main>
+<script>
+/* Member alerts list (Spam Act: opt-in only, unticked by default; the email service adds unsubscribe to every email).
+   Set ML_FORM to the MailerLite embedded-form subscribe URL once Grace's account exists, e.g.
+   https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe  — empty = not connected yet. */
+var ML_FORM='';
+function GRList(email,name){if(!ML_FORM)return;try{var d=new FormData();d.append('fields[email]',email);d.append('fields[name]',name);d.append('ml-submit','1');d.append('anticsrf','true');navigator.sendBeacon?navigator.sendBeacon(ML_FORM,d):fetch(ML_FORM,{method:'POST',body:d,mode:'no-cors',keepalive:true});}catch(e){}}
+</script>
 <script>
 (function(){
   var f=document.getElementById('f'),err=document.getElementById('err');
@@ -186,6 +194,7 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
   f.addEventListener('submit',function(e){
     e.preventDefault();var r=f.dataset.role;
     if(!v('name')||!v('phone')){err.hidden=false;err.textContent='请填写姓名和手机或微信号。';return}
+    var news=document.getElementById('news').checked;if(news&&!/^\S+@\S+\.\S+$/.test(v('email'))){err.hidden=false;err.textContent='勾选接收通知时，请填写邮箱。';return}
     if(!document.getElementById('ok').checked){err.hidden=false;err.textContent='请先勾选同意规则。';return}
     err.hidden=true;
     var L=['你好 Grace，我想加入雅实 Grace Rock：','身份：'+names[r]+'（GR-'+r+'）','姓名：'+v('name'),'手机/微信：'+v('phone')];
@@ -195,6 +204,8 @@ footer{text-align:center;font-size:13px;color:var(--sub);margin-top:32px}
     if(r==='S'){if(v('biz'))L.push('店名/类别：'+v('biz'));L.push('参加积分计划：'+(document.getElementById('pts').checked?'有兴趣':'暂不'))}
     if(r==='V'&&v('skill'))L.push('能帮忙/有空：'+v('skill'));
     L.push('我已阅读并同意会员规则。');
+    L.push('接收赚钱机会和优惠通知：'+(news?'同意（'+new Date().toLocaleString('zh-CN',{timeZone:'Australia/Sydney'})+'）':'不需要'));
+    if(news)GRList(v('email'),v('name'));
     var t=L.join('\n');
     location.href=via==='mail'?'mailto:leigrace@gmail.com?subject='+encodeURIComponent('加入雅实：'+names[r]+' · '+v('name'))+'&body='+encodeURIComponent(t):'https://wa.me/61410931872?text='+encodeURIComponent(t);
   });
