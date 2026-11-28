@@ -132,6 +132,8 @@ dt{color:var(--muted)}dd{margin:0}
 .ev .d{text-align:center;color:var(--gc,var(--jac));font-family:var(--display);line-height:1.2}
 .ev .d b{display:block;font-size:24px}
 .ev .t{min-width:0}.ev .t b{display:block;font-family:var(--display);font-size:16px}.ev .t span{font-size:13px;color:var(--muted)}
+.ev .by{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.suggest{display:inline-block;margin:0 0 12px;font-size:14px;font-weight:500;color:var(--jac-deep);text-decoration:none;border:1.5px dashed var(--jac);border-radius:99px;padding:6px 14px}
 .ev .chip{display:inline-block;font-size:11.5px;background:var(--gt,var(--mist));color:var(--gc,var(--jac-deep));border:1px solid var(--gc,var(--jac));border-radius:4px;padding:0 8px;margin-bottom:2px}
 .copied{font-size:12.5px;color:var(--gc,var(--jac-deep))}
 @media (prefers-reduced-motion:reduce){.logo{transition:none}}
@@ -335,6 +337,7 @@ dl.facts{grid-template-columns:1fr;gap:0}dl.facts dt{font-size:12.5px;letter-spa
   <section id="events">
     <h2>我家附近有什么羊毛可薅</h2>
     <p class="lede">免费活动、公益活动、商家优惠，Grace 帮你找好了。想一起去就私信 Grace。</p>
+    <a class="suggest" href="scouts.html">＋ 我也知道好活动，推荐给大家 ›</a>
     <div id="ev-list"></div>
   </section>
 
@@ -535,7 +538,7 @@ function richCard(c,sec){const el=document.createElement('article');el.className
   if(b.dataset.qr){el.querySelector('.qr').scrollIntoView({behavior:'smooth',block:'center'})}});
  return el}
 function events(list){const f=document.createDocumentFragment();list.forEach(e=>{const a=document.createElement(e.u?'a':'div');a.className='ev';if(e.u){a.href=e.u;a.target='_blank';a.rel='noopener'}
- a.innerHTML=`<div class="d">${e.m}<b>${e.d}</b>${e.y}</div><div class="t"><span class="chip">${e.chip}</span><b>${e.t}</b><span>${e.s}</span></div>`;f.appendChild(a)});return f}
+ a.innerHTML=`<div class="d">${e.m}<b>${e.d}</b>${e.y}</div><div class="t"><span class="chip">${e.chip}</span><b>${e.t}</b><span>${e.s}</span>${e.by?`<small class="by">👤 ${e.by} 推荐 · Grace 未亲自试过</small>`:''}</div>`;f.appendChild(a)});return f}
 const J=t=>({k:'join-'+t,n:'我要加入',s:'成为推荐伙伴',c:t+' · 商家 · 个人服务',m:'＋',bg:'#7a5ba8',d:'只推荐我亲身体验过、真心认可的商家。Grace 认可的先免费展示，标「Grace 推荐 · 免费展示」。',o:'微信：leigracezhang',nr:1,ghost:1});
 function grid(items){const g=document.createElement('div');g.className='logos',td=new Date(Date.now()+11*36e5).toISOString().slice(0,10);
  items.filter(x=>!x.exp||x.exp>=td).forEach(x=>{P[x.k]=x;const b=document.createElement('button');
